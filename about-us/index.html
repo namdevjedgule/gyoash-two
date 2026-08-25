@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Gyoash | Smart Technology Solutions for a Digital-First Future</title>
+    <meta name="description"
+        content="Gyoash is India's leading provider of interactive panels and digital classroom software - headquartered in Pune with offices across India. Learn our story, mission and the industries we serve." />
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        .ab-hero {
+            position: relative;
+            padding: 110px 0 96px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .ab-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .ab-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .ab-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ab-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+        }
+
+        .ab-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .ab-crumb a:hover {
+            color: #fff;
+        }
+
+        .ab-crumb span {
+            color: #4C6685;
+        }
+
+        .ab-hero h1 {
+            color: #fff;
+            font-size: clamp(34px, 4.4vw, 54px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 16ch;
+        }
+
+        .ab-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ab-hero p {
+            margin-top: 22px;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 62ch;
+        }
+
+        .ab-hero-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 44px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            flex-wrap: wrap;
+        }
+
+        .ab-hero-meta div strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .ab-hero-meta div span {
+            font-size: 12.5px;
+            color: #9FB4CC;
+        }
+
+        .ab-intro-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .ab-intro-media {
+            position: relative;
+        }
+
+        .ab-intro-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+        }
+
+        .ab-intro-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/5;
+        }
+
+        .ab-intro-media .badge-float {
+            position: absolute;
+            bottom: -22px;
+            left: -22px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: var(--shadow-soft);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ab-intro-media .badge-float .n {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--dark-blue);
+        }
+
+        .ab-intro-media .badge-float .t {
+            font-size: 11.5px;
+            color: var(--slate-gray);
+            max-width: 110px;
+            line-height: 1.4;
+        }
+
+        .ab-intro-copy p {
+            font-size: 16px;
+            color: var(--slate-gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .ab-feature-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 32px;
+        }
+
+        .ab-feature {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .ab-feature .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .ab-feature h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ab-feature p {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width:980px) {
+            .ab-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .ab-feature-duo {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ab-timeline {
+            position: relative;
+            max-width: 820px;
+            margin-inline: auto;
+        }
+
+        .ab-timeline::before {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--soft-blue), var(--sky-blue) 40%, var(--orange));
+        }
+
+        .ab-timeline-track {
+            position: absolute;
+            left: 29px;
+            top: 6px;
+            width: 2px;
+            height: 0;
+            background: var(--deep-blue);
+            transition: height .3s ease-out;
+        }
+
+        .ab-tl-item {
+            position: relative;
+            padding: 0 0 52px 78px;
+        }
+
+        .ab-tl-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .ab-tl-dot {
+            position: absolute;
+            left: 16px;
+            top: 2px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--sky-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 6px var(--soft-blue);
+            transition: border-color .3s, background .3s;
+        }
+
+        .ab-tl-dot::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--deep-blue);
+        }
+
+        .ab-tl-item.is-active .ab-tl-dot {
+            background: var(--deep-blue);
+            border-color: var(--orange);
+            box-shadow: 0 0 0 6px rgba(255, 107, 0, .15);
+        }
+
+        .ab-tl-item.is-active .ab-tl-dot::after {
+            background: #fff;
+        }
+
+        .ab-tl-year {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dark-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ab-tl-year .tag {
+            font-family: var(--font-display);
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--teal);
+            background: #E7F8F1;
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+
+        .ab-tl-item p {
+            margin-top: 10px;
+            font-size: 15px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+            max-width: 52ch;
+        }
+
+        @media (max-width:600px) {
+
+            .ab-timeline::before,
+            .ab-timeline-track {
+                left: 15px;
+            }
+
+            .ab-tl-item {
+                padding-left: 52px;
+            }
+
+            .ab-tl-dot {
+                left: 2px;
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .ab-vm-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .ab-vm-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 30px 26px;
+            box-shadow: var(--shadow-card);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+        }
+
+        .ab-vm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 50px -18px rgba(0, 31, 63, .28);
+        }
+
+        .ab-vm-card .ico {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .ab-vm-card:nth-child(1) .ico {
+            background: var(--grad-sky);
+        }
+
+        .ab-vm-card:nth-child(2) .ico {
+            background: var(--grad-cyan-teal);
+        }
+
+        .ab-vm-card:nth-child(3) .ico {
+            background: var(--grad-action);
+        }
+
+        .ab-vm-card:nth-child(4) .ico {
+            background: linear-gradient(135deg, var(--dark-blue), var(--slate-gray));
+        }
+
+        .ab-vm-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ab-vm-card p {
+            margin-top: 10px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.65;
+        }
+
+        @media (max-width:980px) {
+            .ab-vm-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .ab-vm-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ab-ind-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .ab-ind-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px 26px;
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+            box-shadow: var(--shadow-card);
+        }
+
+        .ab-ind-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 50px -18px rgba(0, 31, 63, .28);
+        }
+
+        .ab-ind-card::before {
+            content: "";
+            position: absolute;
+            top: -36px;
+            right: -36px;
+            width: 110px;
+            height: 110px;
+            background: var(--grad-sky);
+            clip-path: polygon(30% 0, 100% 0, 100% 70%);
+            opacity: .14;
+        }
+
+        .ab-ind-num {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--sky-blue);
+            letter-spacing: 1px;
+        }
+
+        .ab-ind-card h4 {
+            margin-top: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ab-ind-card p {
+            margin-top: 10px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width:980px) {
+            .ab-ind-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:600px) {
+            .ab-ind-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ab-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .ab-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .ab-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .ab-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ab-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .ab-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .ab-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <section class="ab-hero">
+        <div class="ab-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ab-crumb">
+                <a href="/">Home</a><span>/</span><a href="/about-us/" style="color:#fff;">About</a>
+            </div>
+            <p class="eyebrow" style="color:var(--sky-blue);">Where Innovation, Technology &amp; Trust Meet</p>
+            <h1>Smart technology solutions for a <em>digital-first future</em></h1>
+            <p>GYOASH is India's leading provider of interactive panels and digital classroom software - headquartered
+                in Pune, with offices in Nagpur and Nashik, and expanding soon to Mumbai, NCR and Bangalore.</p>
+
+            <div class="ab-hero-meta">
+                <div><strong>2021</strong><span>Founded in Pune</span></div>
+                <div><strong>3</strong><span>Offices across India</span></div>
+                <div><strong>600+</strong><span>Institutions served</span></div>
+                <div><strong>5.0</strong><span>Google rating, 52 reviews</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="who-we-are">
+        <div class="container">
+            <div class="ab-intro-grid">
+                <div class="ab-intro-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">2021</div>
+                        <div class="t">Incorporated with a focus on EdTech infrastructure</div>
+                    </div>
+                </div>
+
+                <div class="ab-intro-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Who We Are</p>
+                    <h2
+                        style="font-family:var(--font-display); font-size:clamp(28px,3.2vw,38px); color:var(--dark-blue); font-weight:700; letter-spacing:-.5px; margin-bottom:20px;">
+                        Building India's digital classrooms and connected workspaces</h2>
+                    <p>We believe technology should be accessible to all and are committed to advancing innovation in
+                        education. Our expertise spans digital classrooms, interactive panels, machine learning,
+                        robotics and more - offering custom, end-to-end EdTech solutions tailored to your needs.</p>
+                    <p>Our advanced solutions streamline operations, automate tasks and deliver insights for smarter
+                        decision-making. Whether you're enhancing learning experiences, optimizing business processes,
+                        or gaining a competitive edge, our team is ready to help you elevate your digital capabilities.
+                    </p>
+
+                    <div class="ab-feature-duo">
+                        <div class="ab-feature">
+                            <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <rect x="4" y="4" width="16" height="16" rx="3" stroke="#fff" stroke-width="1.6" />
+                                    <path d="M9 9h6M9 12h6M9 15h3" stroke="#fff" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg></div>
+                            <h4>Advanced Technology Expertise</h4>
+                            <p>Our team specialises in cutting-edge solutions including machine learning, robotics and
+                                automation tools.</p>
+                        </div>
+                        <div class="ab-feature">
+                            <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.6" />
+                                    <path
+                                        d="M3.5 12h17M12 3.5c2.5 2.4 3.8 5.4 3.8 8.5s-1.3 6.1-3.8 8.5c-2.5-2.4-3.8-5.4-3.8-8.5S9.5 5.9 12 3.5z"
+                                        stroke="#fff" stroke-width="1.6" />
+                                </svg></div>
+                            <h4>Global Expansion, Future-Ready</h4>
+                            <p>With a growing presence across India and abroad, we're empowering education with next-gen
+                                digital innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray" id="history">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Our History</p>
+                <h2>Journey towards digital education enablement</h2>
+                <p style="margin-inline:auto;">From incorporation to launching our own foundation - five years of
+                    building India's classrooms and workspaces, one institution at a time.</p>
+            </div>
+
+            <div class="ab-timeline" id="abTimeline">
+                <div class="ab-timeline-track" id="abTimelineTrack"></div>
+
+                <div class="ab-tl-item reveal">
+                    <div class="ab-tl-dot"></div>
+                    <div class="ab-tl-year">2021</div>
+                    <p>GYOASH was incorporated with a focus on education and digital infrastructure solutions.</p>
+                </div>
+                <div class="ab-tl-item reveal reveal-delay-1">
+                    <div class="ab-tl-dot"></div>
+                    <div class="ab-tl-year">2022</div>
+                    <p>Initiated deployment of digital classroom technologies and learning solutions across schools and
+                        institutions.</p>
+                </div>
+                <div class="ab-tl-item reveal reveal-delay-2">
+                    <div class="ab-tl-dot"></div>
+                    <div class="ab-tl-year">2023</div>
+                    <p>Expanded education-focused projects and strengthened on-ground execution and our partner
+                        ecosystem.</p>
+                </div>
+                <div class="ab-tl-item reveal reveal-delay-3">
+                    <div class="ab-tl-dot"></div>
+                    <div class="ab-tl-year">2024</div>
+                    <p>Identified critical digital-learning gaps in rural and underserved schools based on direct field
+                        experience.</p>
+                </div>
+                <div class="ab-tl-item reveal reveal-delay-4">
+                    <div class="ab-tl-dot"></div>
+                    <div class="ab-tl-year">2025 <span class="tag">LATEST</span></div>
+                    <p>Incorporated Gyoash Innovation Foundation (Section 8) and launched <strong>Digi Shiksha
+                            Abhiyan</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="vision-mission">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">World's Best Solution</p>
+                <h2>Revolutionizing education through intelligent digital solutions</h2>
+            </div>
+
+            <div class="ab-vm-grid">
+                <div class="ab-vm-card reveal reveal-delay-1">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="#fff"
+                                stroke-width="1.6" />
+                            <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="1.6" />
+                        </svg></div>
+                    <h3>Vision</h3>
+                    <p>Revolutionizing education with cutting-edge, interactive technology - empowering modern teachers
+                        and learners to excel.</p>
+                </div>
+                <div class="ab-vm-card reveal reveal-delay-2">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 18l5-6 4 4 7-9" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <h3>Mission</h3>
+                    <p>Making technology accessible to all through end-to-end interactive teaching solutions that drive
+                        learners and businesses toward their goals.</p>
+                </div>
+                <div class="ab-vm-card reveal reveal-delay-3">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h3>Proficiency</h3>
+                    <p>Bringing years of expertise from diverse EdTech engagements - delivering unparalleled value and
+                        insights with confidence.</p>
+                </div>
+                <div class="ab-vm-card reveal reveal-delay-4">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21c4.4-2.4 8-6 8-11a8 8 0 0 0-16 0c0 5 3.6 8.6 8 11z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h3>Value Addition</h3>
+                    <p>Helping you stay ahead with high-end classroom management software - agile, expert-driven
+                        solutions without breaking the bank.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray" id="industries">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Industries We Serve</p>
+                <h2>Delivering smart, interactive solutions across diverse sectors</h2>
+            </div>
+
+            <div class="ab-ind-grid">
+                <div class="ab-ind-card reveal reveal-delay-1">
+                    <div class="ab-ind-num">01</div>
+                    <h4>Corporate</h4>
+                    <p>Enhance collaboration, presentations and productivity with smart interactive display solutions.
+                    </p>
+                </div>
+                <div class="ab-ind-card reveal reveal-delay-2">
+                    <div class="ab-ind-num">02</div>
+                    <h4>Government</h4>
+                    <p>Enable efficient communication, training and decision-making through secure interactive
+                        technologies.</p>
+                </div>
+                <div class="ab-ind-card reveal reveal-delay-3">
+                    <div class="ab-ind-num">03</div>
+                    <h4>Defence</h4>
+                    <p>Support mission-critical operations with reliable, secure, high-performance interactive systems.
+                    </p>
+                </div>
+                <div class="ab-ind-card reveal reveal-delay-1">
+                    <div class="ab-ind-num">04</div>
+                    <h4>Private School</h4>
+                    <p>Create engaging digital classrooms that improve student participation and learning outcomes.</p>
+                </div>
+                <div class="ab-ind-card reveal reveal-delay-2">
+                    <div class="ab-ind-num">05</div>
+                    <h4>Retail</h4>
+                    <p>Deliver immersive customer experiences with dynamic digital display solutions.</p>
+                </div>
+                <div class="ab-ind-card reveal reveal-delay-3">
+                    <div class="ab-ind-num">06</div>
+                    <h4>Private Coaching</h4>
+                    <p>Empower focused learning and instruction with interactive teaching and training tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="locations">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+                <p>Reach out to the team closest to you - or the one running the work you need.</p>
+            </div>
+
+            <div class="ab-loc-grid">
+                <div class="ab-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="ab-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office - Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Amar+Park+Shirole+Road+Shivajinagar+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="ab-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office - Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Towers+Amrutdham+Square+Panchavati+Nashik"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="ab-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office - Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section--tight">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div>
+                    <h2>Ready to bring Gyoash into your institution?</h2>
+                    <p>Tell us what you're building and we'll walk you through the right products, timeline and support
+                        plan.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Book a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            function initTimelineProgress() {
+                const wrap = document.getElementById("abTimeline");
+                const track = document.getElementById("abTimelineTrack");
+                const items = document.querySelectorAll(".ab-tl-item");
+                if (!wrap || !track || !items.length) return;
+
+                const onScroll = () => {
+                    const rect = wrap.getBoundingClientRect();
+                    const viewportMid = window.innerHeight * 0.6;
+                    const progressPx = Math.min(Math.max(viewportMid - rect.top, 0), rect.height);
+                    track.style.height = progressPx + "px";
+
+                    items.forEach((item) => {
+                        const itemRect = item.getBoundingClientRect();
+                        item.classList.toggle("is-active", itemRect.top < viewportMid);
+                    });
+                };
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                window.addEventListener("resize", onScroll);
+                onScroll();
+            }
+
+            document.addEventListener("DOMContentLoaded", initTimelineProgress);
+        })();
+    </script>
+</body>
+
+</html>

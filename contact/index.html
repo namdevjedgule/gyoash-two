@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Gyoash | Get in Touch With Our Team</title>
+    <meta name="description"
+        content="Get in touch with Gyoash — book a demo, ask about a product, or reach our Pune, Nashik, Indore and Nagpur offices directly." />
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        /* ---------- Page header ---------- */
+        .ct-hero {
+            position: relative;
+            padding: 110px 0 80px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .ct-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .ct-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .ct-hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .ct-crumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+        }
+
+        .ct-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .ct-crumb a:hover {
+            color: #fff;
+        }
+
+        .ct-crumb span {
+            color: #4C6685;
+        }
+
+        .ct-hero .eyebrow {
+            justify-content: center;
+            color: var(--sky-blue);
+        }
+
+        .ct-hero h1 {
+            color: #fff;
+            font-size: clamp(32px, 4.4vw, 52px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 18ch;
+            margin-inline: auto;
+        }
+
+        .ct-hero p.lead {
+            margin: 20px auto 0;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 52ch;
+        }
+
+        /* ---------- Quick contact strip ---------- */
+        .ct-quick {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 48px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ct-quick-cell {
+            background: rgba(255, 255, 255, .03);
+            padding: 28px 24px;
+            text-align: center;
+            transition: background .3s;
+        }
+
+        .ct-quick-cell:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .ct-quick-cell .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+        }
+
+        .ct-quick-cell h5 {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #9FB4CC;
+            margin-bottom: 8px;
+        }
+
+        .ct-quick-cell a,
+        .ct-quick-cell span {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .ct-quick-cell a {
+            transition: color .3s;
+        }
+
+        .ct-quick-cell a:hover {
+            color: var(--sky-blue);
+        }
+
+        @media (max-width:780px) {
+            .ct-quick {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Main grid: form + sidebar ---------- */
+        .ct-grid {
+            display: grid;
+            grid-template-columns: 1.25fr .85fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        @media (max-width:980px) {
+            .ct-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+
+        /* ---------- Form card ---------- */
+        .ct-form-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .ct-form-card h2 {
+            font-size: clamp(22px, 2.4vw, 28px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.3px;
+        }
+
+        .ct-form-card>p {
+            margin-top: 8px;
+            font-size: 14.5px;
+            color: var(--slate-gray);
+        }
+
+        .ct-form {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px 20px;
+        }
+
+        .ct-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ct-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .ct-field label {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .ct-field label .req {
+            color: var(--orange);
+        }
+
+        .ct-field input,
+        .ct-field select,
+        .ct-field textarea {
+            font-family: var(--font-body);
+            font-size: 14.5px;
+            color: var(--slate-dark);
+            border: 1.5px solid rgba(13, 27, 42, .14);
+            border-radius: 12px;
+            padding: 13px 16px;
+            background: var(--light-gray);
+            transition: border-color .3s, background .3s;
+            width: 100%;
+        }
+
+        .ct-field input:focus,
+        .ct-field select:focus,
+        .ct-field textarea:focus {
+            outline: none;
+            border-color: var(--deep-blue);
+            background: #fff;
+        }
+
+        .ct-field textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: var(--font-body);
+        }
+
+        .ct-field select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .ct-submit {
+            grid-column: 1 / -1;
+            margin-top: 6px;
+        }
+
+        .ct-submit button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ct-form-note {
+            grid-column: 1 / -1;
+            font-size: 12px;
+            color: var(--slate-gray);
+            margin-top: -8px;
+        }
+
+        .ct-success {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .ct-success.is-visible {
+            display: block;
+        }
+
+        .ct-success .ico {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--grad-cyan-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .ct-success h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .ct-success p {
+            margin-top: 10px;
+            font-size: 14.5px;
+            color: var(--slate-gray);
+            max-width: 38ch;
+            margin-inline: auto;
+            line-height: 1.6;
+        }
+
+        @media (max-width:620px) {
+            .ct-form {
+                grid-template-columns: 1fr;
+            }
+
+            .ct-form-card {
+                padding: 30px 22px;
+            }
+        }
+
+        /* ---------- Sidebar ---------- */
+        .ct-side-card {
+            background: var(--dark-blue);
+            border-radius: var(--radius-lg);
+            padding: 38px 34px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ct-side-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(60% 60% at 100% 0%, rgba(102, 181, 255, .22), transparent 65%);
+        }
+
+        .ct-side-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ct-side-card h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .ct-addr-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .ct-addr-item .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .ct-addr-item strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 13px;
+            color: var(--sky-blue);
+            margin-bottom: 5px;
+        }
+
+        .ct-addr-item span {
+            font-size: 13px;
+            color: #B9CBE0;
+            line-height: 1.6;
+        }
+
+        .ct-side-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .12);
+            margin: 26px 0;
+        }
+
+        .ct-side-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ct-side-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        .ct-side-links a:hover {
+            color: var(--sky-blue);
+        }
+
+        .ct-side-links .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="ct-hero">
+        <div class="ct-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ct-crumb">
+                <a href="/">Home</a><span>/</span>
+                <a href="/contact/" style="color:#fff;">Contact</a>
+            </div>
+            <p class="eyebrow">Contact Us</p>
+            <h1>Get in touch with our team</h1>
+            <p class="lead">Let's connect and discuss how we can help you.</p>
+
+            <div class="ct-quick">
+                <div class="ct-quick-cell">
+                    <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"
+                                stroke="#fff" stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h5>Call Us</h5>
+                    <a href="tel:+919270400990">+91 92704 00990</a>
+                </div>
+                <div class="ct-quick-cell">
+                    <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6" />
+                            <path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                        </svg></div>
+                    <h5>Email Us</h5>
+                    <a href="mailto:sales.india@gyoash.com">sales.india@gyoash.com</a>
+                </div>
+                <div class="ct-quick-cell">
+                    <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#fff" stroke-width="1.6" />
+                        </svg></div>
+                    <h5>Visit Us</h5>
+                    <span>Pune, Maharashtra</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FORM + SIDEBAR ============ -->
+    <section class="section">
+        <div class="container">
+            <div class="ct-grid">
+
+                <!-- Form -->
+                <div class="ct-form-card reveal">
+                    <div id="ctFormWrap">
+                        <h2>Send us your enquiry</h2>
+                        <p>Fill this in and our team will get back to you within one business day.</p>
+
+                        <form class="ct-form" id="ctForm" novalidate>
+                            <div class="ct-field">
+                                <label for="ctCompany">Company Name <span class="req">*</span></label>
+                                <input type="text" id="ctCompany" name="company" required autocomplete="organization" />
+                            </div>
+                            <div class="ct-field">
+                                <label for="ctName">Your Full Name <span class="req">*</span></label>
+                                <input type="text" id="ctName" name="name" required autocomplete="name" />
+                            </div>
+
+                            <div class="ct-field">
+                                <label for="ctEmail">Your Email <span class="req">*</span></label>
+                                <input type="email" id="ctEmail" name="email" required autocomplete="email" />
+                            </div>
+                            <div class="ct-field">
+                                <label for="ctCountry">Country</label>
+                                <select id="ctCountry" name="country">
+                                    <option value="India" selected>India</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="ct-field">
+                                <label for="ctPhone">Phone No.</label>
+                                <input type="tel" id="ctPhone" name="phone" placeholder="If landline, prefix city code"
+                                    autocomplete="tel" />
+                            </div>
+                            <div class="ct-field">
+                                <label for="ctEnquiry">Enquiry Type</label>
+                                <select id="ctEnquiry" name="enquiryType">
+                                    <option value="">Select an option</option>
+                                    <option value="Education Technology Suite">Education Technology Suite</option>
+                                    <option value="Enterprise Conferencing & Collaboration Suite">Enterprise
+                                        Conferencing &amp; Collaboration Suite</option>
+                                    <option value="LED Display Solutions">LED Display Solutions</option>
+                                    <option value="Computer, IT & Networking">Computer, IT &amp; Networking</option>
+                                    <option value="CSR/Donation">CSR / Donation</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="ct-field full">
+                                <label for="ctSubject">Subject</label>
+                                <input type="text" id="ctSubject" name="subject" />
+                            </div>
+
+                            <div class="ct-field full">
+                                <label for="ctMessage">Write Your Message <span class="req">*</span></label>
+                                <textarea id="ctMessage" name="message" required></textarea>
+                            </div>
+
+                            <p class="ct-form-note">Fields marked <span class="req">*</span> are required. We'll only
+                                use these details to respond to your enquiry.</p>
+
+                            <div class="ct-submit">
+                                <button type="submit" class="btn btn-primary" id="ctSubmitBtn">Submit Enquiry</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="ct-success" id="ctSuccess">
+                        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></div>
+                        <h3>Thanks — your enquiry is in.</h3>
+                        <p>Our team will get back to you within one business day. For anything urgent, call us directly
+                            at <a href="tel:+919270400990" style="color:var(--deep-blue); font-weight:600;">+91 92704
+                                00990</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="ct-side-card reveal reveal-delay-1">
+                    <h3>Corporate Office Address</h3>
+
+                    <div class="ct-addr-item">
+                        <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 21V9l9-6 9 6v12" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="M9 21v-6h6v6" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <div>
+                            <strong>Factory &amp; Experience Centre</strong>
+                            <span>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Narhe, Tehsil - Dhayri,
+                                Tal: Haveli, Pune - 411041, Maharashtra, India. Landmark — Behind Sanskriti National
+                                School.</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-addr-item">
+                        <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                                <circle cx="12" cy="9.5" r="2.4" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <div>
+                            <strong>Branch Office — Nashik</strong>
+                            <span>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik -
+                                422003</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-addr-item">
+                        <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                                <circle cx="12" cy="9.5" r="2.4" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <div>
+                            <strong>Sales Office — Indore</strong>
+                            <span>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-addr-item">
+                        <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                                <path
+                                    d="M3.5 12h17M12 3.5c2.5 2.4 3.8 5.4 3.8 8.5s-1.3 6.1-3.8 8.5c-2.5-2.4-3.8-5.4-3.8-8.5S9.5 5.9 12 3.5z"
+                                    stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <div>
+                            <strong>Branches / Service Centre</strong>
+                            <span>Mumbai, Nagpur, Delhi NCR, Bangalore</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-side-divider"></div>
+
+                    <div class="ct-side-links">
+                        <a href="mailto:sales.india@gyoash.com">
+                            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6" />
+                                    <path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                                </svg></span>
+                            sales.india@gyoash.com
+                        </a>
+                        <a href="mailto:helpdesk@gyoash.com">
+                            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6" />
+                                    <path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                                </svg></span>
+                            helpdesk@gyoash.com
+                        </a>
+                        <a href="tel:+919270400990">
+                            <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"
+                                        stroke="#fff" stroke-width="1.6" stroke-linejoin="round" />
+                                </svg></span>
+                            +91 92704 00990
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+
+    <!-- ============================================================
+     Page-specific JS — Contact page only.
+     Handles enquiry-form validation and the success state.
+
+     IMPORTANT: this form has no backend wired up yet. On submit it
+     validates the required fields, then shows the success message —
+     it does NOT actually send the enquiry anywhere. Replace the
+     "TODO" block below with a real submission (fetch() to your API,
+     or a service like Formspree / EmailJS / Web3Forms) before launch.
+     ============================================================ -->
+    <script>
+        (function () {
+            "use strict";
+
+            function initContactForm() {
+                const form = document.getElementById("ctForm");
+                const wrap = document.getElementById("ctFormWrap");
+                const success = document.getElementById("ctSuccess");
+                const submitBtn = document.getElementById("ctSubmitBtn");
+                if (!form) return;
+
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return;
+                    }
+
+                    const data = Object.fromEntries(new FormData(form).entries());
+
+                    // ---- TODO: send `data` to your backend / email service here ----
+                    // Example:
+                    // fetch("/api/contact", {
+                    //   method: "POST",
+                    //   headers: { "Content-Type": "application/json" },
+                    //   body: JSON.stringify(data),
+                    // });
+
+                    submitBtn.textContent = "Sending…";
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        wrap.style.display = "none";
+                        success.classList.add("is-visible");
+                    }, 500);
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", initContactForm);
+        })();
+    </script>
+</body>
+
+</html>

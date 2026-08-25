@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Events — Gyoash | Press Features, Sponsorships &amp; Community Milestones</title>
+<meta name="description" content="Gyoash in the news and on the ground — press features, sponsored championships, and community education initiatives from the Gyoash Innovation Foundation." />
+<link rel="icon" href="images/logo/logo.png" type="image/png" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- ============================================================
+     Page-specific CSS — Events page only.
+     Reuses shared tokens + shared components (.container, .section,
+     .eyebrow, .section-head, .btn, .cta-banner) already defined in
+     css/style.css. All new classes are prefixed "ev-" so they never
+     collide with shared or other-page styles.
+     ============================================================ -->
+<style>
+  /* ---------- Page header ---------- */
+  .ev-hero{ position:relative; padding:168px 0 90px; overflow:hidden; background:var(--dark-blue); }
+  .ev-hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(55% 60% at 88% 10%, rgba(102,181,255,.26), transparent 60%),
+      radial-gradient(40% 45% at 4% 95%, rgba(255,107,0,.16), transparent 60%),
+      linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+  }
+  .ev-hero-dotgrid{
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+    opacity:.5;
+  }
+  .ev-hero .container{ position:relative; z-index:2; }
+  .ev-crumb{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:12.5px; font-weight:500; color:#8FA4BC; margin-bottom:26px; }
+  .ev-crumb a{ color:#B9CBE0; transition:color .3s; }
+  .ev-crumb a:hover{ color:#fff; }
+  .ev-crumb span{ color:#4C6685; }
+  .ev-hero h1{ color:#fff; font-size:clamp(32px,4.4vw,52px); font-weight:700; letter-spacing:-1px; max-width:17ch; }
+  .ev-hero h1 em{ font-style:normal; background:linear-gradient(100deg,var(--sky-blue),var(--cyan) 55%,var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .ev-hero p.lead{ margin-top:20px; font-size:17px; line-height:1.75; color:#B9CBE0; max-width:56ch; }
+
+  /* ---------- Featured press card ---------- */
+  .ev-feature{
+    display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:center;
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-lg);
+    padding:20px; box-shadow:var(--shadow-card);
+  }
+  .ev-feature-media{ position:relative; border-radius:20px; overflow:hidden; }
+  .ev-feature-media .fill{ width:100%; aspect-ratio:4/3; }
+  .ev-feature-media .tag{
+    position:absolute; top:18px; left:18px; font-family:var(--font-display); font-size:11.5px; font-weight:600;
+    letter-spacing:.5px; color:#fff; background:rgba(0,31,63,.55); backdrop-filter:blur(6px);
+    padding:8px 14px; border-radius:999px;
+  }
+  .ev-feature-copy{ padding:28px 34px 28px 0; }
+  .ev-feature-copy .eyebrow{ margin-bottom:14px; }
+  .ev-feature-copy h2{ font-size:clamp(22px,2.6vw,30px); font-weight:700; color:var(--dark-blue); letter-spacing:-.4px; max-width:16ch; }
+  .ev-feature-copy p{ margin-top:16px; font-size:15px; color:var(--slate-gray); line-height:1.75; }
+  .ev-feature-credit{
+    margin-top:18px; padding:16px 18px; background:var(--soft-blue); border-radius:14px;
+    font-size:13px; color:var(--dark-blue); line-height:1.6;
+  }
+  .ev-feature-credit strong{ font-family:var(--font-display); font-weight:600; }
+  .ev-feature-copy .btn{ margin-top:22px; }
+  @media (max-width:980px){
+    .ev-feature{ grid-template-columns:1fr; padding:16px; }
+    .ev-feature-copy{ padding:8px 8px 20px; }
+  }
+
+  /* ---------- Events grid ---------- */
+  .ev-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .ev-card{
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-md);
+    overflow:hidden; box-shadow:var(--shadow-card);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .ev-card:hover{ transform:translateY(-8px); box-shadow:0 24px 46px -16px rgba(0,31,63,.26); }
+  .ev-card-media{ position:relative; height:170px; overflow:hidden; }
+  .ev-card-media .tag{
+    position:absolute; top:14px; left:14px; font-family:var(--font-display); font-size:10.5px; font-weight:600;
+    letter-spacing:.4px; color:#fff; background:rgba(0,31,63,.55); backdrop-filter:blur(6px);
+    padding:6px 12px; border-radius:999px;
+  }
+  .ev-card-body{ padding:22px 22px 24px; }
+  .ev-card-body h4{ font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--dark-blue); line-height:1.4; }
+  .ev-card-body .loc{ display:flex; align-items:center; gap:6px; margin-top:8px; font-size:12px; color:var(--slate-gray); font-family:var(--font-display); font-weight:500; }
+  .ev-card-body p{ margin-top:10px; font-size:13.5px; color:var(--slate-gray); line-height:1.65; }
+  .ev-card-body .soon{ margin-top:10px; font-size:12.5px; color:var(--slate-gray); font-style:italic; }
+  @media (max-width:980px){ .ev-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:640px){ .ev-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Locations (matches other pages) ---------- */
+  .ev-loc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .ev-loc-card{ background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px; padding:28px; box-shadow:var(--shadow-card); display:flex; gap:18px; }
+  .ev-loc-card .pin{ width:46px; height:46px; border-radius:13px; background:var(--soft-blue); display:flex; align-items:center; justify-content:center; flex:none; }
+  .ev-loc-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); }
+  .ev-loc-card p{ margin-top:8px; font-size:13.5px; color:var(--slate-gray); line-height:1.6; }
+  .ev-loc-card a{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--deep-blue); }
+  @media (max-width:700px){ .ev-loc-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div data-include="/fragments/navbar.html"></div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="ev-hero">
+  <div class="ev-hero-dotgrid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ev-crumb">
+      <a href="/">Home</a><span>/</span>
+      <a href="/events/" style="color:#fff;">Events</a>
+    </div>
+    <p class="eyebrow" style="color:var(--sky-blue);">Events</p>
+    <h1>Moments from the <em>Gyoash journey</em></h1>
+    <p class="lead">Press features, sponsored championships, and community education initiatives — a running record of where Gyoash and the Gyoash Innovation Foundation have shown up.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED PRESS STORY ============ -->
+<section class="section">
+  <div class="container">
+    <div class="ev-feature reveal">
+      <div class="ev-feature-media">
+        <div class="fill" style="background:linear-gradient(155deg,#001F3F,#0057D9 55%,#39CCCC);"></div>
+        <span class="tag">Press Feature</span>
+      </div>
+      <div class="ev-feature-copy">
+        <p class="eyebrow">Samachar WANI News &amp; India Fashion Icon Magazine</p>
+        <h2>Featured for Digi Shiksha Abhiyan</h2>
+        <p>We're excited to be featured in Samachar WANI News and India Fashion Icon Magazine for our impactful initiative Digi Shiksha Abhiyan, which is transforming the digital education landscape across communities. Together, we're paving the way for digital empowerment and accessible education for all.</p>
+        <div class="ev-feature-credit">
+          This achievement wouldn't be possible without the vision, dedication and collective efforts of <strong>Girish Haribhau Khairnar</strong>, <strong>Sharad Dayma</strong>, <strong>Nilesh Umale</strong>, and the entire Gyoash Innovation Foundation &amp; Gyoash Team.
+        </div>
+        <a href="https://samacharwani.com/2026/01/22/sharad-dayma-gyoash-technologies-digital-education-success-story/" target="_blank" rel="noopener" class="btn btn-outline">Read the Full Article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTS GRID ============ -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">On the Ground</p>
+      <h2>Sponsorships &amp; community initiatives</h2>
+    </div>
+
+    <div class="ev-grid">
+      <div class="ev-card reveal reveal-delay-1">
+        <div class="ev-card-media">
+          <div class="fill" style="width:100%;height:100%;background:linear-gradient(150deg,#FF6B00,#FF9248);"></div>
+          <span class="tag">Sponsorship</span>
+        </div>
+        <div class="ev-card-body">
+          <h4>Brilliant Computer Bird Championship 2026</h4>
+          <div class="loc">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#64748B" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.2" stroke="#64748B" stroke-width="1.8"/></svg>
+            Dr. Munje Institute, Nashik
+          </div>
+          <p>Organised by Dr. Munje Institute, Nashik. Gyoash co-sponsored the event, funding awards for the winners.</p>
+        </div>
+      </div>
+
+      <div class="ev-card reveal reveal-delay-2">
+        <div class="ev-card-media">
+          <div class="fill" style="width:100%;height:100%;background:linear-gradient(150deg,#20B486,#39CCCC);"></div>
+          <span class="tag">Foundation / CSR</span>
+        </div>
+        <div class="ev-card-body">
+          <h4>ZP School Hirdi, Trimbakeshwar</h4>
+          <div class="loc">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#64748B" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.2" stroke="#64748B" stroke-width="1.8"/></svg>
+            Hirdi Village, Nashik
+          </div>
+          <p>Gyoash Innovation Foundation brought digital learning to ZP School, Hirdi Village — empowering young minds, supporting teachers, and turning classrooms into spaces of curiosity and innovation.</p>
+        </div>
+      </div>
+
+      <div class="ev-card reveal reveal-delay-3">
+        <div class="ev-card-media">
+          <div class="fill" style="width:100%;height:100%;background:linear-gradient(150deg,#0057D9,#66B5FF);"></div>
+          <span class="tag">Company Event</span>
+        </div>
+        <div class="ev-card-body">
+          <h4>Annual Day 2024</h4>
+          <div class="loc">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#64748B" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.2" stroke="#64748B" stroke-width="1.8"/></svg>
+            Pune
+          </div>
+          <p class="soon">Recap and photos from this one coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Find Us</p>
+      <h2>Our offices across India</h2>
+    </div>
+    <div class="ev-loc-grid">
+      <div class="ev-loc-card reveal reveal-delay-1">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Factory &amp; Experience Centre</h4>
+          <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="ev-loc-card reveal reveal-delay-2">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Corporate Office — Pune</h4>
+          <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune - 411004</p>
+          <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="ev-loc-card reveal reveal-delay-3">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Branch Office — Nashik</h4>
+          <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
+          <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="ev-loc-card reveal reveal-delay-4">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Sales Office — Indore</h4>
+          <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Want Gyoash at your next event?</h2>
+        <p>Sponsorships, school partnerships, community programs — reach out and let's talk.</p>
+      </div>
+      <a href="/contact/" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div data-include="/fragments/footer.html"></div>
+<div data-include="/fragments/chat-widget.html"></div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

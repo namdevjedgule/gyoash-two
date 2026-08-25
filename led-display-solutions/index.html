@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LED Display Solutions - Gyoash | Indoor &amp; Outdoor LED Video Walls, Digital Signage</title>
+    <meta name="description"
+        content="Gyoash's LED Display Solutions: modular indoor &amp; outdoor LED video walls, Active LED (COB) displays, and networked digital signage - engineered for mission-critical, 24/7 spaces." />
+    <link rel="icon" href="/images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        /* ---------- Page header ---------- */
+        .ld-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .ld-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .ld-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .ld-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ld-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+            flex-wrap: wrap;
+        }
+
+        .ld-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .ld-crumb a:hover {
+            color: #fff;
+        }
+
+        .ld-crumb span {
+            color: #4C6685;
+        }
+
+        .ld-hero-top {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: end;
+        }
+
+        .ld-hero h1 {
+            color: #fff;
+            font-size: clamp(32px, 4.2vw, 50px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 17ch;
+        }
+
+        .ld-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ld-hero p.lead {
+            margin-top: 20px;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 56ch;
+        }
+
+        .ld-hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .ld-quicknav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .ld-quicknav a {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: #D7E4F5;
+            transition: background .3s, border-color .3s, color .3s;
+        }
+
+        .ld-quicknav a:hover,
+        .ld-quicknav a.is-active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .ld-hero-specs {
+            display: flex;
+            gap: 0;
+            margin-top: 46px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            flex-wrap: wrap;
+        }
+
+        .ld-hero-specs .s {
+            flex: 1;
+            min-width: 130px;
+            padding-right: 20px;
+        }
+
+        .ld-hero-specs .s strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .ld-hero-specs .s span {
+            font-size: 12px;
+            color: #9FB4CC;
+        }
+
+        @media (max-width:980px) {
+            .ld-hero-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Module spec list (Video Walls / Signage) ---------- */
+        .ld-mod-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .ld-mod-grid.is-reverse .ld-mod-media {
+            order: 2;
+        }
+
+        .ld-mod-grid.is-reverse .ld-mod-copy {
+            order: 1;
+        }
+
+        .ld-mod-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .ld-mod-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/3;
+        }
+
+        .ld-mod-copy .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .ld-mod-copy h3 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 32px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.4px;
+        }
+
+        .ld-mod-copy .sub {
+            margin-top: 10px;
+            font-size: 15.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        .ld-mod-list {
+            margin-top: 26px;
+            border-top: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .ld-mod-row {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .ld-mod-row .k {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .ld-mod-row .v {
+            font-size: 13px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width:980px) {
+
+            .ld-mod-grid,
+            .ld-mod-grid.is-reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .ld-mod-grid.is-reverse .ld-mod-media,
+            .ld-mod-grid.is-reverse .ld-mod-copy {
+                order: 0;
+            }
+
+            .ld-mod-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        /* ---------- Flagship highlight sections (Active LED / Indoor / Outdoor) ---------- */
+        .ld-flag {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .ld-flag.is-reverse .ld-flag-media {
+            order: 2;
+        }
+
+        .ld-flag.is-reverse .ld-flag-copy {
+            order: 1;
+        }
+
+        .ld-flag-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
+        }
+
+        .ld-flag-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/5;
+        }
+
+        .ld-flag-media .badge-float {
+            margin-top: -40px;
+            margin-left: 22px;
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: var(--shadow-soft);
+            padding: 18px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ld-flag-media .badge-float .n {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dark-blue);
+        }
+
+        .ld-flag-media .badge-float .t {
+            font-size: 11.5px;
+            color: var(--slate-gray);
+            max-width: 130px;
+            line-height: 1.4;
+        }
+
+        .ld-flag-copy .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .ld-flag-copy h3 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 34px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.4px;
+            max-width: 16ch;
+        }
+
+        .ld-flag-copy .sub {
+            margin-top: 14px;
+            font-size: 15.5px;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        .ld-check-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin-top: 28px;
+        }
+
+        .ld-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .ld-check-item .tick {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--grad-cyan-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            margin-top: 1px;
+        }
+
+        .ld-check-item span {
+            font-size: 13.5px;
+            color: var(--slate-dark);
+            line-height: 1.55;
+        }
+
+        @media (max-width:980px) {
+
+            .ld-flag,
+            .ld-flag.is-reverse {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .ld-flag.is-reverse .ld-flag-media,
+            .ld-flag.is-reverse .ld-flag-copy {
+                order: 0;
+            }
+        }
+
+        @media (max-width:560px) {
+            .ld-check-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Applications grid ---------- */
+        .ld-app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ld-app-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 18px;
+            padding: 26px 22px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+            box-shadow: var(--shadow-card);
+        }
+
+        .ld-app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 46px -16px rgba(0, 31, 63, .26);
+        }
+
+        .ld-app-card .ico {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--grad-sky);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ld-app-card h4 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            line-height: 1.4;
+        }
+
+        @media (max-width:980px) {
+            .ld-app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .ld-app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Locations (matches other pages) ---------- */
+        .ld-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .ld-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .ld-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .ld-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ld-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .ld-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .ld-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="ld-hero">
+        <div class="ld-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ld-crumb">
+                <a href="/">Home</a><span>/</span>
+                <a href="/led-display-solutions/" style="color:#fff;">Products</a><span>/</span>
+                <a href="/led-display-solutions/" style="color:#fff;">LED Display Solutions</a>
+            </div>
+
+            <div class="ld-hero-top">
+                <div>
+                    <p class="eyebrow" style="color:var(--sky-blue);">LED Display Solutions</p>
+                    <h1>LED walls built for <em>mission-critical spaces</em>, indoors and out</h1>
+                    <p class="lead">Modular indoor &amp; outdoor LED video walls, Active LED (flip-chip COB) displays
+                        and networked digital signage - engineered for 24/7 operation, extreme weather and near-zero
+                        maintenance.</p>
+                    <div class="ld-hero-cta">
+                        <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+                        <a href="#video-walls" class="btn btn-outline on-dark">View Specifications</a>
+                    </div>
+                </div>
+                <div class="ld-quicknav" aria-label="Jump to section">
+                    <a href="#video-walls">Video Walls</a>
+                    <a href="#active-led">Active LED</a>
+                    <a href="#indoor">Indoor</a>
+                    <a href="#outdoor">Outdoor</a>
+                    <a href="#signage">Signage</a>
+                    <a href="#applications">Applications</a>
+                </div>
+            </div>
+
+            <div class="ld-hero-specs">
+                <div class="s"><strong>P0.6 – P10</strong><span>Pixel pitch range</span></div>
+                <div class="s"><strong>4000+ nits</strong><span>Outdoor brightness</span></div>
+                <div class="s"><strong>≥3840 Hz</strong><span>Premium refresh rate</span></div>
+                <div class="s"><strong>IP65</strong><span>Outdoor front protection</span></div>
+                <div class="s"><strong>100,000+ hrs</strong><span>Rated lifespan</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MODULAR LED VIDEO WALLS OVERVIEW ============ -->
+    <section class="section" id="video-walls">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-media reveal">
+                    <div class="frame">
+                        <div class="fill"
+                            style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;">
+                        </div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">0.6mm</div>
+                        <div class="t">Finest pixel pitch across our Active LED range</div>
+                    </div>
+                </div>
+
+                <div class="about-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Modular LED Display Walls</p>
+                    <h2>Indoor &amp; outdoor video walls, built to spec</h2>
+                    <p>Every Gyoash LED wall is modular - die-cast aluminium or metal cabinets with front or rear
+                        service access, built around standard LED controllers and sending cards compatible with common
+                        LED processors. Wall-mounted, hanging or ground-supported, the structure is engineered around
+                        your site.</p>
+
+                    <div class="ld-mod-list">
+                        <div class="ld-mod-row"><span class="k">Pixel Pitch</span><span class="v">Indoor: 0.9mm – 3.9mm
+                                · Outdoor: 2.9mm – 10mm (model range)</span></div>
+                        <div class="ld-mod-row"><span class="k">Brightness</span><span class="v">Indoor: 600–1200 nits ·
+                                Outdoor: 4000+ nits</span></div>
+                        <div class="ld-mod-row"><span class="k">Refresh Rate</span><span class="v">≥1920 Hz (up to 3840
+                                Hz+ for premium series)</span></div>
+                        <div class="ld-mod-row"><span class="k">Cabinet Type</span><span class="v">Die-cast aluminium /
+                                metal, front or rear service</span></div>
+                        <div class="ld-mod-row"><span class="k">Viewing Angle</span><span class="v">Horizontal/Vertical
+                                ≥140°</span></div>
+                        <div class="ld-mod-row"><span class="k">Control System</span><span class="v">Standard LED
+                                controllers &amp; sending cards, compatible with common LED processors</span></div>
+                        <div class="ld-mod-row"><span class="k">Installation</span><span class="v">Wall-mounted,
+                                hanging, or ground-supported structures</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ACTIVE LED VIDEO WALL ============ -->
+    <section class="section section--gray" id="active-led">
+        <div class="container">
+            <div class="ld-flag">
+                <div class="ld-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#001F3F,#0057D9 65%,#66B5FF);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">P0.6</div>
+                        <div class="t">to P1.87 pixel pitch options</div>
+                    </div>
+                </div>
+                <div class="ld-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Active LED Video Wall</p>
+                    <h3>Ultra-fine, seamless display technology for mission-critical spaces</h3>
+                    <p class="sub">Gyoash Active LED Video Walls deliver unmatched visual precision with advanced
+                        flip-chip COB technology, engineered for environments where clarity, reliability and aesthetics
+                        matter most. Ultra-slim and superior-protected, they're built for premium indoor applications
+                        demanding long operational life and minimal maintenance.</p>
+
+                    <div class="ld-check-list">
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Advanced flip-chip COB technology for superior contrast &amp; visual
+                                depth</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Ultra-slim, lightweight panels with up to 30% lower power
+                                consumption</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Perfect 16:9 aspect ratio for cinematic &amp; presentation
+                                formats</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Supports 2K / 4K / 8K resolutions</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Silent operation with low heat generation</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Moisture-proof, anti-collision, anti-static, dust-free &amp;
+                                anti-oxidation protection</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Eye-friendly anti-blue light design</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Pixel pitch options from P0.6 to P1.87</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LED DISPLAYS – INDOOR ============ -->
+    <section class="section" id="indoor">
+        <div class="container">
+            <div class="ld-flag is-reverse">
+                <div class="ld-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#20B486,#39CCCC 65%,#66B5FF);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">100K+</div>
+                        <div class="t">hours rated operational lifespan</div>
+                    </div>
+                </div>
+                <div class="ld-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">LED Displays - Indoor</p>
+                    <h3>Seamless viewing, built for continuous operation</h3>
+                    <p class="sub">Gyoash Indoor LED Displays are engineered for immersive, flicker-free viewing and
+                        continuous 24/7 usage. With ultra-fine pixel pitches and centralised control, they're ideal for
+                        large-format indoor installations requiring precision, scalability and long operational life.
+                    </p>
+
+                    <div class="ld-check-list">
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Flicker-free and seamless visual experience</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Customisable display configurations</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Designed for 100,000+ hours of operation</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Space-saving front maintenance architecture</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Long lifespan of 1,00,000+ hours</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Easy front and rear maintenance</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Pixel pitch options - P0.9 / P1.8 / P2.0</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Supports 24/7 continuous usage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LED DISPLAYS – OUTDOOR ============ -->
+    <section class="section section--gray" id="outdoor">
+        <div class="container">
+            <div class="ld-flag">
+                <div class="ld-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#FF6B00,#FF9248 65%,#0057D9);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">IP65</div>
+                        <div class="t">front protection, all-weather rated</div>
+                    </div>
+                </div>
+                <div class="ld-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">LED Displays - Outdoor</p>
+                    <h3>High brightness, all-weather reliability</h3>
+                    <p class="sub">Gyoash Outdoor LED Displays are purpose-built for high visibility, durability and
+                        performance in demanding outdoor and semi-outdoor environments - engineered to withstand extreme
+                        weather while maintaining consistent brightness and colour accuracy. Ideal for public and
+                        commercial installations.</p>
+
+                    <div class="ld-check-list">
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>High brightness with accurate colour reproduction</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Customisable display solutions</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Suitable for outdoor and semi-outdoor installations</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Ultra-wide viewing angles</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Designed for extreme weather conditions</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>IP65 front protection with water resistance</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Supports 24/7 continuous operation</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Long lifespan of 100,000+ hours</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Easy front and rear maintenance</span>
+                        </div>
+                        <div class="ld-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Pixel pitch options from P0.9 to P6.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DIGITAL SIGNAGE SOLUTIONS ============ -->
+    <section class="section" id="signage">
+        <div class="container">
+            <div class="ld-mod-grid is-reverse">
+                <div class="ld-mod-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(150deg,#0057D9,#66B5FF);"></div>
+                    </div>
+                </div>
+                <div class="ld-mod-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Included in This Suite</p>
+                    <h3>Digital Signage Solutions</h3>
+                    <p class="sub">Networked digital signage displays and players - centrally managed, whatever the site
+                        count.</p>
+                    <div class="ld-mod-list">
+                        <div class="ld-mod-row"><span class="k">Player</span><span class="v">Android/Windows-based media
+                                player, or SoC-based display</span></div>
+                        <div class="ld-mod-row"><span class="k">Content Management</span><span class="v">Cloud or
+                                on-prem CMS, multi-location scheduling, playlist management</span></div>
+                        <div class="ld-mod-row"><span class="k">Connectivity</span><span class="v">LAN, Wi-Fi, optional
+                                4G/5G via dongle</span></div>
+                        <div class="ld-mod-row"><span class="k">Supported Media</span><span class="v">Images, videos,
+                                HTML5 content, live feeds</span></div>
+                        <div class="ld-mod-row"><span class="k">Resolution</span><span class="v">Full HD / 4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ APPLICATIONS ============ -->
+    <section class="section section--gray" id="applications">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Applications</p>
+                <h2>Where our LED walls get put to work</h2>
+            </div>
+
+            <div class="ld-app-grid">
+                <div class="ld-app-card reveal reveal-delay-1">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21V9l9-6 9 6v12" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="M9 21v-6h6v6" stroke="#fff" stroke-width="1.6" />
+                        </svg></div>
+                    <h4>Retail Malls</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-2">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="3" width="16" height="18" rx="2" stroke="#fff" stroke-width="1.6" />
+                            <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" stroke="#fff" stroke-width="1.6"
+                                stroke-linecap="round" />
+                        </svg></div>
+                    <h4>Hospitality</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-3">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke="#fff" stroke-width="1.6"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Real Estate Projects</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-4">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="M12 6v7M9 9.5h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                        </svg></div>
+                    <h4>Healthcare Facilities</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-1">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="9" width="18" height="11" rx="1" stroke="#fff" stroke-width="1.6" />
+                            <path d="M3 9l9-6 9 6M8 20v-5h8v5" stroke="#fff" stroke-width="1.6"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Banks &amp; Financial Institutions</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-2">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Government Infrastructure</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-3">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                            <path d="M12 3a9 9 0 0 1 0 18M3 12h18" stroke="#fff" stroke-width="1.6" />
+                        </svg></div>
+                    <h4>Smart City Projects</h4>
+                </div>
+                <div class="ld-app-card reveal reveal-delay-4">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="4" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.6" />
+                            <path d="M8 21h8M12 16v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                        </svg></div>
+                    <h4>Outdoor Advertising (OOH)</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATIONS ============ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+            </div>
+            <div class="ld-loc-grid">
+                <div class="ld-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="ld-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office - Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="ld-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office - Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="ld-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office - Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="section--tight">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div>
+                    <h2>Ready to spec your LED wall?</h2>
+                    <p>Tell us the site, the pixel pitch you need and the environment - indoor, outdoor, or semi-outdoor
+                        - and we'll design it with you.</p>
+                </div>
+                <a href="/contact/" class="btn btn-primary">Book a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            function initQuickNavSpy() {
+                const links = document.querySelectorAll(".ld-quicknav a");
+                if (!links.length) return;
+                const targets = Array.from(links)
+                    .map((a) => document.querySelector(a.getAttribute("href")))
+                    .filter(Boolean);
+                if (!targets.length || !("IntersectionObserver" in window)) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const id = "#" + entry.target.id;
+                                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+                            }
+                        });
+                    },
+                    { rootMargin: "-40% 0px -50% 0px" }
+                );
+                targets.forEach((t) => io.observe(t));
+            }
+
+            document.addEventListener("DOMContentLoaded", initQuickNavSpy);
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,18 +1,6 @@
-/* ==========================================================================
-   GYOASH — site script
-   Loads shared fragments (navbar/footer/chat-widget), then wires up
-   navigation, scroll reveals, animated counters and scrollers.
-
-   NOTE: fragment loading uses fetch() against relative files, so this site
-   must be served over http (VS Code "Live Server", `npx http-server`, etc).
-   Opening index.html directly via file:// will block fetch() in most
-   browsers — that's a browser security rule, not a bug in this code.
-   ========================================================================== */
-
 (function () {
   "use strict";
 
-  /* ---------- 1. Load shared fragments ---------- */
   const includeTargets = document.querySelectorAll("[data-include]");
 
   const loadFragment = (el) =>

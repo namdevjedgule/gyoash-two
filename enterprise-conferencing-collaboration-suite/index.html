@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Conferencing &amp; Collaboration Suite - Gyoash | Interactive Displays &amp; Video Conferencing
+    </title>
+    <meta name="description"
+        content="Gyoash's Enterprise Conferencing &amp; Collaboration Suite: corporate interactive displays for huddle rooms and boardrooms, plus complete video conferencing kits with software integration." />
+    <link rel="icon" href="/images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        /* ---------- Page header ---------- */
+        .cf-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .cf-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .cf-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .cf-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cf-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+            flex-wrap: wrap;
+        }
+
+        .cf-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .cf-crumb a:hover {
+            color: #fff;
+        }
+
+        .cf-crumb span {
+            color: #4C6685;
+        }
+
+        .cf-hero-top {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: end;
+        }
+
+        .cf-hero h1 {
+            color: #fff;
+            font-size: clamp(32px, 4.2vw, 50px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 17ch;
+        }
+
+        .cf-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .cf-hero p.lead {
+            margin-top: 20px;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 56ch;
+        }
+
+        .cf-hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cf-quicknav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cf-quicknav a {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: #D7E4F5;
+            transition: background .3s, border-color .3s, color .3s;
+        }
+
+        .cf-quicknav a:hover,
+        .cf-quicknav a.is-active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .cf-hero-specs {
+            display: flex;
+            gap: 0;
+            margin-top: 46px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            flex-wrap: wrap;
+        }
+
+        .cf-hero-specs .s {
+            flex: 1;
+            min-width: 120px;
+            padding-right: 20px;
+        }
+
+        .cf-hero-specs .s strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .cf-hero-specs .s span {
+            font-size: 12px;
+            color: #9FB4CC;
+        }
+
+        @media (max-width:980px) {
+            .cf-hero-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Key feature icon grid ---------- */
+        .cf-feat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .cf-feat-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 18px;
+            padding: 24px 22px;
+            box-shadow: var(--shadow-card);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+        }
+
+        .cf-feat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px -16px rgba(0, 31, 63, .26);
+        }
+
+        .cf-feat-card .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .cf-feat-card h4 {
+            font-family: var(--font-display);
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            line-height: 1.4;
+        }
+
+        @media (max-width:980px) {
+            .cf-feat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .cf-feat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Spec accordion ---------- */
+        .cf-accordion {
+            max-width: 900px;
+            margin-inline: auto;
+            border-top: 1px solid rgba(13, 27, 42, .1);
+        }
+
+        .cf-acc-item {
+            border-bottom: 1px solid rgba(13, 27, 42, .1);
+        }
+
+        .cf-acc-head {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 4px;
+            text-align: left;
+            font-family: var(--font-display);
+        }
+
+        .cf-acc-num {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--sky-blue);
+            letter-spacing: 1px;
+            flex: none;
+            width: 26px;
+        }
+
+        .cf-acc-title {
+            flex: 1;
+            font-size: 16.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .cf-acc-head svg {
+            transition: transform .35s var(--ease);
+            flex: none;
+        }
+
+        .cf-acc-item.is-open .cf-acc-head svg {
+            transform: rotate(180deg);
+        }
+
+        .cf-acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s var(--ease);
+        }
+
+        .cf-acc-item.is-open .cf-acc-body {
+            max-height: 900px;
+        }
+
+        .cf-acc-inner {
+            padding: 0 4px 28px 48px;
+        }
+
+        .cf-spec-row {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 20px;
+            padding: 10px 0;
+            border-top: 1px dashed rgba(13, 27, 42, .08);
+        }
+
+        .cf-spec-row:first-child {
+            border-top: none;
+        }
+
+        .cf-spec-row .k {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .cf-spec-row .v {
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        .cf-spec-row .v ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cf-spec-row .v ul li {
+            list-style: none;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .cf-spec-row .v ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+        }
+
+        @media (max-width:640px) {
+            .cf-spec-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .cf-acc-inner {
+                padding-left: 24px;
+            }
+        }
+
+        /* ---------- Important notes ---------- */
+        .cf-notes {
+            max-width: 900px;
+            margin: 56px auto 0;
+            background: var(--soft-blue);
+            border: 1px solid rgba(0, 87, 217, .14);
+            border-radius: 18px;
+            padding: 26px 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .cf-notes .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .cf-notes p {
+            font-size: 13.5px;
+            color: var(--slate-dark);
+            line-height: 1.7;
+        }
+
+        .cf-notes strong {
+            color: var(--dark-blue);
+        }
+
+        /* ---------- Module spec list (Video Conferencing) ---------- */
+        .cf-mod-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .cf-mod-grid.is-reverse .cf-mod-media {
+            order: 2;
+        }
+
+        .cf-mod-grid.is-reverse .cf-mod-copy {
+            order: 1;
+        }
+
+        .cf-mod-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .cf-mod-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/3;
+        }
+
+        .cf-mod-copy .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .cf-mod-copy h3 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 32px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.4px;
+        }
+
+        .cf-mod-copy .sub {
+            margin-top: 10px;
+            font-size: 15.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        .cf-mod-list {
+            margin-top: 26px;
+            border-top: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .cf-mod-row {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .cf-mod-row .k {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .cf-mod-row .v {
+            font-size: 13px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width:980px) {
+
+            .cf-mod-grid,
+            .cf-mod-grid.is-reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .cf-mod-grid.is-reverse .cf-mod-media,
+            .cf-mod-grid.is-reverse .cf-mod-copy {
+                order: 0;
+            }
+
+            .cf-mod-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        /* ---------- Solutions tag chips ---------- */
+        .cf-tags-wrap {
+            background: var(--light-gray);
+            border-radius: 24px;
+            padding: 44px;
+        }
+
+        .cf-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .cf-tags a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .08);
+            padding: 13px 20px;
+            border-radius: 999px;
+            box-shadow: var(--shadow-card);
+            transition: transform .3s var(--ease), border-color .3s, color .3s;
+        }
+
+        .cf-tags a:hover {
+            transform: translateY(-4px);
+            border-color: var(--deep-blue);
+            color: var(--deep-blue);
+        }
+
+        .cf-tags a svg {
+            flex: none;
+        }
+
+        @media (max-width:640px) {
+            .cf-tags-wrap {
+                padding: 28px 22px;
+            }
+        }
+
+        /* ---------- Locations (matches other pages) ---------- */
+        .cf-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .cf-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .cf-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .cf-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .cf-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .cf-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .cf-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="cf-hero">
+        <div class="cf-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="cf-crumb">
+                <a href="/">Home</a><span>/</span>
+                <a href="/enterprise-conferencing-collaboration-suite/" style="color:#fff;">Products</a><span>/</span>
+                <a href="/enterprise-conferencing-collaboration-suite/" style="color:#fff;">Enterprise Conferencing &amp; Collaboration</a>
+            </div>
+
+            <div class="cf-hero-top">
+                <div>
+                    <p class="eyebrow" style="color:var(--sky-blue);">Enterprise Conferencing &amp; Collaboration Suite
+                    </p>
+                    <h1>Interactive displays and video kits, built for how <em>meetings actually happen</em></h1>
+                    <p class="lead">Corporate interactive displays for huddle rooms, boardrooms and meeting spaces —
+                        paired with complete video conferencing kits and software integration, all from one accountable
+                        partner.</p>
+                    <div class="cf-hero-cta">
+                        <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+                        <a href="#specs" class="btn btn-outline on-dark">View Full Specs</a>
+                    </div>
+                </div>
+                <div class="cf-quicknav" aria-label="Jump to section">
+                    <a href="#displays">Displays</a>
+                    <a href="#specs">Tech Specs</a>
+                    <a href="#video-conferencing">Video Conferencing</a>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#locations">Locations</a>
+                </div>
+            </div>
+
+            <div class="cf-hero-specs">
+                <div class="s"><strong>4K UHD</strong><span>3840 × 2160</span></div>
+                <div class="s"><strong>16 GB</strong><span>RAM</span></div>
+                <div class="s"><strong>Up to 1 TB</strong><span>System storage</span></div>
+                <div class="s"><strong>64 pts / &lt;2ms</strong><span>Touch response</span></div>
+                <div class="s"><strong>Huddle → Boardroom</strong><span>Scalable room fit</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CORPORATE INTERACTIVE DISPLAYS + KEY FEATURES ============ -->
+    <section class="section" id="displays">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-media reveal">
+                    <div class="frame">
+                        <div class="fill"
+                            style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;">
+                        </div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">20</div>
+                        <div class="t">Multi-touch points, infrared technology</div>
+                    </div>
+                </div>
+
+                <div class="about-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Corporate Interactive Displays</p>
+                    <h2>Interactive displays for meeting rooms, huddle rooms, boardrooms</h2>
+                    <p>The same Android 14/16 panel platform that runs Gyoash classrooms, tuned for corporate use —
+                        one-touch wireless screen sharing, infrared touch built for whiteboarding in a meeting, and
+                        remote device management so IT can support every room from a single dashboard.</p>
+                    <p>Every panel ships with Google-certified EDLA technology, protective anti-scratch glass, and
+                        NFC-card access control so only authorised staff can manage room settings.</p>
+                    <div style="margin-top:8px;"><a href="/contact/" class="btn btn-outline">Request a Site Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:80px;">
+                <div class="section-head center reveal" style="margin-bottom:44px;">
+                    <p class="eyebrow" style="justify-content:center; display:flex;">Key Features</p>
+                    <h2>Everything the meeting room needs, built in</h2>
+                </div>
+
+                <div class="cf-feat-grid">
+                    <div class="cf-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="2" width="16" height="20" rx="3" stroke="#fff" stroke-width="1.6" />
+                                <path d="M9 6h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Android 14/16 OS with Smart App Store</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 20a1.4 1.4 0 1 0 0-2.8A1.4 1.4 0 0 0 12 20zM7 15a7 7 0 0 1 10 0M3.5 11.5a12 12 0 0 1 17 0"
+                                    stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Multiple Wireless Screen Sharing, Single Touch</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="13" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 21h8M12 17v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Infrared Touch Technology for Rich Writing</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                                <path d="M12 8v4l3 2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>DMS Software Remote Access Control</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <ellipse cx="12" cy="6" rx="7" ry="3" stroke="#fff" stroke-width="1.6" />
+                                <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>Up to 1 TB System Storage</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"
+                                    stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                                <circle cx="12" cy="12" r="3.5" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>64-Point Touch, &lt;2ms Response</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="7" width="16" height="10" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>16 GB RAM</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 21h8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Perfect 4K/8K Resolution</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#fff"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                            </svg></div>
+                        <h4>Protective Glass, Anti-Scratch</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></div>
+                        <h4>Google-Certified EDLA Technology</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="5" y="3" width="14" height="18" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M9 7h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Remote-Access Card for Extended SSD</h4>
+                    </div>
+                    <div class="cf-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#fff" stroke-width="1.6" />
+                                <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>NFC Card for Authorized Access</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TECHNICAL SPECIFICATIONS ============ -->
+    <section class="section section--gray" id="specs">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Technical Specifications</p>
+                <h2>Full spec sheet, by category</h2>
+                <p style="margin-inline:auto;">Same panel platform as our Education Suite, tuned for corporate rooms.
+                    Tap a category to expand it - screen size varies by model (65&Prime; / 75&Prime; / 86&Prime;).</p>
+            </div>
+
+            <div class="cf-accordion reveal" id="cfAccordion">
+
+                <div class="cf-acc-item is-open">
+                    <button class="cf-acc-head" aria-expanded="true">
+                        <span class="cf-acc-num">01</span>
+                        <span class="cf-acc-title">System Overview</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Product Type</span><span class="v">AI-Enabled
+                                    Corporate Interactive Flat Panel</span></div>
+                            <div class="cf-spec-row"><span class="k">Operating System</span><span class="v">Android 14
+                                    (Built-in)</span></div>
+                            <div class="cf-spec-row"><span class="k">Application Support</span><span class="v">Native
+                                    Android apps + third-party application installation</span></div>
+                            <div class="cf-spec-row"><span class="k">Intended Use</span><span class="v">Huddle rooms,
+                                    meeting rooms, boardrooms, hybrid collaboration</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">02</span>
+                        <span class="cf-acc-title">Processor &amp; Performance</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Processor</span><span class="v">Octa-core ARM
+                                    processor</span></div>
+                            <div class="cf-spec-row"><span class="k">AI Capabilities</span><span class="v">
+                                    <ul>
+                                        <li>AI-assisted data processing</li>
+                                        <li>Intelligent application execution</li>
+                                        <li>Meeting-room analytics support (software-dependent)</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">03</span>
+                        <span class="cf-acc-title">Memory &amp; Storage</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">RAM</span><span class="v">8 GB (16 GB configuration
+                                    available)</span></div>
+                            <div class="cf-spec-row"><span class="k">Internal Storage</span><span class="v">128 GB (up
+                                    to 1 TB configuration available)</span></div>
+                            <div class="cf-spec-row"><span class="k">Storage Expansion</span><span class="v">Supported
+                                    (USB / external media)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">04</span>
+                        <span class="cf-acc-title">Display Panel</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Panel Type</span><span class="v">Ultra HD IPS LCD
+                                    (A+ grade)</span></div>
+                            <div class="cf-spec-row"><span class="k">Screen Size</span><span class="v">65&Prime; /
+                                    75&Prime; / 86&Prime; (model-wise)</span></div>
+                            <div class="cf-spec-row"><span class="k">Resolution</span><span class="v">UHD 4K (3840 ×
+                                    2160 pixels)</span></div>
+                            <div class="cf-spec-row"><span class="k">Brightness</span><span class="v">450 nits</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">Colour Depth</span><span class="v">1.07 billion
+                                    colours</span></div>
+                            <div class="cf-spec-row"><span class="k">Aspect Ratio</span><span class="v">16:9</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">Viewing Angle</span><span class="v">178°
+                                    (H/V)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">05</span>
+                        <span class="cf-acc-title">Touch &amp; Interaction Technology</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Touch Technology</span><span class="v">Infrared
+                                    multi-touch</span></div>
+                            <div class="cf-spec-row"><span class="k">Touch Points</span><span class="v">Multi-touch, up
+                                    to 20 points</span></div>
+                            <div class="cf-spec-row"><span class="k">Touch Accuracy</span><span class="v">± 1 mm</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">Response Time</span><span class="v">≤ 8 ms</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">Supported Features</span><span class="v">
+                                    <ul>
+                                        <li>Palm rejection</li>
+                                        <li>Pen detection</li>
+                                        <li>Multi-touch zoom</li>
+                                        <li>Gesture recognition</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">06</span>
+                        <span class="cf-acc-title">Bonding &amp; Visual Clarity</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Bonding Technology</span><span class="v">Zero-gap
+                                    air bonding</span></div>
+                            <div class="cf-spec-row"><span class="k">Benefit</span><span class="v">Reduced parallax,
+                                    improved writing accuracy &amp; visual sharpness</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">07</span>
+                        <span class="cf-acc-title">Camera System</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Camera Resolution</span><span class="v">50
+                                    MP</span></div>
+                            <div class="cf-spec-row"><span class="k">Video Output</span><span class="v">4K UHD</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">AI Features</span><span class="v">
+                                    <ul>
+                                        <li>Intelligent auto tracking</li>
+                                        <li>Behaviour analysis (software-enabled)</li>
+                                        <li>Meeting recording &amp; live-streaming support</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">08</span>
+                        <span class="cf-acc-title">Audio System</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Microphone Type</span><span class="v">Built-in
+                                    8-array microphone</span></div>
+                            <div class="cf-spec-row"><span class="k">Pickup Range</span><span class="v">Long-range voice
+                                    pickup (ideal for boardrooms)</span></div>
+                            <div class="cf-spec-row"><span class="k">Audio Processing</span><span class="v">Noise
+                                    reduction &amp; voice enhancement (software-dependent)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">09</span>
+                        <span class="cf-acc-title">AI Smart Collaboration Software</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Built-in Software</span><span class="v">AI smart
+                                    collaboration software, pre-installed</span></div>
+                            <div class="cf-spec-row"><span class="k">Key Capabilities</span><span class="v">
+                                    <ul>
+                                        <li>Digital whiteboarding</li>
+                                        <li>Meeting recording &amp; playback</li>
+                                        <li>Interactive collaboration tools</li>
+                                        <li>Meeting data processing &amp; analytics</li>
+                                    </ul>
+                                </span></div>
+                            <div class="cf-spec-row"><span class="k">Expandability</span><span class="v">Supports
+                                    third-party conferencing software (Zoom, Teams, Meet, Webex)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">10</span>
+                        <span class="cf-acc-title">Connectivity &amp; Interfaces</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Wireless</span><span class="v">Wi-Fi (dual-band),
+                                    Bluetooth</span></div>
+                            <div class="cf-spec-row"><span class="k">USB Ports</span><span class="v">USB 2.0 / USB 3.0
+                                    (model-dependent)</span></div>
+                            <div class="cf-spec-row"><span class="k">HDMI</span><span class="v">HDMI input &amp;
+                                    output</span></div>
+                            <div class="cf-spec-row"><span class="k">LAN</span><span class="v">RJ45 Ethernet port</span>
+                            </div>
+                            <div class="cf-spec-row"><span class="k">Audio</span><span class="v">Audio in / out</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">11</span>
+                        <span class="cf-acc-title">Mobile Application Support</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Dedicated Apps For</span><span class="v">
+                                    <ul>
+                                        <li>Room Admin</li>
+                                        <li>Presenter</li>
+                                        <li>Participant</li>
+                                    </ul>
+                                </span></div>
+                            <div class="cf-spec-row"><span class="k">Supported Platforms</span><span class="v">Android
+                                    &amp; iOS</span></div>
+                            <div class="cf-spec-row"><span class="k">Key Functions</span><span class="v">
+                                    <ul>
+                                        <li>Room booking &amp; monitoring</li>
+                                        <li>Content sharing</li>
+                                        <li>Communication &amp; notifications</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">12</span>
+                        <span class="cf-acc-title">Power &amp; Operating Conditions</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Power Supply</span><span class="v">AC 100–240V,
+                                    50/60 Hz</span></div>
+                            <div class="cf-spec-row"><span class="k">Operating Temperature</span><span class="v">0°C to
+                                    40°C</span></div>
+                            <div class="cf-spec-row"><span class="k">Storage Temperature</span><span class="v">-20°C to
+                                    60°C</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">13</span>
+                        <span class="cf-acc-title">Mounting &amp; Installation</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Mounting Standard</span><span class="v">VESA
+                                    compatible</span></div>
+                            <div class="cf-spec-row"><span class="k">Installation</span><span class="v">Wall mount /
+                                    mobile stand (optional)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf-acc-item">
+                    <button class="cf-acc-head" aria-expanded="false">
+                        <span class="cf-acc-num">14</span>
+                        <span class="cf-acc-title">Compliance &amp; Reliability</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="cf-acc-body">
+                        <div class="cf-acc-inner">
+                            <div class="cf-spec-row"><span class="k">Certifications</span><span class="v">CE / FCC / BIS
+                                    - confirmed per model with your Gyoash contact</span></div>
+                            <div class="cf-spec-row"><span class="k">Warranty</span><span class="v">As per Gyoash
+                                    warranty policy - see <a href="warranty.html"
+                                        style="color:var(--deep-blue); font-weight:600;">Warranty &amp;
+                                        Support</a></span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cf-notes reveal">
+                <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9v5M12 16.5h.01" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                    </svg></div>
+                <p><strong>Important notes:</strong> AI features such as tracking, behaviour analysis and analytics are
+                    software-dependent and may vary by configuration or subscription. Specifications are subject to
+                    change without prior notice as part of continuous product improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ VIDEO CONFERENCING SOLUTIONS ============ -->
+    <section class="section" id="video-conferencing">
+        <div class="container">
+            <div class="cf-mod-grid">
+                <div class="cf-mod-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(150deg,#0057D9,#66B5FF);"></div>
+                    </div>
+                </div>
+                <div class="cf-mod-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Included in This Suite</p>
+                    <h3>Video Conferencing Solutions</h3>
+                    <p class="sub">Complete video conferencing kits and software integration - from a single huddle room
+                        to a scaled-out boardroom rollout.</p>
+                    <div class="cf-mod-list">
+                        <div class="cf-mod-row"><span class="k">Camera</span><span class="v">1080p/4K camera, wide angle
+                                (90–120° FOV), auto-framing (optional)</span></div>
+                        <div class="cf-mod-row"><span class="k">Audio</span><span class="v">Beamforming mic array, echo
+                                cancellation, noise suppression, speaker output sized for the room</span></div>
+                        <div class="cf-mod-row"><span class="k">Protocols / Compatibility</span><span class="v">SIP /
+                                H.323 / WebRTC (depending on solution) - works with Zoom, Teams, Meet and Webex via PC
+                                client</span></div>
+                        <div class="cf-mod-row"><span class="k">Connectivity</span><span class="v">USB / HDMI to PC, or
+                                direct-to-network endpoints for hardware codecs</span></div>
+                        <div class="cf-mod-row"><span class="k">Room Types</span><span class="v">Huddle rooms, medium
+                                conference rooms, large boardrooms - scalable per site</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SOLUTIONS UNDER THIS SUITE ============ -->
+    <section class="section section--gray" id="solutions">
+        <div class="container">
+            <div class="cf-tags-wrap reveal">
+                <p class="eyebrow">Also Under This Suite</p>
+                <h2
+                    style="font-family:var(--font-display); font-size:clamp(24px,2.8vw,32px); font-weight:700; color:var(--dark-blue); letter-spacing:-.4px;">
+                    More ways we support your rooms</h2>
+                <p style="margin-top:10px; font-size:15px; color:var(--slate-gray); max-width:60ch;">Beyond displays and
+                    standard video kits, our conferencing team also scopes and delivers these related solutions - ask
+                    your Gyoash contact for a spec sheet on any of them.</p>
+
+                <div class="cf-tags">
+                    <a href="/contact/">AI-Enabled Learning &amp; Analytics <svg width="12" height="12"
+                            viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Health Care Solutions <svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Room Solutions <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Video Collaboration Suite <svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Industry Solutions <svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Virtual Classroom Solutions <svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Video Conferencing Software Applications <svg width="12" height="12"
+                            viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="/contact/">Video Conference Room Solutions <svg width="12" height="12"
+                            viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATIONS ============ -->
+    <section class="section" id="locations">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+            </div>
+            <div class="cf-loc-grid">
+                <div class="cf-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="cf-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office - Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="cf-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office - Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="cf-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office - Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="section--tight">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div>
+                    <h2>Ready to fit this suite into your workplace?</h2>
+                    <p>Book a demo and we'll walk through the display, room kit and software setup live.</p>
+                </div>
+                <a href="/contact/" class="btn btn-primary">Book a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+   <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            function initAccordion() {
+                const acc = document.getElementById("cfAccordion");
+                if (!acc) return;
+                acc.querySelectorAll(".cf-acc-head").forEach((head) => {
+                    head.addEventListener("click", () => {
+                        const item = head.closest(".cf-acc-item");
+                        const wasOpen = item.classList.contains("is-open");
+                        item.classList.toggle("is-open", !wasOpen);
+                        head.setAttribute("aria-expanded", String(!wasOpen));
+                    });
+                });
+            }
+
+            function initQuickNavSpy() {
+                const links = document.querySelectorAll(".cf-quicknav a");
+                if (!links.length) return;
+                const targets = Array.from(links)
+                    .map((a) => document.querySelector(a.getAttribute("href")))
+                    .filter(Boolean);
+                if (!targets.length || !("IntersectionObserver" in window)) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const id = "#" + entry.target.id;
+                                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+                            }
+                        });
+                    },
+                    { rootMargin: "-40% 0px -50% 0px" }
+                );
+                targets.forEach((t) => io.observe(t));
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                initAccordion();
+                initQuickNavSpy();
+            });
+        })();
+    </script>
+</body>
+
+</html>

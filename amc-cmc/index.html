@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AMC / CMC Services — Gyoash | Third-Party Support for IFPDs, LED Walls &amp; Displays</title>
+<meta name="description" content="Gyoash provides end-to-end AMC and CMC support for interactive panels, LED video walls, digital signage and networking infrastructure — for all major brands, PAN India, even if not purchased from us." />
+<link rel="icon" href="/images/logo/logo.png" type="image/png" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- ============================================================
+     Page-specific CSS — AMC/CMC page only.
+     Reuses shared tokens + shared components (.container, .section,
+     .eyebrow, .section-head, .btn, .cta-banner, .about-grid,
+     .about-media, .about-copy) already defined in css/style.css.
+     All new classes are prefixed "am-" so they never collide with
+     shared or other-page styles.
+     ============================================================ -->
+<style>
+  /* ---------- Page header ---------- */
+  .am-hero{ position:relative; padding:168px 0 90px; overflow:hidden; background:var(--dark-blue); }
+  .am-hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(55% 60% at 88% 10%, rgba(102,181,255,.26), transparent 60%),
+      radial-gradient(40% 45% at 4% 95%, rgba(255,107,0,.16), transparent 60%),
+      linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+  }
+  .am-hero-dotgrid{
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+    opacity:.5;
+  }
+  .am-hero .container{ position:relative; z-index:2; }
+  .am-crumb{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:12.5px; font-weight:500; color:#8FA4BC; margin-bottom:26px; flex-wrap:wrap; }
+  .am-crumb a{ color:#B9CBE0; transition:color .3s; }
+  .am-crumb a:hover{ color:#fff; }
+  .am-crumb span{ color:#4C6685; }
+  .am-hero h1{ color:#fff; font-size:clamp(32px,4.4vw,52px); font-weight:700; letter-spacing:-1px; max-width:18ch; }
+  .am-hero h1 em{ font-style:normal; background:linear-gradient(100deg,var(--sky-blue),var(--cyan) 55%,var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .am-hero p.lead{ margin-top:22px; font-size:17px; line-height:1.8; color:#B9CBE0; max-width:66ch; }
+  .am-hero-cta{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; }
+
+  .am-hero-strip{ display:flex; gap:0; margin-top:52px; padding-top:26px; border-top:1px solid rgba(255,255,255,.14); flex-wrap:wrap; }
+  .am-hero-strip .s{ flex:1; min-width:180px; padding-right:20px; display:flex; align-items:center; gap:12px; }
+  .am-hero-strip .s .ico{ width:38px; height:38px; border-radius:11px; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; flex:none; }
+  .am-hero-strip .s strong{ display:block; font-family:var(--font-display); font-size:14px; color:#fff; }
+  .am-hero-strip .s span{ font-size:11.5px; color:#9FB4CC; }
+
+  /* ---------- Services grid (4) ---------- */
+  .am-svc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .am-svc-card{
+    position:relative; background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px;
+    padding:30px 26px; overflow:hidden;
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    box-shadow: var(--shadow-card);
+  }
+  .am-svc-card:hover{ transform:translateY(-8px); box-shadow:0 26px 50px -18px rgba(0,31,63,.28); }
+  .am-svc-card::before{
+    content:""; position:absolute; top:-36px; right:-36px; width:110px; height:110px;
+    background: var(--grad-sky); clip-path:polygon(30% 0,100% 0,100% 70%); opacity:.14;
+  }
+  .am-svc-card .ico{
+    width:52px; height:52px; border-radius:15px; background:var(--grad-sky);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .am-svc-card h4{ font-size:16px; font-weight:600; color:var(--dark-blue); line-height:1.4; }
+  .am-svc-card p{ margin-top:8px; font-size:13px; color:var(--slate-gray); line-height:1.6; }
+  @media (max-width:980px){ .am-svc-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .am-svc-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Benefits grid (3) ---------- */
+  .am-ben-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .am-ben-card{
+    background:var(--dark-blue); border-radius:20px; padding:34px 30px; position:relative; overflow:hidden;
+  }
+  .am-ben-card::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(70% 70% at 100% 0%, rgba(102,181,255,.18), transparent 65%);
+  }
+  .am-ben-card > *{ position:relative; z-index:1; }
+  .am-ben-card .ico{
+    width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,.08);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .am-ben-card h4{ font-family:var(--font-display); font-size:16.5px; font-weight:600; color:#fff; line-height:1.4; }
+  .am-ben-card p{ margin-top:10px; font-size:13.5px; color:#B9CBE0; line-height:1.65; }
+  @media (max-width:980px){ .am-ben-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Locations (matches other pages) ---------- */
+  .am-loc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .am-loc-card{ background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px; padding:28px; box-shadow:var(--shadow-card); display:flex; gap:18px; }
+  .am-loc-card .pin{ width:46px; height:46px; border-radius:13px; background:var(--soft-blue); display:flex; align-items:center; justify-content:center; flex:none; }
+  .am-loc-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); }
+  .am-loc-card p{ margin-top:8px; font-size:13.5px; color:var(--slate-gray); line-height:1.6; }
+  .am-loc-card a{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--deep-blue); }
+  @media (max-width:700px){ .am-loc-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div data-include="/fragments/navbar.html"></div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="am-hero">
+  <div class="am-hero-dotgrid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="am-crumb">
+      <a href="/">Home</a><span>/</span>
+      <a href="/amc-cmc/" style="color:#fff;">AMC / CMC</a>
+    </div>
+
+    <p class="eyebrow" style="color:var(--sky-blue);">AMC / CMC</p>
+    <h1>Third-party support, <em>AMC &amp; CMC services</em></h1>
+    <p class="lead">Most institutions today are stuck with IFPDs, LED video walls or digital displays purchased from brands or vendors who have disappeared, stopped responding, or simply cannot provide reliable service. Downtime hurts your operations — and we know that better than anyone.</p>
+    <p class="lead">GYOASH provides end-to-end AMC (Annual Maintenance Contract) and CMC (Comprehensive Maintenance Contract) support for all major brands, even if the product was not purchased from us.</p>
+
+    <div class="am-hero-cta">
+      <a href="/contact/" class="btn btn-primary">Contact Us</a>
+      <a href="tel:+919270400990" class="btn btn-outline on-dark">Call +91 92704 00990</a>
+    </div>
+
+    <div class="am-hero-strip">
+      <div class="s">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <div><strong>PAN India</strong><span>Instant support coverage</span></div>
+      </div>
+      <div class="s">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><strong>All Major Brands</strong><span>Not limited to Gyoash products</span></div>
+      </div>
+      <div class="s">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M8 21h8M12 17v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div><strong>Even If Not Purchased From Us</strong><span>We take over existing installs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <div class="frame">
+          <div class="fill" style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;"></div>
+        </div>
+        <div class="badge-float">
+          <div class="n">1</div>
+          <div class="t">Accountable partner, regardless of who you bought from</div>
+        </div>
+      </div>
+
+      <div class="about-copy reveal reveal-delay-1">
+        <p class="eyebrow">Why This Matters</p>
+        <h2>Your vendor disappeared. Your displays didn't.</h2>
+        <p>A dead panel or a failing LED wall doesn't wait for your original vendor to pick up the phone. Gyoash steps in as a single, accountable service partner — assessing what's installed, sourcing genuine parts, and getting your displays back online without a forklift replacement.</p>
+        <p>Whether it's one interactive panel in one classroom or a full LED video wall installation across multiple sites, our AMC and CMC plans are structured around uptime — not just a once-a-year inspection visit.</p>
+        <div style="margin-top:8px;"><a href="contact.html" class="btn btn-outline">Get an AMC/CMC Quote</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WE PROVIDE QUALITY SERVICES ============ -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center; display:flex;">We Provide Quality Services</p>
+      <h2>Coverage across every major display &amp; infrastructure category</h2>
+    </div>
+
+    <div class="am-svc-grid">
+      <div class="am-svc-card reveal reveal-delay-1">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h4>Interactive Flat Panel Displays</h4>
+        <p>All brands, all sizes — not just Gyoash-supplied panels.</p>
+      </div>
+      <div class="am-svc-card reveal reveal-delay-2">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="12" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M7 21h10M12 17v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h4>Active LED Video Walls</h4>
+        <p>Indoor &amp; outdoor installations, any pixel pitch.</p>
+      </div>
+      <div class="am-svc-card reveal reveal-delay-3">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M8 9h8M8 13h8M8 17h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h4>Digital Signage &amp; Commercial Displays</h4>
+        <p>Networked players, kiosks and public-facing screens.</p>
+      </div>
+      <div class="am-svc-card reveal reveal-delay-4">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="#fff" stroke-width="1.6"/><circle cx="18" cy="6" r="2.4" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="18" r="2.4" stroke="#fff" stroke-width="1.6"/><path d="M8 7l7.5 9.5M16 7L8.5 16.5" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h4>Networking &amp; Infrastructure</h4>
+        <p>Switches, routers, cabling and connectivity behind the screen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT MAKES THIS USEFUL ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center; display:flex;">What Makes This Useful for Customers</p>
+      <h2>Built for the moment things break</h2>
+    </div>
+
+    <div class="am-ben-grid">
+      <div class="am-ben-card reveal reveal-delay-1">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h4>Instant Takeover</h4>
+        <p>Of failed or unsupported installations — no matter who installed them originally.</p>
+      </div>
+      <div class="am-ben-card reveal reveal-delay-2">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h4>Genuine Spare Parts &amp; Repairs</h4>
+        <p>Sourced for multiple OEMs, not just the brands we sell directly.</p>
+      </div>
+      <div class="am-ben-card reveal reveal-delay-3">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h4>Instant Support, PAN India</h4>
+        <p>A service network that reaches your site, not just our showroom cities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Find Us</p>
+      <h2>Our offices across India</h2>
+    </div>
+    <div class="am-loc-grid">
+      <div class="am-loc-card reveal reveal-delay-1">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Factory &amp; Experience Centre</h4>
+          <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="am-loc-card reveal reveal-delay-2">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Corporate Office — Pune</h4>
+          <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune - 411004</p>
+          <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="am-loc-card reveal reveal-delay-3">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Branch Office — Nashik</h4>
+          <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
+          <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="am-loc-card reveal reveal-delay-4">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Sales Office — Indore</h4>
+          <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Already have a failing display?</h2>
+        <p>Tell us what's installed and where — we'll assess it and quote an AMC/CMC plan, brand-agnostic.</p>
+      </div>
+      <a href="/contact/" class="btn btn-primary">Get an AMC/CMC Quote</a>
+    </div>
+  </div>
+</section>
+
+<div data-include="/fragments/footer.html"></div>
+<div data-include="/fragments/chat-widget.html"></div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

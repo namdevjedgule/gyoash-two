@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Technology Suite - Gyoash | Interactive Flat Panels, ERP, Curriculum &amp; AI Analytics</title>
+    <meta name="description"
+        content="Gyoash's Education Technology Suite: AI-enabled Interactive Flat Panel Displays, School ERP, curriculum-aligned digital content and AI-driven learning analytics - built for real classrooms." />
+    <link rel="icon" href="/images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        .ed-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .ed-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .ed-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .ed-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ed-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+            flex-wrap: wrap;
+        }
+
+        .ed-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .ed-crumb a:hover {
+            color: #fff;
+        }
+
+        .ed-crumb span {
+            color: #4C6685;
+        }
+
+        .ed-hero-top {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: end;
+        }
+
+        .ed-hero h1 {
+            color: #fff;
+            font-size: clamp(32px, 4.2vw, 50px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 17ch;
+        }
+
+        .ed-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ed-hero p.lead {
+            margin-top: 20px;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 56ch;
+        }
+
+        .ed-hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .ed-quicknav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .ed-quicknav a {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: #D7E4F5;
+            transition: background .3s, border-color .3s, color .3s;
+        }
+
+        .ed-quicknav a:hover,
+        .ed-quicknav a.is-active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .ed-hero-specs {
+            display: flex;
+            gap: 0;
+            margin-top: 46px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            flex-wrap: wrap;
+        }
+
+        .ed-hero-specs .s {
+            flex: 1;
+            min-width: 120px;
+            padding-right: 20px;
+        }
+
+        .ed-hero-specs .s strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .ed-hero-specs .s span {
+            font-size: 12px;
+            color: #9FB4CC;
+        }
+
+        @media (max-width:980px) {
+            .ed-hero-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ed-feat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ed-feat-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 18px;
+            padding: 24px 22px;
+            box-shadow: var(--shadow-card);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+        }
+
+        .ed-feat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px -16px rgba(0, 31, 63, .26);
+        }
+
+        .ed-feat-card .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .ed-feat-card h4 {
+            font-family: var(--font-display);
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            line-height: 1.4;
+        }
+
+        @media (max-width:980px) {
+            .ed-feat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .ed-feat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ed-accordion {
+            max-width: 900px;
+            margin-inline: auto;
+            border-top: 1px solid rgba(13, 27, 42, .1);
+        }
+
+        .ed-acc-item {
+            border-bottom: 1px solid rgba(13, 27, 42, .1);
+        }
+
+        .ed-acc-head {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 4px;
+            text-align: left;
+            font-family: var(--font-display);
+        }
+
+        .ed-acc-num {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--sky-blue);
+            letter-spacing: 1px;
+            flex: none;
+            width: 26px;
+        }
+
+        .ed-acc-title {
+            flex: 1;
+            font-size: 16.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ed-acc-head svg {
+            transition: transform .35s var(--ease);
+            flex: none;
+        }
+
+        .ed-acc-item.is-open .ed-acc-head svg {
+            transform: rotate(180deg);
+        }
+
+        .ed-acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s var(--ease);
+        }
+
+        .ed-acc-item.is-open .ed-acc-body {
+            max-height: 900px;
+        }
+
+        .ed-acc-inner {
+            padding: 0 4px 28px 48px;
+        }
+
+        .ed-spec-row {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 20px;
+            padding: 10px 0;
+            border-top: 1px dashed rgba(13, 27, 42, .08);
+        }
+
+        .ed-spec-row:first-child {
+            border-top: none;
+        }
+
+        .ed-spec-row .k {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .ed-spec-row .v {
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        .ed-spec-row .v ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ed-spec-row .v ul li {
+            list-style: none;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .ed-spec-row .v ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+        }
+
+        @media (max-width:640px) {
+            .ed-spec-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .ed-acc-inner {
+                padding-left: 24px;
+            }
+        }
+
+        .ed-notes {
+            max-width: 900px;
+            margin: 56px auto 0;
+            background: var(--soft-blue);
+            border: 1px solid rgba(0, 87, 217, .14);
+            border-radius: 18px;
+            padding: 26px 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .ed-notes .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .ed-notes p {
+            font-size: 13.5px;
+            color: var(--slate-dark);
+            line-height: 1.7;
+        }
+
+        .ed-notes strong {
+            color: var(--dark-blue);
+        }
+
+        .ed-trust-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background: rgba(13, 27, 42, .08);
+            border: 1px solid rgba(13, 27, 42, .08);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .ed-trust-cell {
+            background: #fff;
+            padding: 28px 18px;
+            text-align: center;
+        }
+
+        .ed-trust-cell .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+        }
+
+        .ed-trust-cell h5 {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            line-height: 1.4;
+        }
+
+        @media (max-width:900px) {
+            .ed-trust-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .ed-trust-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ed-ind-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .ed-ind-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px 26px;
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+            box-shadow: var(--shadow-card);
+        }
+
+        .ed-ind-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 50px -18px rgba(0, 31, 63, .28);
+        }
+
+        .ed-ind-card::before {
+            content: "";
+            position: absolute;
+            top: -36px;
+            right: -36px;
+            width: 110px;
+            height: 110px;
+            background: var(--grad-sky);
+            clip-path: polygon(30% 0, 100% 0, 100% 70%);
+            opacity: .14;
+        }
+
+        .ed-ind-num {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--sky-blue);
+            letter-spacing: 1px;
+        }
+
+        .ed-ind-card h4 {
+            margin-top: 14px;
+            font-size: 16.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            text-transform: capitalize;
+        }
+
+        @media (max-width:980px) {
+            .ed-ind-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:600px) {
+            .ed-ind-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ed-mod-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .ed-mod-grid.is-reverse .ed-mod-media {
+            order: 2;
+        }
+
+        .ed-mod-grid.is-reverse .ed-mod-copy {
+            order: 1;
+        }
+
+        .ed-mod-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .ed-mod-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/3;
+        }
+
+        .ed-mod-copy .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .ed-mod-copy h3 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 32px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.4px;
+        }
+
+        .ed-mod-copy .sub {
+            margin-top: 10px;
+            font-size: 15.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        .ed-mod-list {
+            margin-top: 26px;
+            border-top: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .ed-mod-row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .ed-mod-row .k {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--slate-dark);
+        }
+
+        .ed-mod-row .v {
+            font-size: 13px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        @media (max-width:980px) {
+
+            .ed-mod-grid,
+            .ed-mod-grid.is-reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .ed-mod-grid.is-reverse .ed-mod-media,
+            .ed-mod-grid.is-reverse .ed-mod-copy {
+                order: 0;
+            }
+
+            .ed-mod-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        .ed-ai-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .ed-ai-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 20px 16px;
+        }
+
+        .ed-ai-card .ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--grad-cyan-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .ed-ai-card h5 {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ed-ai-card p {
+            margin-top: 6px;
+            font-size: 11.5px;
+            color: var(--slate-gray);
+            line-height: 1.5;
+        }
+
+        @media (max-width:980px) {
+            .ed-ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .ed-ai-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ed-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .ed-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .ed-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .ed-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .ed-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .ed-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .ed-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <section class="ed-hero">
+        <div class="ed-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ed-crumb">
+                <a href="/">Home</a><span>/</span>
+                <a href="/education-technology-suite/" style="color:#fff;">Products</a><span>/</span>
+                <a href="/education-technology-suite/" style="color:#fff;">Education Technology Suite</a>
+            </div>
+
+            <div class="ed-hero-top">
+                <div>
+                    <p class="eyebrow" style="color:var(--sky-blue);">Education Technology Suite</p>
+                    <h1>Interactive Flat Panel Displays, built for how <em>classrooms actually teach</em></h1>
+                    <p class="lead">Touch-enabled 4K interactive displays for classrooms and training rooms - paired
+                        with School ERP, curriculum-aligned content and AI-driven learning analytics, all from one
+                        accountable partner.</p>
+                    <div class="ed-hero-cta">
+                        <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+                        <a href="#specs" class="btn btn-outline on-dark">View Full Specs</a>
+                    </div>
+                </div>
+                <div class="ed-quicknav" aria-label="Jump to section">
+                    <a href="#ifpd">IFPD</a>
+                    <a href="#specs">Tech Specs</a>
+                    <a href="#erp">School ERP</a>
+                    <a href="#curriculum">Curriculum</a>
+                    <a href="#ai-analytics">AI Analytics</a>
+                    <a href="#industries">Industries</a>
+                </div>
+            </div>
+
+            <div class="ed-hero-specs">
+                <div class="s"><strong>4K UHD</strong><span>3840 × 2160</span></div>
+                <div class="s"><strong>16 GB</strong><span>RAM</span></div>
+                <div class="s"><strong>Up to 1 TB</strong><span>System storage</span></div>
+                <div class="s"><strong>64 pts / &lt;2ms</strong><span>Touch response</span></div>
+                <div class="s"><strong>450 nits</strong><span>Brightness</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="ifpd">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-media reveal">
+                    <div class="frame">
+                        <div class="fill"
+                            style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;">
+                        </div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">20</div>
+                        <div class="t">Multi-touch points, infrared technology</div>
+                    </div>
+                </div>
+
+                <div class="about-copy reveal reveal-delay-1">
+                    <p class="eyebrow">AI Digital Smart Teaching Panel</p>
+                    <h2>An interactive panel that runs the whole classroom</h2>
+                    <p>Android 14/16 with a smart app store, wireless screen sharing in a single touch, and infrared
+                        touch technology tuned for natural writing. Built-in AI smart teaching software handles digital
+                        whiteboarding, lesson recording and classroom analytics - no extra box required.</p>
+                    <p>Every panel ships with Google-certified EDLA technology, protective anti-scratch glass, and
+                        remote device management so your IT team can monitor and support every screen from one
+                        dashboard.</p>
+                    <div style="margin-top:8px;"><a href="contact.html" class="btn btn-outline">Request a Site Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:80px;">
+                <div class="section-head center reveal" style="margin-bottom:44px;">
+                    <p class="eyebrow" style="justify-content:center; display:flex;">Key Features</p>
+                    <h2>Everything the classroom needs, built in</h2>
+                </div>
+
+                <div class="ed-feat-grid">
+                    <div class="ed-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="2" width="16" height="20" rx="3" stroke="#fff" stroke-width="1.6" />
+                                <path d="M9 6h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Android 14/16 OS with Smart App Store</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 20a1.4 1.4 0 1 0 0-2.8A1.4 1.4 0 0 0 12 20zM7 15a7 7 0 0 1 10 0M3.5 11.5a12 12 0 0 1 17 0"
+                                    stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Multiple Wireless Screen Sharing, Single Touch</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="13" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 21h8M12 17v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Infrared Touch Technology for Rich Writing</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <ellipse cx="12" cy="6" rx="7" ry="3" stroke="#fff" stroke-width="1.6" />
+                                <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>Up to 1 TB System Storage</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"
+                                    stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                                <circle cx="12" cy="12" r="3.5" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>64-Point Touch, &lt;2ms Response</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="7" width="16" height="10" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>16 GB RAM</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="12" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M8 21h8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Perfect 4K/8K Resolution</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                                <path d="M12 8v4l3 2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>DMS Software Remote Access Control</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-1">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#fff"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                            </svg></div>
+                        <h4>Protective Glass, Anti-Scratch</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-2">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></div>
+                        <h4>Google-Certified EDLA Technology</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-3">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="5" y="3" width="14" height="18" rx="2" stroke="#fff" stroke-width="1.6" />
+                                <path d="M9 7h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg></div>
+                        <h4>Remote-Access Card for Extended SSD</h4>
+                    </div>
+                    <div class="ed-feat-card reveal reveal-delay-4">
+                        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#fff" stroke-width="1.6" />
+                                <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="1.6" />
+                            </svg></div>
+                        <h4>NFC Card for Authorized Access</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray" id="specs">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Technical Specifications</p>
+                <h2>Full spec sheet, by category</h2>
+                <p style="margin-inline:auto;">Tap a category to expand it. Screen size varies by model (65&Prime; /
+                    75&Prime; / 86&Prime;) - ask your Gyoash contact for the exact configuration.</p>
+            </div>
+
+            <div class="ed-accordion reveal" id="edAccordion">
+
+                <div class="ed-acc-item is-open">
+                    <button class="ed-acc-head" aria-expanded="true">
+                        <span class="ed-acc-num">01</span>
+                        <span class="ed-acc-title">System Overview</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Product Type</span><span class="v">AI Digital Smart
+                                    Teaching Interactive Flat Panel</span></div>
+                            <div class="ed-spec-row"><span class="k">Operating System</span><span class="v">Android 14
+                                    (Built-in)</span></div>
+                            <div class="ed-spec-row"><span class="k">Application Support</span><span class="v">Native
+                                    Android apps + third-party application installation</span></div>
+                            <div class="ed-spec-row"><span class="k">Intended Use</span><span class="v">Smart
+                                    classrooms, hybrid learning, digital teaching &amp; collaboration</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">02</span>
+                        <span class="ed-acc-title">Processor &amp; Performance</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Processor</span><span class="v">Octa-core ARM
+                                    processor</span></div>
+                            <div class="ed-spec-row"><span class="k">AI Capabilities</span><span class="v">
+                                    <ul>
+                                        <li>AI-assisted data processing</li>
+                                        <li>Intelligent application execution</li>
+                                        <li>Classroom analytics support (software-dependent)</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">03</span>
+                        <span class="ed-acc-title">Memory &amp; Storage</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">RAM</span><span class="v">8 GB (16 GB configuration
+                                    available)</span></div>
+                            <div class="ed-spec-row"><span class="k">Internal Storage</span><span class="v">128 GB (up
+                                    to 1 TB configuration available)</span></div>
+                            <div class="ed-spec-row"><span class="k">Storage Expansion</span><span class="v">Supported
+                                    (USB / external media)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">04</span>
+                        <span class="ed-acc-title">Display Panel</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Panel Type</span><span class="v">Ultra HD IPS LCD
+                                    (A+ grade)</span></div>
+                            <div class="ed-spec-row"><span class="k">Screen Size</span><span class="v">65&Prime; /
+                                    75&Prime; / 86&Prime; (model-wise)</span></div>
+                            <div class="ed-spec-row"><span class="k">Resolution</span><span class="v">UHD 4K (3840 ×
+                                    2160 pixels)</span></div>
+                            <div class="ed-spec-row"><span class="k">Brightness</span><span class="v">450 nits</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">Colour Depth</span><span class="v">1.07 billion
+                                    colours</span></div>
+                            <div class="ed-spec-row"><span class="k">Aspect Ratio</span><span class="v">16:9</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">Viewing Angle</span><span class="v">178°
+                                    (H/V)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">05</span>
+                        <span class="ed-acc-title">Touch &amp; Interaction Technology</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Touch Technology</span><span class="v">Infrared
+                                    multi-touch</span></div>
+                            <div class="ed-spec-row"><span class="k">Touch Points</span><span class="v">Multi-touch, up
+                                    to 20 points</span></div>
+                            <div class="ed-spec-row"><span class="k">Touch Accuracy</span><span class="v">± 1 mm</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">Response Time</span><span class="v">≤ 8 ms</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">Supported Features</span><span class="v">
+                                    <ul>
+                                        <li>Palm rejection</li>
+                                        <li>Pen detection</li>
+                                        <li>Multi-touch zoom</li>
+                                        <li>Gesture recognition</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">06</span>
+                        <span class="ed-acc-title">Bonding &amp; Visual Clarity</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Bonding Technology</span><span class="v">Zero-gap
+                                    air bonding</span></div>
+                            <div class="ed-spec-row"><span class="k">Benefit</span><span class="v">Reduced parallax,
+                                    improved writing accuracy &amp; visual sharpness</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">07</span>
+                        <span class="ed-acc-title">Camera System</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Camera Resolution</span><span class="v">50
+                                    MP</span></div>
+                            <div class="ed-spec-row"><span class="k">Video Output</span><span class="v">4K UHD</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">AI Features</span><span class="v">
+                                    <ul>
+                                        <li>Intelligent auto tracking</li>
+                                        <li>Behaviour analysis (software-enabled)</li>
+                                        <li>Classroom recording &amp; live-streaming support</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">08</span>
+                        <span class="ed-acc-title">Audio System</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Microphone Type</span><span class="v">Built-in
+                                    8-array microphone</span></div>
+                            <div class="ed-spec-row"><span class="k">Pickup Range</span><span class="v">Long-range voice
+                                    pickup (ideal for classrooms)</span></div>
+                            <div class="ed-spec-row"><span class="k">Audio Processing</span><span class="v">Noise
+                                    reduction &amp; voice enhancement (software-dependent)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">09</span>
+                        <span class="ed-acc-title">AI Smart Teaching Software</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Built-in Software</span><span class="v">AI smart
+                                    teaching classroom software, pre-installed</span></div>
+                            <div class="ed-spec-row"><span class="k">Key Capabilities</span><span class="v">
+                                    <ul>
+                                        <li>Digital whiteboarding</li>
+                                        <li>Lesson recording &amp; playback</li>
+                                        <li>Classroom interaction tools</li>
+                                        <li>Teaching data processing &amp; analytics</li>
+                                    </ul>
+                                </span></div>
+                            <div class="ed-spec-row"><span class="k">Expandability</span><span class="v">Supports
+                                    third-party educational software</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">10</span>
+                        <span class="ed-acc-title">Connectivity &amp; Interfaces</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Wireless</span><span class="v">Wi-Fi (dual-band),
+                                    Bluetooth</span></div>
+                            <div class="ed-spec-row"><span class="k">USB Ports</span><span class="v">USB 2.0 / USB 3.0
+                                    (model-dependent)</span></div>
+                            <div class="ed-spec-row"><span class="k">HDMI</span><span class="v">HDMI input &amp;
+                                    output</span></div>
+                            <div class="ed-spec-row"><span class="k">LAN</span><span class="v">RJ45 Ethernet port</span>
+                            </div>
+                            <div class="ed-spec-row"><span class="k">Audio</span><span class="v">Audio in / out</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">11</span>
+                        <span class="ed-acc-title">Mobile Application Support</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Dedicated Apps For</span><span class="v">
+                                    <ul>
+                                        <li>Principal</li>
+                                        <li>Teacher</li>
+                                        <li>Student</li>
+                                    </ul>
+                                </span></div>
+                            <div class="ed-spec-row"><span class="k">Supported Platforms</span><span class="v">Android
+                                    &amp; iOS</span></div>
+                            <div class="ed-spec-row"><span class="k">Key Functions</span><span class="v">
+                                    <ul>
+                                        <li>Classroom monitoring</li>
+                                        <li>Content sharing</li>
+                                        <li>Communication &amp; notifications</li>
+                                    </ul>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">12</span>
+                        <span class="ed-acc-title">Power &amp; Operating Conditions</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Power Supply</span><span class="v">AC 100–240V,
+                                    50/60 Hz</span></div>
+                            <div class="ed-spec-row"><span class="k">Operating Temperature</span><span class="v">0°C to
+                                    40°C</span></div>
+                            <div class="ed-spec-row"><span class="k">Storage Temperature</span><span class="v">-20°C to
+                                    60°C</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">13</span>
+                        <span class="ed-acc-title">Mounting &amp; Installation</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Mounting Standard</span><span class="v">VESA
+                                    compatible</span></div>
+                            <div class="ed-spec-row"><span class="k">Installation</span><span class="v">Wall mount /
+                                    mobile stand (optional)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-acc-item">
+                    <button class="ed-acc-head" aria-expanded="false">
+                        <span class="ed-acc-num">14</span>
+                        <span class="ed-acc-title">Compliance &amp; Reliability</span>
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
+                            <path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="ed-acc-body">
+                        <div class="ed-acc-inner">
+                            <div class="ed-spec-row"><span class="k">Certifications</span><span class="v">CE / FCC / BIS
+                                    - confirmed per model with your Gyoash contact</span></div>
+                            <div class="ed-spec-row"><span class="k">Warranty</span><span class="v">As per Gyoash
+                                    warranty policy - see <a href="warranty.html"
+                                        style="color:var(--deep-blue); font-weight:600;">Warranty &amp;
+                                        Support</a></span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ed-notes reveal">
+                <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9v5M12 16.5h.01" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                    </svg></div>
+                <p><strong>Important notes:</strong> AI features such as tracking, behaviour analysis and analytics are
+                    software-dependent and may vary by configuration or subscription. Specifications are subject to
+                    change without prior notice as part of continuous product improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section--tight">
+        <div class="container">
+            <div class="ed-trust-strip reveal">
+                <div class="ed-trust-cell">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6L9 17l-5-5" stroke="#0057D9" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <h5>Quality Support</h5>
+                </div>
+                <div class="ed-trust-cell">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21V9l9-6 9 6v12" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="M9 21v-6h6v6" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <h5>Make in India</h5>
+                </div>
+                <div class="ed-trust-cell">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <h5>PAN India Delivery &amp; Support</h5>
+                </div>
+                <div class="ed-trust-cell">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h5>Comprehensive Warranty Support</h5>
+                </div>
+                <div class="ed-trust-cell">
+                    <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="#0057D9" stroke-width="1.6" />
+                            <path d="M12 7v5l3.5 2" stroke="#0057D9" stroke-width="1.6" stroke-linecap="round" />
+                        </svg></div>
+                    <h5>Extended Warranty</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray" id="industries">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Industries We Serve</p>
+                <h2>Where our panels get put to work</h2>
+            </div>
+            <div class="ed-ind-grid">
+                <div class="ed-ind-card reveal reveal-delay-1">
+                    <div class="ed-ind-num">01</div>
+                    <h4>Corporate</h4>
+                </div>
+                <div class="ed-ind-card reveal reveal-delay-2">
+                    <div class="ed-ind-num">02</div>
+                    <h4>Private School</h4>
+                </div>
+                <div class="ed-ind-card reveal reveal-delay-3">
+                    <div class="ed-ind-num">03</div>
+                    <h4>Government</h4>
+                </div>
+                <div class="ed-ind-card reveal reveal-delay-1">
+                    <div class="ed-ind-num">04</div>
+                    <h4>Defence</h4>
+                </div>
+                <div class="ed-ind-card reveal reveal-delay-2">
+                    <div class="ed-ind-num">05</div>
+                    <h4>Retail</h4>
+                </div>
+                <div class="ed-ind-card reveal reveal-delay-3">
+                    <div class="ed-ind-num">06</div>
+                    <h4>Private Coaching Classes</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="erp">
+        <div class="container">
+            <div class="ed-mod-grid">
+                <div class="ed-mod-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(150deg,#0057D9,#66B5FF);"></div>
+                    </div>
+                </div>
+                <div class="ed-mod-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Included in This Suite</p>
+                    <h3>School ERP System</h3>
+                    <p class="sub">End-to-end, web-based school management platform - from admissions to fees, on one
+                        modular dashboard.</p>
+                    <div class="ed-mod-list">
+                        <div class="ed-mod-row"><span class="k">Architecture</span><span class="v">Web-based, modular
+                                ERP (browser access) · Cloud (SaaS) deployment</span></div>
+                        <div class="ed-mod-row"><span class="k">Core Modules</span><span class="v">Admissions, student
+                                records, attendance, timetable, exams, report cards, fees, transport, communication,
+                                basic HR, advanced NCERT content with AI enablement</span></div>
+                        <div class="ed-mod-row"><span class="k">Access</span><span class="v">Role-based dashboards for
+                                management, admin, teachers, parents and students</span></div>
+                        <div class="ed-mod-row"><span class="k">Devices</span><span class="v">Desktop, laptop, mobile
+                                browser; optional Android/iOS apps</span></div>
+                        <div class="ed-mod-row"><span class="k">Integrations</span><span class="v">SMS, email, payment
+                                gateway, RFID/biometric attendance, IFPD integration</span></div>
+                        <div class="ed-mod-row"><span class="k">Security</span><span class="v">HTTPS, role-based access
+                                control (RBAC), audit logs, encrypted data at rest</span></div>
+                        <div class="ed-mod-row"><span class="k">Database &amp; APIs</span><span class="v">Standard
+                                relational database with REST APIs for third-party integration</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray" id="curriculum">
+        <div class="container">
+            <div class="ed-mod-grid is-reverse">
+                <div class="ed-mod-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(150deg,#20B486,#39CCCC);"></div>
+                    </div>
+                </div>
+                <div class="ed-mod-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Included in This Suite</p>
+                    <h3>Digital Curriculum Content</h3>
+                    <p class="sub">Curriculum-aligned digital learning content, ready for the panel or any browser.</p>
+                    <div class="ed-mod-list">
+                        <div class="ed-mod-row"><span class="k">Curriculum</span><span class="v">NCERT-aligned,
+                                customisable for state boards / CBSE / ICSE</span></div>
+                        <div class="ed-mod-row"><span class="k">Format</span><span class="v">HTML5 interactive content,
+                                videos, animations, worksheets, quizzes</span></div>
+                        <div class="ed-mod-row"><span class="k">Classes &amp; Subjects</span><span
+                                class="v">Configurable by school (e.g. Classes 1–10, core subjects)</span></div>
+                        <div class="ed-mod-row"><span class="k">Delivery</span><span class="v">Works on IFPDs, laptops
+                                and tablets via browser or app</span></div>
+                        <div class="ed-mod-row"><span class="k">Content Access</span><span class="v">Online, with
+                                optional offline sync (local caching)</span></div>
+                        <div class="ed-mod-row"><span class="k">Analytics</span><span class="v">Basic usage and
+                                performance reports - time spent, quiz scores</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="ai-analytics">
+        <div class="container">
+            <div class="ed-mod-grid">
+                <div class="ed-mod-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(150deg,#FF6B00,#FF9248);"></div>
+                    </div>
+                </div>
+                <div class="ed-mod-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Included in This Suite</p>
+                    <h3>AI-Enabled Learning &amp; Analytics</h3>
+                    <p class="sub">AI-driven performance insights and recommendations, built on top of your ERP and
+                        content data.</p>
+
+                    <div class="ed-ai-grid">
+                        <div class="ed-ai-card">
+                            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 18l5-6 4 4 7-9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div>
+                            <h5>Features</h5>
+                            <p>Performance tracking, early-warning indicators, topic-wise strengths/weaknesses</p>
+                        </div>
+                        <div class="ed-ai-card">
+                            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <rect x="4" y="4" width="16" height="16" rx="3" stroke="#fff" stroke-width="1.8" />
+                                </svg></div>
+                            <h5>Algorithm</h5>
+                            <p>Rule-based + ML-based recommendation models (configurable)</p>
+                        </div>
+                        <div class="ed-ai-card">
+                            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="12" width="4" height="8" stroke="#fff" stroke-width="1.8" />
+                                    <rect x="10" y="7" width="4" height="13" stroke="#fff" stroke-width="1.8" />
+                                    <rect x="17" y="3" width="4" height="17" stroke="#fff" stroke-width="1.8" />
+                                </svg></div>
+                            <h5>Dashboards</h5>
+                            <p>Student, teacher and management-level analytics</p>
+                        </div>
+                        <div class="ed-ai-card">
+                            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <ellipse cx="12" cy="6" rx="7" ry="3" stroke="#fff" stroke-width="1.8" />
+                                    <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="#fff" stroke-width="1.8" />
+                                </svg></div>
+                            <h5>Data Sources</h5>
+                            <p>ERP, assessments, content usage, attendance</p>
+                        </div>
+                        <div class="ed-ai-card">
+                            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="6" cy="6" r="2.4" stroke="#fff" stroke-width="1.8" />
+                                    <circle cx="18" cy="6" r="2.4" stroke="#fff" stroke-width="1.8" />
+                                    <circle cx="12" cy="18" r="2.4" stroke="#fff" stroke-width="1.8" />
+                                    <path d="M8 7l7.5 9.5M16 7L8.5 16.5" stroke="#fff" stroke-width="1.6" />
+                                </svg></div>
+                            <h5>Integrations</h5>
+                            <p>Works with School ERP and content platform via APIs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+            </div>
+            <div class="ed-loc-grid">
+                <div class="ed-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="ed-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office - Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="ed-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office - Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="ed-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office - Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section--tight">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div>
+                    <h2>Ready to fit this suite into your school?</h2>
+                    <p>Book a demo and we'll walk through the panel, ERP and content setup live.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Book a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            function initAccordion() {
+                const acc = document.getElementById("edAccordion");
+                if (!acc) return;
+                acc.querySelectorAll(".ed-acc-head").forEach((head) => {
+                    head.addEventListener("click", () => {
+                        const item = head.closest(".ed-acc-item");
+                        const wasOpen = item.classList.contains("is-open");
+                        item.classList.toggle("is-open", !wasOpen);
+                        head.setAttribute("aria-expanded", String(!wasOpen));
+                    });
+                });
+            }
+
+            function initQuickNavSpy() {
+                const links = document.querySelectorAll(".ed-quicknav a");
+                if (!links.length) return;
+                const targets = Array.from(links)
+                    .map((a) => document.querySelector(a.getAttribute("href")))
+                    .filter(Boolean);
+                if (!targets.length || !("IntersectionObserver" in window)) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const id = "#" + entry.target.id;
+                                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+                            }
+                        });
+                    },
+                    { rootMargin: "-40% 0px -50% 0px" }
+                );
+                targets.forEach((t) => io.observe(t));
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                initAccordion();
+                initQuickNavSpy();
+            });
+        })();
+    </script>
+</body>
+
+</html>

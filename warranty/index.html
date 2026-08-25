@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Warranty &amp; Support — Gyoash | Coverage, Troubleshooting &amp; Service Tickets</title>
+<meta name="description" content="Gyoash warranty coverage for interactive flat panels — what's included, what's excluded, self-troubleshooting steps to try first, and how to raise a service ticket." />
+<link rel="icon" href="/images/logo/logo.png" type="image/png" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- ============================================================
+     Page-specific CSS — Warranty & Support page only.
+     Reuses shared tokens + shared components (.container, .section,
+     .eyebrow, .section-head, .btn, .cta-banner) already defined in
+     css/style.css. All new classes are prefixed "wr-" so they never
+     collide with shared or other-page styles.
+     ============================================================ -->
+<style>
+  /* ---------- Page header ---------- */
+  .wr-hero{ position:relative; padding:168px 0 90px; overflow:hidden; background:var(--dark-blue); }
+  .wr-hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(55% 60% at 88% 10%, rgba(102,181,255,.26), transparent 60%),
+      radial-gradient(40% 45% at 4% 95%, rgba(255,107,0,.16), transparent 60%),
+      linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+  }
+  .wr-hero-dotgrid{
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+    opacity:.5;
+  }
+  .wr-hero .container{ position:relative; z-index:2; }
+  .wr-crumb{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:12.5px; font-weight:500; color:#8FA4BC; margin-bottom:26px; flex-wrap:wrap; }
+  .wr-crumb a{ color:#B9CBE0; transition:color .3s; }
+  .wr-crumb a:hover{ color:#fff; }
+  .wr-crumb span{ color:#4C6685; }
+  .wr-hero-top{ display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:end; }
+  .wr-hero h1{ color:#fff; font-size:clamp(32px,4.2vw,50px); font-weight:700; letter-spacing:-1px; max-width:15ch; }
+  .wr-hero p.lead{ margin-top:20px; font-size:17px; line-height:1.75; color:#B9CBE0; max-width:52ch; }
+  .wr-hero-cta{ display:flex; gap:16px; margin-top:32px; flex-wrap:wrap; }
+  .wr-quicknav{ display:flex; flex-wrap:wrap; gap:10px; }
+  .wr-quicknav a{
+    font-family:var(--font-display); font-size:12.5px; font-weight:600; letter-spacing:.2px;
+    padding:11px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.18);
+    color:#D7E4F5; transition: background .3s, border-color .3s, color .3s;
+  }
+  .wr-quicknav a:hover, .wr-quicknav a.is-active{ background:var(--orange); border-color:var(--orange); color:#fff; }
+  @media (max-width:980px){ .wr-hero-top{ grid-template-columns:1fr; } }
+
+  /* ---------- Includes / Excludes ---------- */
+  .wr-cov-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .wr-cov-card{ border-radius:var(--radius-lg); padding:36px 34px; }
+  .wr-cov-card.is-include{ background:#EEFBF5; border:1px solid rgba(32,180,134,.18); }
+  .wr-cov-card.is-exclude{ background:#FFF3EC; border:1px solid rgba(255,107,0,.18); }
+  .wr-cov-card h3{ display:flex; align-items:center; gap:12px; font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--dark-blue); }
+  .wr-cov-card h3 .badge{ width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex:none; }
+  .wr-cov-card.is-include h3 .badge{ background:var(--grad-cyan-teal); }
+  .wr-cov-card.is-exclude h3 .badge{ background:var(--grad-action); }
+  .wr-cov-list{ margin-top:22px; }
+  .wr-cov-item{ display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-top:1px dashed rgba(13,27,42,.1); }
+  .wr-cov-item:first-child{ border-top:none; }
+  .wr-cov-item .mark{ width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px; }
+  .wr-cov-card.is-include .mark{ background:var(--teal); }
+  .wr-cov-card.is-exclude .mark{ background:var(--orange); }
+  .wr-cov-item span{ font-size:13.5px; color:var(--slate-dark); line-height:1.6; }
+  .wr-cov-note{ margin-top:22px; font-size:12.5px; color:var(--slate-gray); line-height:1.6; font-style:italic; }
+  @media (max-width:900px){ .wr-cov-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Paid service card ---------- */
+  .wr-paid{
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-lg);
+    padding:38px 40px; display:flex; gap:26px; align-items:flex-start; box-shadow:var(--shadow-card);
+  }
+  .wr-paid .ico{ width:52px; height:52px; border-radius:15px; background:var(--grad-sky); display:flex; align-items:center; justify-content:center; flex:none; }
+  .wr-paid h3{ font-family:var(--font-display); font-size:19px; font-weight:600; color:var(--dark-blue); }
+  .wr-paid p{ margin-top:10px; font-size:14.5px; color:var(--slate-gray); line-height:1.75; }
+  @media (max-width:640px){ .wr-paid{ flex-direction:column; padding:28px 24px; } }
+
+  /* ---------- Basic checks (DOs) ---------- */
+  .wr-do-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  .wr-do-card{
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:18px; padding:24px 20px;
+    box-shadow:var(--shadow-card); transition: transform .4s var(--ease);
+  }
+  .wr-do-card:hover{ transform:translateY(-6px); }
+  .wr-do-card .n{ font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--teal); letter-spacing:.5px; }
+  .wr-do-card h4{ margin-top:10px; font-size:14.5px; font-weight:600; color:var(--dark-blue); line-height:1.4; }
+  .wr-do-card ul{ margin-top:12px; }
+  .wr-do-card ul li{ font-size:12px; color:var(--slate-gray); line-height:1.6; padding-left:14px; position:relative; margin-bottom:5px; }
+  .wr-do-card ul li::before{ content:""; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; background:var(--teal); }
+  @media (max-width:980px){ .wr-do-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .wr-do-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- DON'Ts warning box ---------- */
+  .wr-donts{
+    background:#FFF3EC; border:1px solid rgba(255,107,0,.22); border-radius:var(--radius-lg);
+    padding:34px 36px;
+  }
+  .wr-donts h3{ display:flex; align-items:center; gap:12px; font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--dark-blue); }
+  .wr-donts h3 .badge{ width:34px; height:34px; border-radius:10px; background:var(--grad-action); display:flex; align-items:center; justify-content:center; flex:none; }
+  .wr-donts ul{ margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; }
+  .wr-donts li{ display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--slate-dark); line-height:1.6; }
+  .wr-donts li .x{ width:18px; height:18px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; flex:none; margin-top:2px; }
+  .wr-donts .warn{ margin-top:20px; font-size:12.5px; color:#B03D00; font-weight:600; }
+  @media (max-width:700px){ .wr-donts ul{ grid-template-columns:1fr; } .wr-donts{ padding:26px 24px; } }
+
+  /* ---------- FAQ accordion ---------- */
+  .wr-accordion{ max-width:900px; margin-inline:auto; border-top:1px solid rgba(13,27,42,.1); }
+  .wr-acc-item{ border-bottom:1px solid rgba(13,27,42,.1); }
+  .wr-acc-head{
+    width:100%; display:flex; align-items:center; gap:18px; padding:22px 4px;
+    text-align:left; font-family:var(--font-display);
+  }
+  .wr-acc-tag{
+    font-size:10.5px; font-weight:600; letter-spacing:.5px; color:var(--orange);
+    border:1px solid rgba(255,107,0,.3); padding:5px 10px; border-radius:999px; flex:none;
+  }
+  .wr-acc-title{ flex:1; font-size:15.5px; font-weight:600; color:var(--dark-blue); }
+  .wr-acc-head svg{ transition: transform .35s var(--ease); flex:none; }
+  .wr-acc-item.is-open .wr-acc-head svg{ transform: rotate(180deg); }
+  .wr-acc-body{ max-height:0; overflow:hidden; transition: max-height .45s var(--ease); }
+  .wr-acc-item.is-open .wr-acc-body{ max-height:400px; }
+  .wr-acc-inner{ padding:0 4px 26px 92px; font-size:13.5px; color:var(--slate-gray); line-height:1.75; }
+  .wr-acc-inner ul{ margin-top:8px; }
+  .wr-acc-inner li{ padding-left:16px; position:relative; margin-bottom:5px; }
+  .wr-acc-inner li::before{ content:""; position:absolute; left:0; top:9px; width:5px; height:5px; border-radius:50%; background:var(--sky-blue); }
+  @media (max-width:640px){ .wr-acc-inner{ padding-left:24px; } }
+
+  .wr-criteria{
+    max-width:900px; margin:44px auto 0; background:var(--soft-blue); border-radius:18px; padding:28px 30px;
+  }
+  .wr-criteria h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); margin-bottom:14px; }
+  .wr-criteria li{ display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--slate-dark); line-height:1.6; margin-bottom:8px; }
+  .wr-criteria li .mark{ width:18px; height:18px; border-radius:50%; background:var(--deep-blue); display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px; }
+  .wr-criteria .turnaround{ margin-top:14px; font-size:12.5px; color:var(--slate-gray); }
+
+  .wr-advisory{
+    max-width:900px; margin:24px auto 0; display:flex; gap:14px; align-items:flex-start;
+    background:#FFF3EC; border:1px solid rgba(255,107,0,.22); border-radius:16px; padding:20px 24px;
+  }
+  .wr-advisory .ico{ width:34px; height:34px; border-radius:10px; background:var(--grad-action); display:flex; align-items:center; justify-content:center; flex:none; }
+  .wr-advisory p{ font-size:13px; color:#B03D00; line-height:1.65; }
+  .wr-advisory strong{ color:#8A2E00; }
+
+  /* ---------- Locations (matches other pages) ---------- */
+  .wr-loc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .wr-loc-card{ background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px; padding:28px; box-shadow:var(--shadow-card); display:flex; gap:18px; }
+  .wr-loc-card .pin{ width:46px; height:46px; border-radius:13px; background:var(--soft-blue); display:flex; align-items:center; justify-content:center; flex:none; }
+  .wr-loc-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); }
+  .wr-loc-card p{ margin-top:8px; font-size:13.5px; color:var(--slate-gray); line-height:1.6; }
+  .wr-loc-card a{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--deep-blue); }
+  @media (max-width:700px){ .wr-loc-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div data-include="/fragments/navbar.html"></div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="wr-hero">
+  <div class="wr-hero-dotgrid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="wr-crumb">
+      <a href="/">Home</a><span>/</span>
+      <a href="/warranty/" style="color:#fff;">Warranty &amp; Support</a>
+    </div>
+
+    <div class="wr-hero-top">
+      <div>
+        <p class="eyebrow" style="color:var(--sky-blue);">Warranty &amp; Support</p>
+        <h1>Warranty coverage, in plain terms</h1>
+        <p class="lead">GYOASH interactive flat panels and associated products are covered under a limited manufacturer warranty, subject to the terms outlined below.</p>
+        <div class="wr-hero-cta">
+          <a href="mailto:helpdesk@gyoash.com?subject=Service%20Ticket" class="btn btn-primary">Raise a Ticket</a>
+          <a href="#troubleshooting" class="btn btn-outline on-dark">Try Self-Troubleshooting First</a>
+        </div>
+      </div>
+      <div class="wr-quicknav" aria-label="Jump to section">
+        <a href="#coverage">Coverage</a>
+        <a href="#paid-service">Paid Service</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#faq">FAQs</a>
+        <a href="#locations">Locations</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARRANTY INCLUDES / EXCLUDES ============ -->
+<section class="section" id="coverage">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Warranty Coverage</p>
+      <h2>What's covered — and what isn't</h2>
+      <p>The warranty covers manufacturing defects and functional failures arising under normal and intended use.</p>
+    </div>
+
+    <div class="wr-cov-grid">
+      <div class="wr-cov-card is-include reveal reveal-delay-1">
+        <h3><span class="badge"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Warranty Includes</h3>
+        <div class="wr-cov-list">
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Power-on failures not caused by external electrical issues</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Display or touch malfunction due to internal component failure</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Camera, microphone, or speaker malfunction under normal operating conditions</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Software issues related to the factory-installed operating system</span></div>
+        </div>
+        <p class="wr-cov-note">Warranty support includes repair or replacement of defective parts, at GYOASH's discretion, after technical verification.</p>
+      </div>
+
+      <div class="wr-cov-card is-exclude reveal reveal-delay-2">
+        <h3><span class="badge"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></span>Warranty Excludes</h3>
+        <div class="wr-cov-list">
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Physical damage, cracked panels, broken glass, or impact damage</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Liquid ingress, moisture exposure, or corrosion</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Damage from voltage fluctuation, improper earthing, or unstable power supply</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Installation or repair performed by unauthorized personnel</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Use of non-approved accessories, adapters, or third-party software</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Serial number missing, altered, or tampered</span></div>
+          <div class="wr-cov-item"><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div><span>Damage caused by misuse, negligence, or accidents</span></div>
+        </div>
+        <p class="wr-cov-note">Final determination of warranty eligibility will be made by the GYOASH technical team after inspection or remote diagnosis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUT-OF-WARRANTY & PAID SERVICE ============ -->
+<section class="section section--gray" id="paid-service">
+  <div class="container">
+    <div class="wr-paid reveal">
+      <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6"/><path d="M12 7.5v9M9.5 9.5c0-1.4 1.1-2.2 2.5-2.2s2.5.8 2.5 2c0 1.6-2.5 1.7-2.5 3.7M9.5 15.5c0 1.3 1.1 2 2.5 2s2.5-.7 2.5-2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <div>
+        <h3>Out-of-Warranty &amp; Paid Service</h3>
+        <p>If the product is out of its warranty period, or found ineligible for warranty due to the conditions above, GYOASH will offer paid repair and maintenance services. Applicable service charges and spare part costs will be communicated after initial diagnosis and before any repair work begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELF-TROUBLESHOOTING GUIDE ============ -->
+<section class="section" id="troubleshooting">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center; display:flex;">Self-Troubleshooting Guide</p>
+      <h2>Try before raising a ticket</h2>
+      <p style="margin-inline:auto;">Before raising a service request, please perform these basic checks. In many cases, the issue resolves without service intervention.</p>
+    </div>
+
+    <div class="wr-do-grid">
+      <div class="wr-do-card reveal reveal-delay-1">
+        <div class="n">STEP 01</div>
+        <h4>Restart the panel</h4>
+        <ul>
+          <li>Power off the device completely</li>
+          <li>Switch off the main power supply</li>
+          <li>Wait 2 minutes and power on again</li>
+        </ul>
+      </div>
+      <div class="wr-do-card reveal reveal-delay-2">
+        <div class="n">STEP 02</div>
+        <h4>Check power source</h4>
+        <ul>
+          <li>Connect to a different wall socket</li>
+          <li>Avoid extension cords or spike guards temporarily</li>
+          <li>Ensure proper earthing is available</li>
+        </ul>
+      </div>
+      <div class="wr-do-card reveal reveal-delay-3">
+        <div class="n">STEP 03</div>
+        <h4>Verify cable connections</h4>
+        <ul>
+          <li>Reconnect HDMI / Type-C / OPS cables firmly</li>
+          <li>Remove and reconnect the OPS module (if applicable)</li>
+        </ul>
+      </div>
+      <div class="wr-do-card reveal reveal-delay-4">
+        <div class="n">STEP 04</div>
+        <h4>Test with alternate input</h4>
+        <ul>
+          <li>Try a different laptop or input source</li>
+          <li>Check if the issue persists across inputs</li>
+        </ul>
+      </div>
+      <div class="wr-do-card reveal reveal-delay-1">
+        <div class="n">STEP 05</div>
+        <h4>Software reset</h4>
+        <ul>
+          <li>Restart the Android system</li>
+          <li>Restore factory settings — only if accessible and data is backed up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="max-width:900px; margin:36px auto 0;">
+      <div class="wr-donts reveal">
+        <h3><span class="badge"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 9v5M12 16.5h.01" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6"/></svg></span>What NOT To Do</h3>
+        <ul>
+          <li><div class="x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>Do not open the panel or remove back covers</li>
+          <li><div class="x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>Do not attempt self-repair or local technician repair</li>
+          <li><div class="x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>Do not apply pressure on the display surface</li>
+          <li><div class="x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>Do not clean the screen with liquid chemicals or sprays</li>
+          <li><div class="x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>Do not continue usage if burning smell, sparks, or smoke are observed</li>
+        </ul>
+        <p class="warn">Any of the above actions may void the warranty immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ / COMMON ISSUES ============ -->
+<section class="section section--gray" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center; display:flex;">FAQs</p>
+      <h2>Common issues, at a glance</h2>
+      <p style="margin-inline:auto;">These map back to the self-troubleshooting steps above — worth running through before you raise a ticket.</p>
+    </div>
+
+    <div class="wr-accordion reveal" id="wrAccordion">
+      <div class="wr-acc-item is-open">
+        <button class="wr-acc-head" aria-expanded="true">
+          <span class="wr-acc-tag">NO POWER</span>
+          <span class="wr-acc-title">Panel not turning on</span>
+          <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="wr-acc-body">
+          <div class="wr-acc-inner">
+            Start with a full power-cycle and check the power source before anything else:
+            <ul>
+              <li>Power off completely, switch off the main supply, wait 2 minutes, then power on again</li>
+              <li>Try a different wall socket — avoid extension cords or spike guards temporarily</li>
+              <li>Confirm proper earthing is in place</li>
+            </ul>
+            If the panel still won't power on after this, raise a ticket with the serial number and a short video.
+          </div>
+        </div>
+      </div>
+
+      <div class="wr-acc-item">
+        <button class="wr-acc-head" aria-expanded="false">
+          <span class="wr-acc-tag">TOUCH</span>
+          <span class="wr-acc-title">Touch not working / partial touch response</span>
+          <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="wr-acc-body">
+          <div class="wr-acc-inner">
+            Touch issues are usually a connection or software problem, not hardware:
+            <ul>
+              <li>Reconnect HDMI / Type-C / OPS cables firmly, and reseat the OPS module if applicable</li>
+              <li>Test with a different laptop or input source to see if the issue follows the input</li>
+              <li>Restart the Android system; restore factory settings only if data is backed up</li>
+            </ul>
+            Still partial or unresponsive after this? Raise a ticket — touch malfunction from internal component failure is covered under warranty.
+          </div>
+        </div>
+      </div>
+
+      <div class="wr-acc-item">
+        <button class="wr-acc-head" aria-expanded="false">
+          <span class="wr-acc-tag">DISPLAY</span>
+          <span class="wr-acc-title">No display / lines / blank screen</span>
+          <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1l6 6 6-6" stroke="#001F3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="wr-acc-body">
+          <div class="wr-acc-inner">
+            Rule out the input and cabling before assuming it's the panel:
+            <ul>
+              <li>Reconnect HDMI / Type-C / OPS cables firmly</li>
+              <li>Try an alternate input source and check if the issue persists across inputs</li>
+              <li>Power-cycle the panel fully</li>
+            </ul>
+            If the blank screen, lines or artefacts persist across inputs, this points to an internal fault — raise a ticket.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wr-criteria reveal">
+      <h4>When to raise a service ticket</h4>
+      <ul style="list-style:none; margin:0; padding:0;">
+        <li><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>The issue persists after completing the troubleshooting steps above</li>
+        <li><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>You're ready to upload clear images and a short video of the issue</li>
+        <li><div class="mark"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>You have the product serial number available — mandatory for warranty support</li>
+      </ul>
+      <p class="turnaround">Once submitted, our support team will review the request and contact you within 24–48 working hours.</p>
+    </div>
+
+    <div class="wr-advisory reveal">
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v5M12 16.5h.01" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6"/></svg></div>
+      <p><strong>Important:</strong> raising a service ticket without following the troubleshooting steps above, or without providing complete information, may result in delay or rejection of the request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="section" id="locations">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Find Us</p>
+      <h2>Our offices across India</h2>
+    </div>
+    <div class="wr-loc-grid">
+      <div class="wr-loc-card reveal reveal-delay-1">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Factory &amp; Experience Centre</h4>
+          <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="wr-loc-card reveal reveal-delay-2">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Corporate Office — Pune</h4>
+          <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune - 411004</p>
+          <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="wr-loc-card reveal reveal-delay-3">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Branch Office — Nashik</h4>
+          <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
+          <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="wr-loc-card reveal reveal-delay-4">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Sales Office — Indore</h4>
+          <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Still stuck after troubleshooting?</h2>
+        <p>Raise a ticket with your serial number and a short video — our team responds within 24–48 working hours.</p>
+      </div>
+      <a href="mailto:helpdesk@gyoash.com?subject=Service%20Ticket" class="btn btn-primary">Raise a Ticket</a>
+    </div>
+  </div>
+</section>
+
+<div data-include="/fragments/footer.html"></div>
+<div data-include="/fragments/chat-widget.html"></div>
+
+<script src="/js/script.js"></script>
+
+<!-- ============================================================
+     Page-specific JS — Warranty & Support page only.
+     Powers the FAQ accordion and highlights the active quick-nav
+     pill as the person scrolls.
+     ============================================================ -->
+<script>
+(function () {
+  "use strict";
+
+  function initAccordion() {
+    const acc = document.getElementById("wrAccordion");
+    if (!acc) return;
+    acc.querySelectorAll(".wr-acc-head").forEach((head) => {
+      head.addEventListener("click", () => {
+        const item = head.closest(".wr-acc-item");
+        const wasOpen = item.classList.contains("is-open");
+        item.classList.toggle("is-open", !wasOpen);
+        head.setAttribute("aria-expanded", String(!wasOpen));
+      });
+    });
+  }
+
+  function initQuickNavSpy() {
+    const links = document.querySelectorAll(".wr-quicknav a");
+    if (!links.length) return;
+    const targets = Array.from(links)
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+    if (!targets.length || !("IntersectionObserver" in window)) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = "#" + entry.target.id;
+            links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+    targets.forEach((t) => io.observe(t));
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initAccordion();
+    initQuickNavSpy();
+  });
+})();
+</script>
+</body>
+</html>

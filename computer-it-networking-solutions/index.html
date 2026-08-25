@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computer, IT &amp; Networking Solutions - Gyoash | Hardware, Networking &amp; Data Centre Setup</title>
+    <meta name="description"
+        content="Gyoash's Computer, IT &amp; Networking Solutions: computers &amp; peripherals, networking equipment, server &amp; storage, enterprise connectivity, and end-to-end data centre setup." />
+    <link rel="icon" href="/images/logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        /* ---------- Page header ---------- */
+        .it-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .it-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .it-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .it-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .it-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+            flex-wrap: wrap;
+        }
+
+        .it-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .it-crumb a:hover {
+            color: #fff;
+        }
+
+        .it-crumb span {
+            color: #4C6685;
+        }
+
+        .it-hero-top {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: end;
+        }
+
+        .it-hero h1 {
+            color: #fff;
+            font-size: clamp(32px, 4.2vw, 50px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 18ch;
+        }
+
+        .it-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .it-hero p.lead {
+            margin-top: 20px;
+            font-size: 17px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 56ch;
+        }
+
+        .it-hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .it-quicknav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .it-quicknav a {
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: #D7E4F5;
+            transition: background .3s, border-color .3s, color .3s;
+        }
+
+        .it-quicknav a:hover,
+        .it-quicknav a.is-active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .it-hero-specs {
+            display: flex;
+            gap: 0;
+            margin-top: 46px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            flex-wrap: wrap;
+        }
+
+        .it-hero-specs .s {
+            flex: 1;
+            min-width: 130px;
+            padding-right: 20px;
+        }
+
+        .it-hero-specs .s strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .it-hero-specs .s span {
+            font-size: 12px;
+            color: #9FB4CC;
+        }
+
+        @media (max-width:980px) {
+            .it-hero-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Flagship checklist sections (5 solution modules) ---------- */
+        .it-flag {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .it-flag.is-reverse .it-flag-media {
+            order: 2;
+        }
+
+        .it-flag.is-reverse .it-flag-copy {
+            order: 1;
+        }
+
+        .it-flag-media .frame {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
+        }
+
+        .it-flag-media .frame .fill {
+            width: 100%;
+            aspect-ratio: 4/5;
+        }
+
+        .it-flag-media .badge-float {
+            margin-top: -40px;
+            margin-left: 22px;
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: var(--shadow-soft);
+            padding: 18px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .it-flag-media .badge-float .n {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--dark-blue);
+        }
+
+        .it-flag-media .badge-float .t {
+            font-size: 11.5px;
+            color: var(--slate-gray);
+            max-width: 140px;
+            line-height: 1.4;
+        }
+
+        .it-flag-copy .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .it-flag-copy h3 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 2.8vw, 32px);
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -.4px;
+            max-width: 18ch;
+        }
+
+        .it-flag-copy .sub {
+            margin-top: 14px;
+            font-size: 15.5px;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        .it-flag-copy .note {
+            margin-top: 20px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.7;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(13, 27, 42, .12);
+        }
+
+        .it-check-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin-top: 26px;
+        }
+
+        .it-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .it-check-item .tick {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            margin-top: 1px;
+        }
+
+        .it-check-item span {
+            font-size: 13.5px;
+            color: var(--slate-dark);
+            line-height: 1.55;
+        }
+
+        @media (max-width:980px) {
+
+            .it-flag,
+            .it-flag.is-reverse {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .it-flag.is-reverse .it-flag-media,
+            .it-flag.is-reverse .it-flag-copy {
+                order: 0;
+            }
+        }
+
+        @media (max-width:560px) {
+            .it-check-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Why Choose Gyoash - 4 card grid ---------- */
+        .it-why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .it-why-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 30px 26px;
+            box-shadow: var(--shadow-card);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+        }
+
+        .it-why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 50px -18px rgba(0, 31, 63, .28);
+        }
+
+        .it-why-card .ico {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .it-why-card:nth-child(1) .ico {
+            background: var(--grad-sky);
+        }
+
+        .it-why-card:nth-child(2) .ico {
+            background: var(--grad-cyan-teal);
+        }
+
+        .it-why-card:nth-child(3) .ico {
+            background: var(--grad-action);
+        }
+
+        .it-why-card:nth-child(4) .ico {
+            background: linear-gradient(135deg, var(--dark-blue), var(--slate-gray));
+        }
+
+        .it-why-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .it-why-card p {
+            margin-top: 10px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.65;
+        }
+
+        @media (max-width:980px) {
+            .it-why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:560px) {
+            .it-why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- Locations (matches other pages) ---------- */
+        .it-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .it-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .it-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .it-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .it-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .it-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .it-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="it-hero">
+        <div class="it-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="it-crumb">
+                <a href="/">Home</a><span>/</span>
+                <a href="/computer-it-networking-solutions/" style="color:#fff;">Products</a><span>/</span>
+                <a href="/computer-it-networking-solutions/" style="color:#fff;">Computer, IT &amp; Networking</a>
+            </div>
+
+            <div class="it-hero-top">
+                <div>
+                    <p class="eyebrow" style="color:var(--sky-blue);">Computer, IT &amp; Networking Solutions</p>
+                    <h1>IT infrastructure built for <em>reliability at scale</em></h1>
+                    <p class="lead">End-to-end IT infrastructure - from desktops, laptops and printers to enterprise
+                        networking and full data centre setup - designed for reliability, scalability and long-term
+                        performance.</p>
+                    <div class="it-hero-cta">
+                        <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+                        <a href="#peripherals" class="btn btn-outline on-dark">Explore Solutions</a>
+                    </div>
+                </div>
+                <div class="it-quicknav" aria-label="Jump to section">
+                    <a href="#peripherals">Peripherals</a>
+                    <a href="#networking">Networking</a>
+                    <a href="#servers">Servers</a>
+                    <a href="#connectivity">Connectivity</a>
+                    <a href="#datacenter">Data Centre</a>
+                    <a href="#why-us">Why Us</a>
+                </div>
+            </div>
+
+            <div class="it-hero-specs">
+                <div class="s"><strong>5</strong><span>Solution areas, one vendor</span></div>
+                <div class="s"><strong>Branded</strong><span>Hardware &amp; genuine software</span></div>
+                <div class="s"><strong>PAN India</strong><span>Delivery &amp; deployment</span></div>
+                <div class="s"><strong>AMC</strong><span>Optional maintenance cover</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ OVERVIEW ============ -->
+    <section class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-media reveal">
+                    <div class="frame">
+                        <div class="fill"
+                            style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;">
+                        </div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">1</div>
+                        <div class="t">Accountable partner for hardware, networking &amp; deployment</div>
+                    </div>
+                </div>
+
+                <div class="about-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Overview</p>
+                    <h2>Secure, future-ready digital ecosystems, built end-to-end</h2>
+                    <p>At Gyoash, we deliver end-to-end IT infrastructure solutions designed for reliability,
+                        scalability and long-term performance. From individual computing devices to enterprise-grade
+                        networking and data centre setups, we help organisations build secure, future-ready digital
+                        ecosystems.</p>
+                    <p>Our solutions cater to corporates, educational institutions, government bodies, SMEs and large
+                        enterprises, with a strong focus on quality hardware, professional deployment and dependable
+                        after-sales support.</p>
+                    <div style="margin-top:8px;"><a href="/contact/" class="btn btn-outline">Talk to Our IT Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ COMPUTERS & IT PERIPHERALS ============ -->
+    <section class="section section--gray" id="peripherals">
+        <div class="container">
+            <div class="it-flag">
+                <div class="it-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#001F3F,#0057D9 65%,#66B5FF);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">All-in-one</div>
+                        <div class="t">Desktops, laptops, AIOs, printers, scanners, UPS &amp; more</div>
+                    </div>
+                </div>
+                <div class="it-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Computers &amp; IT Peripherals</p>
+                    <h3>A complete range of branded computing solutions</h3>
+                    <p class="sub">Branded and custom-configured computing solutions to meet diverse operational
+                        requirements - from a single reception desktop to a full workstation rollout.</p>
+
+                    <div class="it-check-list">
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Desktop computers, laptops and all-in-one PCs</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Workstations for high-performance applications</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Monitors, printers, scanners, UPS &amp; power backup solutions</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Accessories - keyboards, mice, webcams, conferencing
+                                peripherals</span>
+                        </div>
+                    </div>
+
+                    <p class="note">All systems are supplied with genuine software, warranty support, and optional AMC
+                        services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ NETWORKING EQUIPMENT & SOLUTIONS ============ -->
+    <section class="section" id="networking">
+        <div class="container">
+            <div class="it-flag is-reverse">
+                <div class="it-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#20B486,#39CCCC 65%,#66B5FF);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">LAN + Fiber</div>
+                        <div class="t">Structured cabling &amp; wireless coverage</div>
+                    </div>
+                </div>
+                <div class="it-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Networking Equipment &amp; Solutions</p>
+                    <h3>Robust networks built for availability and security</h3>
+                    <p class="sub">We design and supply robust networking solutions that ensure high availability, speed
+                        and security across your organisation - optimised for performance, redundancy and future
+                        scalability.</p>
+
+                    <div class="it-check-list">
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Switches - managed &amp; unmanaged</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Routers, firewalls, and network security devices</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Wireless access points and Wi-Fi solutions</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Structured cabling (LAN, fiber) and network accessories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVER & STORAGE SOLUTIONS ============ -->
+    <section class="section section--gray" id="servers">
+        <div class="container">
+            <div class="it-flag">
+                <div class="it-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#FF6B00,#FF9248 65%,#0057D9);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">NAS / SAN</div>
+                        <div class="t">Backup &amp; disaster recovery built in</div>
+                    </div>
+                </div>
+                <div class="it-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Server &amp; Storage Solutions</p>
+                    <h3>Enterprise-grade infrastructure for mission-critical workloads</h3>
+                    <p class="sub">We deliver enterprise-grade server and storage infrastructure to support
+                        mission-critical workloads - designed for high uptime, data integrity and business continuity.
+                    </p>
+
+                    <div class="it-check-list">
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Rack, tower, and blade servers</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>On-premise and hybrid server environments</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Network Attached Storage (NAS) and Storage Area Networks (SAN)</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Backup, disaster recovery, and data protection solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ENTERPRISE CONNECTIVITY SOLUTIONS ============ -->
+    <section class="section" id="connectivity">
+        <div class="container">
+            <div class="it-flag is-reverse">
+                <div class="it-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#0057D9,#39CCCC 65%,#20B486);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">Multi-site</div>
+                        <div class="t">Secure inter-branch connectivity</div>
+                    </div>
+                </div>
+                <div class="it-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Enterprise Connectivity Solutions</p>
+                    <h3>Seamless connectivity across locations and systems</h3>
+                    <p class="sub">We help organisations achieve seamless connectivity across locations and systems,
+                        with a focus on secure, reliable and efficient enterprise communication.</p>
+
+                    <div class="it-check-list">
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>WAN and inter-branch connectivity solutions</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>VPN and secure remote access</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Bandwidth planning and optimisation</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Integration with existing IT infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DATA CENTER SETUP & INFRASTRUCTURE ============ -->
+    <section class="section section--gray" id="datacenter">
+        <div class="container">
+            <div class="it-flag">
+                <div class="it-flag-media reveal">
+                    <div class="frame">
+                        <div class="fill" style="background:linear-gradient(160deg,#001F3F,#64748B 65%,#0057D9);"></div>
+                    </div>
+                    <div class="badge-float">
+                        <div class="n">End-to-end</div>
+                        <div class="t">Design, deployment &amp; optimisation</div>
+                    </div>
+                </div>
+                <div class="it-flag-copy reveal reveal-delay-1">
+                    <p class="eyebrow">Data Centre Setup &amp; Infrastructure</p>
+                    <h3>Scalable, energy-efficient, operationally resilient</h3>
+                    <p class="sub">Gyoash offers end-to-end data centre planning, deployment and optimisation services —
+                        built to be scalable, energy-efficient and operationally resilient.</p>
+
+                    <div class="it-check-list">
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Data centre design and layout planning</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Server racks, power distribution units (PDUs), and cooling
+                                solutions</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Network architecture and redundancy planning</span>
+                        </div>
+                        <div class="it-check-item">
+                            <div class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></div><span>Compliance-ready infrastructure with documentation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE GYOASH ============ -->
+    <section class="section" id="why-us">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow" style="justify-content:center; display:flex;">Why Choose Gyoash</p>
+                <h2>One accountable partner, start to finish</h2>
+            </div>
+
+            <div class="it-why-grid">
+                <div class="it-why-card reveal reveal-delay-1">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Single-Point Responsibility</h4>
+                    <p>One accountable partner for hardware, networking and deployment - no finger-pointing between
+                        vendors.</p>
+                </div>
+                <div class="it-why-card reveal reveal-delay-2">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 18l5-6 4 4 7-9" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Execution-Focused Team</h4>
+                    <p>An experienced technical team that plans for the real-world constraints of your site, not just
+                        the spec sheet.</p>
+                </div>
+                <div class="it-why-card reveal reveal-delay-3">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" stroke="#fff"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                        </svg></div>
+                    <h4>Quality-Driven Approach</h4>
+                    <p>Branded components and genuine software as standard - not the cheapest part that happens to fit.
+                    </p>
+                </div>
+                <div class="it-why-card reveal reveal-delay-4">
+                    <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                            <path d="M12 7v5l3.5 2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                        </svg></div>
+                    <h4>Post-Deployment Support</h4>
+                    <p>Strong post-deployment support and maintenance capabilities, with AMC options for long-term
+                        cover.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATIONS ============ -->
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+            </div>
+            <div class="it-loc-grid">
+                <div class="it-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="it-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office - Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="it-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office - Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="it-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office - Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="section--tight">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div>
+                    <h2>Ready to plan your IT rollout?</h2>
+                    <p>Tell us what you're building - a few desktops, a full network, or a data centre - and we'll scope
+                        it with you.</p>
+                </div>
+                <a href="/contact/" class="btn btn-primary">Book a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            function initQuickNavSpy() {
+                const links = document.querySelectorAll(".it-quicknav a");
+                if (!links.length) return;
+                const targets = Array.from(links)
+                    .map((a) => document.querySelector(a.getAttribute("href")))
+                    .filter(Boolean);
+                if (!targets.length || !("IntersectionObserver" in window)) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const id = "#" + entry.target.id;
+                                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+                            }
+                        });
+                    },
+                    { rootMargin: "-40% 0px -50% 0px" }
+                );
+                targets.forEach((t) => io.observe(t));
+            }
+
+            document.addEventListener("DOMContentLoaded", initQuickNavSpy);
+        })();
+    </script>
+</body>
+
+</html>
