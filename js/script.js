@@ -26,6 +26,7 @@
     setYear();
   });
 
+  /* ---------- 2. Navbar: scroll state, mobile menu, dropdown ---------- */
   function initNavbar() {
     const navbar = document.getElementById("navbar");
     const toggle = document.getElementById("navToggle");
@@ -44,14 +45,14 @@
       toggle.classList.remove("is-active");
       scrim.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
-      navbar.classList.remove("menu-open"); // <-- add this
+      navbar.classList.remove("menu-open");
     };
     const openMenu = () => {
       links.classList.add("is-open");
       toggle.classList.add("is-active");
       scrim.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
-      navbar.classList.add("menu-open"); // <-- add this
+      navbar.classList.add("menu-open");
     };
 
     toggle?.addEventListener("click", () => {
@@ -60,6 +61,7 @@
     scrim?.addEventListener("click", closeMenu);
     links?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
 
+    // Mobile dropdown toggle (Products)
     const ddToggle = links?.querySelector(".dropdown-toggle");
     ddToggle?.addEventListener("click", () => {
       const dd = ddToggle.nextElementSibling;
@@ -68,6 +70,7 @@
       dd?.classList.toggle("is-open");
     });
 
+    // Escape closes mobile menu
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
@@ -100,12 +103,12 @@
 
       // If a dropdown child is active, highlight the "Products" toggle button too
       if (dropdownHasActive) {
-        const ddToggle = document.querySelector('.nav-links .dropdown-toggle');
-        ddToggle?.classList.add('is-active');
+        const ddToggleEl = document.querySelector('.nav-links .dropdown-toggle');
+        ddToggleEl?.classList.add('is-active');
       }
     }
 
-    markActiveNavLink(); // <-- THIS LINE WAS MISSING — the function was defined but never invoked
+    markActiveNavLink();
   }
 
   /* ---------- 3. Scroll reveal ---------- */
