@@ -44,12 +44,14 @@
       toggle.classList.remove("is-active");
       scrim.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
+      navbar.classList.remove("menu-open"); // <-- add this
     };
     const openMenu = () => {
       links.classList.add("is-open");
       toggle.classList.add("is-active");
       scrim.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
+      navbar.classList.add("menu-open"); // <-- add this
     };
 
     toggle?.addEventListener("click", () => {

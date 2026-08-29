@@ -334,6 +334,8 @@ p {
   align-items: center;
   gap: 1.5px;
   flex-wrap: nowrap; 
+  background: var(--dark-blue); /* already solid — good */
+  z-index: 1050; 
 }
 
 .nav-links > li {
@@ -520,6 +522,18 @@ p {
 
 .nav-toggle {
   display: none;
+}
+
+/* Prevent navbar's backdrop-filter from creating a containing-block
+   issue for the fixed mobile menu / scrim while it's open */
+.navbar:has(.nav-links.is-open) {
+  backdrop-filter: none;
+  background: transparent;
+}
+
+.navbar.menu-open {
+  backdrop-filter: none;
+  background: transparent;
 }
 
 /* Mobile nav */
