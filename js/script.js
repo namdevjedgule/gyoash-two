@@ -26,7 +26,6 @@
     setYear();
   });
 
-  /* ---------- 2. Navbar: scroll state, mobile menu, dropdown ---------- */
   function initNavbar() {
     const navbar = document.getElementById("navbar");
     const toggle = document.getElementById("navToggle");
@@ -59,7 +58,6 @@
     scrim?.addEventListener("click", closeMenu);
     links?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
 
-    // Mobile dropdown toggle (Products)
     const ddToggle = links?.querySelector(".dropdown-toggle");
     ddToggle?.addEventListener("click", () => {
       const dd = ddToggle.nextElementSibling;
@@ -68,10 +66,44 @@
       dd?.classList.toggle("is-open");
     });
 
-    // Escape closes mobile menu
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
+
+    function markActiveNavLink() {
+      const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+
+      // Top-level links (Home, About, AMC/CMC, etc.)
+      const navAnchors = document.querySelectorAll('.nav-links > li > a[href]');
+      navAnchors.forEach((a) => {
+        const linkPath = new URL(a.getAttribute('href'), window.location.origin)
+          .pathname.replace(/\/$/, '') || '/';
+        if (linkPath === currentPath) {
+          a.classList.add('is-active');
+        }
+      });
+
+      // Dropdown links (Products submenu)
+      const dropdownAnchors = document.querySelectorAll('.dropdown a[href]');
+      let dropdownHasActive = false;
+
+      dropdownAnchors.forEach((a) => {
+        const linkPath = new URL(a.getAttribute('href'), window.location.origin)
+          .pathname.replace(/\/$/, '') || '/';
+        if (linkPath === currentPath) {
+          a.classList.add('is-active');
+          dropdownHasActive = true;
+        }
+      });
+
+      // If a dropdown child is active, highlight the "Products" toggle button too
+      if (dropdownHasActive) {
+        const ddToggle = document.querySelector('.nav-links .dropdown-toggle');
+        ddToggle?.classList.add('is-active');
+      }
+    }
+
+    markActiveNavLink(); // <-- THIS LINE WAS MISSING — the function was defined but never invoked
   }
 
   /* ---------- 3. Scroll reveal ---------- */

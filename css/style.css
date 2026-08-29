@@ -1,33 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Brand palette */
   --dark-blue: #001F3F;
   --deep-blue: #0057D9;
   --sky-blue: #66B5FF;
   --cyan: #39CCCC;
   --teal: #20B486;
   --orange: #FF6B00;
-
   --navy: #0D1B2A;
   --slate-dark: #1E293B;
   --slate-gray: #64748B;
   --light-gray: #F1F5F9;
   --soft-blue: #E6F2FF;
   --white: #FFFFFF;
-
-  /* Gradients */
   --grad-blue: linear-gradient(135deg, var(--dark-blue), var(--deep-blue));
   --grad-sky: linear-gradient(135deg, var(--deep-blue), var(--sky-blue));
   --grad-cyan-teal: linear-gradient(135deg, var(--cyan), var(--teal));
   --grad-action: linear-gradient(120deg, var(--deep-blue) 0%, var(--orange) 100%);
   --grad-warm: linear-gradient(120deg, var(--teal) 0%, var(--orange) 100%);
-
-  /* Type scale */
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
-
-  /* Layout */
   --container: 1240px;
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -185,7 +177,6 @@ p {
   color: #AFC2D6;
 }
 
-/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -253,7 +244,6 @@ p {
   transform: translateX(5px);
 }
 
-/* ---------- Chevron / shard motif ---------- */
 .shard {
   clip-path: polygon(22% 0, 100% 0, 78% 100%, 0% 100%);
 }
@@ -271,7 +261,6 @@ p {
   height: 100%;
 }
 
-/* ---------- Utility ---------- */
 .text-gradient {
   background: var(--grad-action);
   -webkit-background-clip: text;
@@ -311,7 +300,6 @@ p {
   color: var(--white);
 }
 
-/* ===================== NAVBAR ===================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -345,24 +333,27 @@ p {
   display: flex;
   align-items: center;
   gap: 1.5px;
+  flex-wrap: nowrap; 
 }
 
-.nav-links>li {
+.nav-links > li {
   position: relative;
+  flex: none; 
 }
 
-.nav-links>li>a,
-.nav-links>li>button {
+.nav-links > li > a,
+.nav-links > li > button {
   display: flex;
   align-items: center;
   gap: 4px;
   font-family: var(--font-display);
   font-size: 12px;
   font-weight: 500;
-  padding: 10px 16px;
+  padding: 10px 14px; 
   color: var(--white);
   border-radius: 999px;
-  transition: color .3s, background .3s;
+  white-space: nowrap; 
+  transition: color .3s;
 }
 
 .navbar.is-scrolled .nav-links>li>a,
@@ -370,14 +361,39 @@ p {
   color: var(--dark-blue);
 }
 
-.nav-links>li>a:hover,
-.nav-links>li>button:hover {
-  background: rgba(255, 255, 255, .14);
+.nav-links > li > a,
+.nav-links > li > button {
+  position: relative;
 }
 
-.navbar.is-scrolled .nav-links>li>a:hover,
-.navbar.is-scrolled .nav-links>li>button:hover {
-  background: var(--soft-blue);
+/* the underline itself */
+.nav-links > li > a::after,
+.nav-links > li > button::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+
+.nav-links > li > a:hover::after,
+.nav-links > li > button:hover::after,
+.nav-links > li > a.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-links > li > a.is-active {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.navbar.is-scrolled .nav-links > li > a.is-active {
+  color: var(--orange);
 }
 
 .nav-right {
@@ -445,11 +461,51 @@ p {
   font-size: 14px;
   font-weight: 500;
   transition: background .25s, color .25s, padding-left .25s;
+  position: relative;
+}
+
+.dropdown a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+
+.dropdown a:hover::after,
+.dropdown a.is-active::after {
+  transform: scaleX(1);
+}
+
+.dropdown a.is-active {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.dropdown a.is-active .dot {
+  background: var(--orange);
+}
+
+.nav-links > li > button.is-active {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.navbar.is-scrolled .nav-links > li > button.is-active {
+  color: var(--orange);
+}
+
+.nav-links > li > button.is-active::after {
+  transform: scaleX(1);
 }
 
 .dropdown a:hover {
-  background: var(--soft-blue);
-  color: var(--deep-blue);
+  color: var(--orange);
   padding-left: 18px;
 }
 
@@ -597,19 +653,19 @@ p {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* slow, subtle Ken Burns drift so the hero doesn't feel static — remove the
-     animation line below if the client prefers a fully static photo */
   animation: heroPhotoDrift 22s ease-in-out infinite alternate;
 }
 
 @keyframes heroPhotoDrift {
-  from { transform: scale(1); }
-  to   { transform: scale(1.06); }
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
 }
 
-/* Colour wash over the photo — kept translucent (not solid) so the photo
-   reads through, darker on the left where the headline sits, lighter on the
-   right where the shard graphic / photo detail should show. */
 .hero::before {
   content: "";
   position: absolute;
