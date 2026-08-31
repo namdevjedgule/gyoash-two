@@ -19,10 +19,10 @@
     initRevealObserver();
   });
 
-  /* Everything else can init immediately (doesn't depend on fragments) */
   document.addEventListener("DOMContentLoaded", () => {
     initCounters();
     initScrollers();
+    initMediaLightbox();
     setYear();
   });
 
@@ -198,4 +198,84 @@
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
   }
+
+  /* ---------- 7. Media modal + lightbox (Gallery / Instagram) ---------- */
+  function initMediaLightbox() {
+    const modals = document.querySelectorAll("[data-modal]");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    if (!modals.length || !lightbox) return;
+
+    let currentGroup = [];
+    let currentIndex = 0;
+
+    // Open "View more" modals
+    document.querySelectorAll("[data-open-modal]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modal = document.getElementById(btn.getAttribute("data-open-modal"));
+        modal?.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.querySelectorAll("[data-close-modal]").forEach((btn) =>
+        btn.addEventListener("click", () => closeModal(modal))
+      );
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    function closeModal(modal) {
+      modal.classList.remove("is-open");
+      if (!document.querySelector(".media-modal.is-open") && !lightbox.classList.contains("is-open")) {
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Lightbox trigger (works for items in the page grid AND inside modals)
+    document.querySelectorAll("[data-lightbox]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const group = el.getAttribute("data-group");
+        currentGroup = Array.from(document.querySelectorAll(`[data-lightbox][data-group="${group}"]`));
+        currentIndex = currentGroup.indexOf(el);
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
+      lightboxImg.src = currentGroup[currentIndex].getAttribute("data-full");
+      lightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function showIndex(delta) {
+      currentIndex = (currentIndex + delta + currentGroup.length) % currentGroup.length;
+      lightboxImg.src = currentGroup[currentIndex].getAttribute("data-full");
+    }
+
+    lightbox.querySelector("[data-close-lightbox]")?.addEventListener("click", () => {
+      lightbox.classList.remove("is-open");
+      if (!document.querySelector(".media-modal.is-open")) document.body.style.overflow = "";
+    });
+    lightbox.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => showIndex(-1));
+    lightbox.querySelector("[data-lightbox-next]")?.addEventListener("click", () => showIndex(1));
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("is-open");
+        if (!document.querySelector(".media-modal.is-open")) document.body.style.overflow = "";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") lightbox.classList.remove("is-open");
+      if (e.key === "ArrowRight") showIndex(1);
+      if (e.key === "ArrowLeft") showIndex(-1);
+    });
+  }
 })();
+
+

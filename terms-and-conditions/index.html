@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms &amp; Conditions — Gyoash Technologies Pvt. Ltd.</title>
+<meta name="description" content="Terms & Conditions governing the use of gyoash.com and the purchase of Gyoash products and services." />
+<link rel="icon" href="/images/logo/logo.png" type="image/png" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<style>
+  /* ---------- Page header ---------- */
+  .tc-hero{ position:relative; padding:168px 0 80px; overflow:hidden; background:var(--dark-blue); }
+  .tc-hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(55% 60% at 88% 10%, rgba(102,181,255,.26), transparent 60%),
+      radial-gradient(40% 45% at 4% 95%, rgba(255,107,0,.16), transparent 60%),
+      linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+  }
+  .tc-hero-dotgrid{
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+    opacity:.5;
+  }
+  .tc-hero .container{ position:relative; z-index:2; }
+  .tc-crumb{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:12.5px; font-weight:500; color:#8FA4BC; margin-bottom:26px; }
+  .tc-crumb a{ color:#B9CBE0; transition:color .3s; }
+  .tc-crumb a:hover{ color:#fff; }
+  .tc-crumb span{ color:#4C6685; }
+  .tc-hero .eyebrow{ color:var(--sky-blue); }
+  .tc-hero h1{ color:#fff; font-size:clamp(30px,4vw,46px); font-weight:700; letter-spacing:-.6px; max-width:18ch; }
+  .tc-hero p.lead{ margin-top:18px; font-size:16px; line-height:1.75; color:#B9CBE0; max-width:66ch; }
+  .tc-hero-meta{ margin-top:26px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .tc-hero-meta span{ font-family:var(--font-display); font-size:12px; color:#8FA4BC; }
+  .tc-hero-meta .pill{
+    font-family:var(--font-display); font-size:11.5px; font-weight:600; letter-spacing:.4px;
+    color:#fff; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
+    padding:6px 14px; border-radius:999px;
+  }
+
+  /* ---------- Main grid: document + sidebar ---------- */
+  .tc-grid{ display:grid; grid-template-columns:1fr .42fr; gap:56px; align-items:start; }
+  @media (max-width:980px){ .tc-grid{ grid-template-columns:1fr; gap:50px; } }
+
+  /* ---------- Terms document ---------- */
+  .tc-doc{
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-lg);
+    padding:44px 46px; box-shadow:var(--shadow-card);
+  }
+  .tc-doc-intro{ font-size:15px; color:var(--slate-gray); line-height:1.85; padding-bottom:30px; border-bottom:1px solid rgba(13,27,42,.08); margin-bottom:8px; }
+  .tc-doc-intro a{ color:var(--deep-blue); font-weight:600; }
+  .tc-clause{ padding:28px 0; border-bottom:1px solid rgba(13,27,42,.08); }
+  .tc-clause:last-child{ border-bottom:none; padding-bottom:0; }
+  .tc-clause-head{ display:flex; align-items:center; gap:16px; }
+  .tc-clause-num{
+    width:36px; height:36px; border-radius:11px; background:var(--soft-blue); color:var(--deep-blue);
+    display:flex; align-items:center; justify-content:center; flex:none;
+    font-family:var(--font-display); font-weight:700; font-size:14px;
+  }
+  .tc-clause h2{ font-size:17.5px; font-weight:600; color:var(--dark-blue); letter-spacing:-.2px; }
+  .tc-clause ul{ margin-top:14px; margin-left:52px; }
+  .tc-clause li{
+    font-size:14.5px; color:var(--slate-gray); line-height:1.75; padding-left:18px; position:relative; margin-bottom:10px;
+  }
+  .tc-clause li:last-child{ margin-bottom:0; }
+  .tc-clause li::before{ content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:50%; background:var(--sky-blue); }
+  .tc-clause li a{ color:var(--deep-blue); font-weight:600; }
+  .tc-clause .tc-contact-block{ margin-left:52px; margin-top:16px; }
+  @media (max-width:640px){
+    .tc-doc{ padding:30px 24px; }
+    .tc-clause ul, .tc-clause .tc-contact-block{ margin-left:0; margin-top:12px; }
+  }
+
+  /* ---------- Contact block inside clause 9 ---------- */
+  .tc-contact-block{
+    background:var(--light-gray); border-radius:16px; padding:20px 24px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .tc-contact-block .ico{ width:36px; height:36px; border-radius:10px; background:var(--grad-sky); display:flex; align-items:center; justify-content:center; flex:none; }
+  .tc-contact-block strong{ display:block; font-family:var(--font-display); font-size:11px; letter-spacing:.4px; text-transform:uppercase; color:var(--slate-gray); margin-bottom:3px; }
+  .tc-contact-block a{ font-size:15px; font-weight:600; color:var(--dark-blue); }
+  .tc-contact-block a:hover{ color:var(--deep-blue); }
+
+  /* ---------- Sidebar ---------- */
+  .tc-side{ position:sticky; top:110px; display:flex; flex-direction:column; gap:22px; }
+  .tc-toc{
+    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-md);
+    padding:26px 24px; box-shadow:var(--shadow-card);
+  }
+  .tc-toc h4{ font-family:var(--font-display); font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate-gray); margin-bottom:16px; }
+  .tc-toc a{
+    display:flex; align-items:center; gap:10px; padding:8px 0; font-size:13px; color:var(--slate-dark);
+    font-family:var(--font-display); font-weight:500; transition:color .3s, padding-left .3s;
+    border-top:1px solid rgba(13,27,42,.06);
+  }
+  .tc-toc a:first-of-type{ border-top:none; }
+  .tc-toc a:hover, .tc-toc a.is-active{ color:var(--deep-blue); padding-left:6px; }
+  .tc-toc a .dot{ width:6px; height:6px; border-radius:50%; background:var(--sky-blue); flex:none; }
+
+  .tc-help-card{
+    background:var(--dark-blue); border-radius:var(--radius-md); padding:28px 26px; position:relative; overflow:hidden;
+  }
+  .tc-help-card::before{ content:""; position:absolute; inset:0; background:radial-gradient(70% 70% at 100% 0%, rgba(102,181,255,.2), transparent 65%); }
+  .tc-help-card > *{ position:relative; z-index:1; }
+  .tc-help-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:#fff; }
+  .tc-help-card p{ margin-top:8px; font-size:13px; color:#B9CBE0; line-height:1.6; }
+  .tc-help-card .btn{ margin-top:16px; width:100%; justify-content:center; }
+
+  /* ---------- Locations (matches other pages) ---------- */
+  .tc-loc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .tc-loc-card{ background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px; padding:28px; box-shadow:var(--shadow-card); display:flex; gap:18px; }
+  .tc-loc-card .pin{ width:46px; height:46px; border-radius:13px; background:var(--soft-blue); display:flex; align-items:center; justify-content:center; flex:none; }
+  .tc-loc-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); }
+  .tc-loc-card p{ margin-top:8px; font-size:13.5px; color:var(--slate-gray); line-height:1.6; }
+  .tc-loc-card a{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--deep-blue); }
+  @media (max-width:700px){ .tc-loc-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div data-include="/fragments/navbar.html"></div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="tc-hero">
+  <div class="tc-hero-dotgrid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="tc-crumb">
+      <a href="/">Home</a><span>/</span>
+      <a href="/term-and-conditions/" style="color:#fff;">Terms &amp; Conditions</a>
+    </div>
+    <p class="eyebrow">Legal</p>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="lead">Welcome to Gyoash Technologies Private Limited ("we," "us," or "our"). By accessing or using our website and placing an order with us, you agree to be bound by these Terms &amp; Conditions and our Privacy Policy. Please read them carefully.</p>
+    <div class="tc-hero-meta">
+      <span class="pill">Last updated: April 24, 2025</span>
+      <span>GYOASH TECHNOLOGIES PVT. LTD.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERMS DOCUMENT + SIDEBAR ============ -->
+<section class="section">
+  <div class="container">
+    <div class="tc-grid">
+
+      <!-- Document -->
+      <div class="tc-doc reveal">
+        <p class="tc-doc-intro">These Terms &amp; Conditions apply to your use of <a href="https://www.gyoash.com" target="_blank" rel="noopener">www.gyoash.com</a> and to any order placed with Gyoash Technologies Private Limited.</p>
+
+        <div class="tc-clause" id="definitions">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">01</div>
+            <h2>Definitions</h2>
+          </div>
+          <ul>
+            <li>"Products" refers to interactive flat panels and any associated accessories.</li>
+            <li>"Services" refers to any support, installation, warranty, or after-sales services we provide.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="order-pricing">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">02</div>
+            <h2>Order Acceptance &amp; Pricing</h2>
+          </div>
+          <ul>
+            <li>All orders are subject to acceptance and availability.</li>
+            <li>Prices are quoted in INR and exclude applicable taxes unless stated otherwise.</li>
+            <li>We reserve the right to modify prices and correct errors.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="payment-terms">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">03</div>
+            <h2>Payment Terms</h2>
+          </div>
+          <ul>
+            <li>Payment is due as per the invoice terms.</li>
+            <li>We accept bank transfers, credit/debit cards, and other methods as specified at checkout.</li>
+            <li>Late payments may incur interest at 1.5% per month.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="delivery-risk">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">04</div>
+            <h2>Delivery &amp; Risk of Loss</h2>
+          </div>
+          <ul>
+            <li>Delivery timelines are estimates; we aren't liable for delays beyond our control.</li>
+            <li>Risk of loss passes to you upon delivery of Products to the carrier.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="warranty">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">05</div>
+            <h2>Warranty</h2>
+          </div>
+          <ul>
+            <li>We provide a three-year warranty on all interactive flat panels. Warranty terms are detailed in your warranty certificate.</li>
+            <li>Warranty claims must be submitted in writing to <a href="mailto:service@gyoash.com">service@gyoash.com</a> with proof of purchase.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="liability">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">06</div>
+            <h2>Limitation of Liability</h2>
+          </div>
+          <ul>
+            <li>To the fullest extent permitted by law, our liability is limited to the purchase price of the Product.</li>
+            <li>We are not liable for any indirect, incidental, or consequential damages.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="ip">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">07</div>
+            <h2>Intellectual Property</h2>
+          </div>
+          <ul>
+            <li>All content on this site, including text, graphics, logos, and software, is our property or licensed to us.</li>
+            <li>You may not reproduce or distribute any content without our prior written permission.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="governing-law">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">08</div>
+            <h2>Governing Law &amp; Dispute Resolution</h2>
+          </div>
+          <ul>
+            <li>These Terms are governed by the laws of India.</li>
+            <li>Any disputes shall be referred to arbitration in Pune under the Arbitration and Conciliation Act, 1996.</li>
+          </ul>
+        </div>
+
+        <div class="tc-clause" id="contact">
+          <div class="tc-clause-head">
+            <div class="tc-clause-num">09</div>
+            <h2>Contact Information</h2>
+          </div>
+          <ul style="margin-bottom:16px;">
+            <li>For any questions or concerns about these Terms, please contact us.</li>
+          </ul>
+          <div class="tc-contact-block">
+            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            <div><strong>Email</strong><a href="mailto:service@gyoash.com">service@gyoash.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="tc-side">
+        <div class="tc-toc reveal reveal-delay-1">
+          <h4>On This Page</h4>
+          <a href="#definitions"><span class="dot"></span>1. Definitions</a>
+          <a href="#order-pricing"><span class="dot"></span>2. Order Acceptance &amp; Pricing</a>
+          <a href="#payment-terms"><span class="dot"></span>3. Payment Terms</a>
+          <a href="#delivery-risk"><span class="dot"></span>4. Delivery &amp; Risk of Loss</a>
+          <a href="#warranty"><span class="dot"></span>5. Warranty</a>
+          <a href="#liability"><span class="dot"></span>6. Limitation of Liability</a>
+          <a href="#ip"><span class="dot"></span>7. Intellectual Property</a>
+          <a href="#governing-law"><span class="dot"></span>8. Governing Law &amp; Disputes</a>
+          <a href="#contact"><span class="dot"></span>9. Contact Information</a>
+        </div>
+
+        <div class="tc-help-card reveal reveal-delay-2">
+          <h4>Questions about an order?</h4>
+          <p>Reach our service team directly and we'll get back to you.</p>
+          <a href="mailto:service@gyoash.com" class="btn btn-primary">Email Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Find Us</p>
+      <h2>Our offices across India</h2>
+    </div>
+    <div class="tc-loc-grid">
+      <div class="tc-loc-card reveal reveal-delay-1">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Factory &amp; Experience Centre</h4>
+          <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="tc-loc-card reveal reveal-delay-2">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Corporate Office — Pune</h4>
+          <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune - 411004</p>
+          <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="tc-loc-card reveal reveal-delay-3">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Branch Office — Nashik</h4>
+          <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
+          <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+      <div class="tc-loc-card reveal reveal-delay-4">
+        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
+        <div>
+          <h4>Sales Office — Indore</h4>
+          <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-include="/fragments/footer.html"></div>
+<div data-include="/fragments/chat-widget.html"></div>
+
+<script src="/js/script.js"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  function initTocSpy() {
+    const links = document.querySelectorAll(".tc-toc a");
+    if (!links.length) return;
+    const targets = Array.from(links)
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+    if (!targets.length || !("IntersectionObserver" in window)) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = "#" + entry.target.id;
+            links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+    targets.forEach((t) => io.observe(t));
+  }
+
+  document.addEventListener("DOMContentLoaded", initTocSpy);
+})();
+</script>
+</body>
+</html>
