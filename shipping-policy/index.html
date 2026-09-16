@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Policy — Gyoash Technologies Pvt. Ltd.</title>
+    <meta name="description"
+        content="Gyoash shipping policy — delivery coverage, timelines, charges, tracking, and how to report damaged or missing items." />
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        /* ---------- Page header ---------- */
+        .sp-hero {
+            position: relative;
+            padding: 110px 0 40px;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .sp-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+                radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+                linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+        }
+
+        .sp-hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+            opacity: .5;
+        }
+
+        .sp-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sp-crumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #8FA4BC;
+            margin-bottom: 26px;
+        }
+
+        .sp-crumb a {
+            color: #B9CBE0;
+            transition: color .3s;
+        }
+
+        .sp-crumb a:hover {
+            color: #fff;
+        }
+
+        .sp-crumb span {
+            color: #4C6685;
+        }
+
+        .sp-hero .eyebrow {
+            color: var(--sky-blue);
+        }
+
+        .sp-hero h1 {
+            color: #fff;
+            font-size: clamp(30px, 4vw, 46px);
+            font-weight: 700;
+            letter-spacing: -.6px;
+            max-width: 16ch;
+        }
+
+        .sp-hero p.lead {
+            margin-top: 18px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #B9CBE0;
+            max-width: 62ch;
+        }
+
+        .sp-hero-meta {
+            margin-top: 26px;
+            font-size: 12.5px;
+            color: #8FA4BC;
+            font-family: var(--font-display);
+        }
+
+        /* ---------- Main grid: document + sidebar ---------- */
+        .sp-grid {
+            display: grid;
+            grid-template-columns: 1fr .42fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        @media (max-width:980px) {
+            .sp-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        /* ---------- Policy document ---------- */
+        .sp-doc {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: var(--radius-lg);
+            padding: 44px 46px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .sp-clause {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(13, 27, 42, .08);
+        }
+
+        .sp-clause:first-child {
+            padding-top: 0;
+        }
+
+        .sp-clause:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .sp-clause-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sp-clause-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            background: var(--soft-blue);
+            color: var(--deep-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .sp-clause h2 {
+            font-size: 17.5px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            letter-spacing: -.2px;
+        }
+
+        .sp-clause p {
+            margin-top: 14px;
+            margin-left: 52px;
+            font-size: 14.5px;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        .sp-clause p a {
+            color: var(--deep-blue);
+            font-weight: 600;
+        }
+
+        .sp-clause .sp-subrow {
+            margin-top: 14px;
+            margin-left: 52px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .sp-clause .sp-subrow .tag {
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+            color: var(--teal);
+            background: #E7F8F1;
+            padding: 6px 12px;
+            border-radius: 999px;
+            flex: none;
+            margin-top: 1px;
+        }
+
+        .sp-clause .sp-subrow p {
+            margin: 0;
+            margin-left: 0;
+        }
+
+        .sp-clause ul {
+            margin-top: 14px;
+            margin-left: 52px;
+        }
+
+        .sp-clause li {
+            font-size: 14.5px;
+            color: var(--slate-gray);
+            line-height: 1.75;
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .sp-clause li:last-child {
+            margin-bottom: 0;
+        }
+
+        .sp-clause li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--sky-blue);
+        }
+
+        @media (max-width:640px) {
+            .sp-doc {
+                padding: 30px 24px;
+            }
+
+            .sp-clause p,
+            .sp-clause ul,
+            .sp-clause .sp-subrow {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .sp-clause .sp-subrow {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* ---------- Contact block inside final clause ---------- */
+        .sp-contact-block {
+            margin-left: 52px;
+            margin-top: 16px;
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 22px 24px;
+        }
+
+        .sp-contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .sp-contact-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .sp-contact-row .ico {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: var(--grad-sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .sp-contact-row strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 11.5px;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+            color: var(--slate-gray);
+            margin-bottom: 3px;
+        }
+
+        .sp-contact-row a,
+        .sp-contact-row span.val {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .sp-contact-row a:hover {
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:640px) {
+            .sp-contact-block {
+                margin-left: 0;
+            }
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sp-side {
+            position: sticky;
+            top: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .sp-toc {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: var(--radius-md);
+            padding: 26px 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .sp-toc h4 {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--slate-gray);
+            margin-bottom: 16px;
+        }
+
+        .sp-toc a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+            color: var(--slate-dark);
+            font-family: var(--font-display);
+            font-weight: 500;
+            transition: color .3s, padding-left .3s;
+            border-top: 1px solid rgba(13, 27, 42, .06);
+        }
+
+        .sp-toc a:first-of-type {
+            border-top: none;
+        }
+
+        .sp-toc a:hover,
+        .sp-toc a.is-active {
+            color: var(--deep-blue);
+            padding-left: 6px;
+        }
+
+        .sp-toc a .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--sky-blue);
+            flex: none;
+        }
+
+        .sp-help-card {
+            background: var(--dark-blue);
+            border-radius: var(--radius-md);
+            padding: 28px 26px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sp-help-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(70% 70% at 100% 0%, rgba(102, 181, 255, .2), transparent 65%);
+        }
+
+        .sp-help-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sp-help-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .sp-help-card p {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #B9CBE0;
+            line-height: 1.6;
+        }
+
+        .sp-help-card .btn {
+            margin-top: 16px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ---------- Locations (matches other pages) ---------- */
+        .sp-loc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .sp-loc-card {
+            background: #fff;
+            border: 1px solid rgba(13, 27, 42, .07);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 18px;
+        }
+
+        .sp-loc-card .pin {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--soft-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .sp-loc-card h4 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .sp-loc-card p {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .sp-loc-card a {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        @media (max-width:700px) {
+            .sp-loc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="/fragments/navbar.html"></div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="sp-hero">
+        <div class="sp-hero-dotgrid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="sp-crumb">
+                <a href="/index.html">Home</a><span>/</span>
+                <a href="/shipping-policy/" style="color:#fff;">Shipping Policy</a>
+            </div>
+            <p class="eyebrow">Legal</p>
+            <h1>Shipping Policy</h1>
+            <p class="lead">How we dispatch, deliver, and install Gyoash products — and what to do if something arrives
+                damaged or missing.</p>
+            <p class="sp-hero-meta">GYOASH TECHNOLOGIES PVT. LTD.</p>
+        </div>
+    </section>
+
+    <!-- ============ POLICY DOCUMENT + SIDEBAR ============ -->
+    <section class="section">
+        <div class="container">
+            <div class="sp-grid">
+
+                <!-- Document -->
+                <div class="sp-doc reveal">
+
+                    <div class="sp-clause" id="coverage">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">01</div>
+                            <h2>Delivery Coverage</h2>
+                        </div>
+                        <p>We currently deliver across India. For international shipping inquiries, please contact our
+                            team at <a href="mailto:sales.india@gyoash.com">sales.india@gyoash.com</a> or <a
+                                href="tel:+919158620055">+91 91586 20055</a>.</p>
+                    </div>
+
+                    <div class="sp-clause" id="timeline">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">02</div>
+                            <h2>Shipping Timeline</h2>
+                        </div>
+                        <div class="sp-subrow">
+                            <span class="tag">Dispatch</span>
+                            <p>All orders are processed and dispatched within 4–5 business days from the date of order
+                                confirmation.</p>
+                        </div>
+                        <div class="sp-subrow">
+                            <span class="tag">Delivery</span>
+                            <p>Estimated delivery time is 15–20 business days, depending on the delivery location.
+                                Remote or rural locations may require additional time.</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-clause" id="charges">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">03</div>
+                            <h2>Shipping Charges</h2>
+                        </div>
+                        <p>A nominal standard shipping fee will be added at checkout, as applicable based on location
+                            and weight.</p>
+                    </div>
+
+                    <div class="sp-clause" id="tracking">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">04</div>
+                            <h2>Order Tracking</h2>
+                        </div>
+                        <p>Once your order is dispatched, you will receive a confirmation email or SMS with a tracking
+                            number. You can track the status of your shipment using our logistics partner's tracking
+                            page.</p>
+                    </div>
+
+                    <div class="sp-clause" id="partners">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">05</div>
+                            <h2>Delivery Partners</h2>
+                        </div>
+                        <p>We partner with reputed logistics service providers to ensure safe and timely delivery.</p>
+                    </div>
+
+                    <div class="sp-clause" id="attempts">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">06</div>
+                            <h2>Delivery Attempts</h2>
+                        </div>
+                        <p>Our delivery partners will make up to two delivery attempts. If the recipient is unavailable,
+                            the package will be returned to our warehouse. Re-delivery can be arranged upon request with
+                            applicable charges.</p>
+                    </div>
+
+                    <div class="sp-clause" id="damaged-missing">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">07</div>
+                            <h2>Damaged or Missing Items</h2>
+                        </div>
+                        <p>If your order is delivered in a damaged condition or items are missing:</p>
+                        <ul>
+                            <li>Please raise a complaint within 48 hours of delivery</li>
+                            <li>Contact us at <a href="mailto:sales.india@gyoash.com">sales.india@gyoash.com</a> or <a
+                                    href="tel:+919158620055">+91 91586 20055</a></li>
+                            <li>Include your order number, photos of the package/product, and a brief description</li>
+                        </ul>
+                    </div>
+
+                    <div class="sp-clause" id="installation">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">08</div>
+                            <h2>Installation &amp; Demonstration</h2>
+                        </div>
+                        <p>For eligible products (like interactive flat panels), free on-site installation and
+                            demonstration is provided. Our support team will coordinate with you post-delivery for
+                            scheduling.</p>
+                    </div>
+
+                    <div class="sp-clause" id="contact">
+                        <div class="sp-clause-head">
+                            <div class="sp-clause-num">09</div>
+                            <h2>Contact Us</h2>
+                        </div>
+                        <p>For shipping-related questions or issues, please contact our support team:</p>
+
+                        <div class="sp-contact-block">
+                            <div class="sp-contact-row">
+                                <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff"
+                                            stroke-width="1.6" />
+                                        <path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6"
+                                            stroke-linecap="round" />
+                                    </svg></div>
+                                <div><strong>Email</strong><a
+                                        href="mailto:sales.india@gyoash.com">sales.india@gyoash.com</a></div>
+                            </div>
+                            <div class="sp-contact-row">
+                                <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"
+                                            stroke="#fff" stroke-width="1.6" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div><strong>Phone</strong><a href="tel:+919158620055">+91 91586 20055</a></div>
+                            </div>
+                            <div class="sp-contact-row">
+                                <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.6" />
+                                        <path d="M12 7v5l3.5 2" stroke="#fff" stroke-width="1.6"
+                                            stroke-linecap="round" />
+                                    </svg></div>
+                                <div><strong>Working Hours</strong><span class="val">Monday to Saturday, 10:00 AM – 6:00
+                                        PM</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sp-side">
+                    <div class="sp-toc reveal reveal-delay-1">
+                        <h4>On This Page</h4>
+                        <a href="#coverage"><span class="dot"></span>1. Delivery Coverage</a>
+                        <a href="#timeline"><span class="dot"></span>2. Shipping Timeline</a>
+                        <a href="#charges"><span class="dot"></span>3. Shipping Charges</a>
+                        <a href="#tracking"><span class="dot"></span>4. Order Tracking</a>
+                        <a href="#partners"><span class="dot"></span>5. Delivery Partners</a>
+                        <a href="#attempts"><span class="dot"></span>6. Delivery Attempts</a>
+                        <a href="#damaged-missing"><span class="dot"></span>7. Damaged or Missing Items</a>
+                        <a href="#installation"><span class="dot"></span>8. Installation &amp; Demo</a>
+                        <a href="#contact"><span class="dot"></span>9. Contact Us</a>
+                    </div>
+
+                    <div class="sp-help-card reveal reveal-delay-2">
+                        <h4>Order arrived damaged?</h4>
+                        <p>Reach out within 48 hours with your order number and photos — we'll sort it quickly.</p>
+                        <a href="mailto:sales.india@gyoash.com" class="btn btn-primary">Report an Issue</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATIONS ============ -->
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Find Us</p>
+                <h2>Our offices across India</h2>
+            </div>
+            <div class="sp-loc-grid">
+                <div class="sp-loc-card reveal reveal-delay-1">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Factory &amp; Experience Centre</h4>
+                        <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School
+                            Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune"
+                            target="_blank" rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+                <div class="sp-loc-card reveal reveal-delay-2">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Corporate Office — Pune</h4>
+                        <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal
+                            Haveli, Pune - 411004</p>
+                        <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="sp-loc-card reveal reveal-delay-3">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Branch Office — Nashik</h4>
+                        <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003
+                        </p>
+                        <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get
+                            directions →</a>
+                    </div>
+                </div>
+                <div class="sp-loc-card reveal reveal-delay-4">
+                    <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+                        </svg></div>
+                    <div>
+                        <h4>Sales Office — Indore</h4>
+                        <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+                            rel="noopener">Get directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/fragments/footer.html"></div>
+    <div data-include="/fragments/chat-widget.html"></div>
+
+    <script src="/js/script.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            function initTocSpy() {
+                const links = document.querySelectorAll(".sp-toc a");
+                if (!links.length) return;
+                const targets = Array.from(links)
+                    .map((a) => document.querySelector(a.getAttribute("href")))
+                    .filter(Boolean);
+                if (!targets.length || !("IntersectionObserver" in window)) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const id = "#" + entry.target.id;
+                                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+                            }
+                        });
+                    },
+                    { rootMargin: "-20% 0px -60% 0px" }
+                );
+                targets.forEach((t) => io.observe(t));
+            }
+
+            document.addEventListener("DOMContentLoaded", initTocSpy);
+        })();
+    </script>
+</body>
+
+</html>

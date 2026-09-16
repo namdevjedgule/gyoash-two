@@ -1,296 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy — Gyoash Technologies Pvt. Ltd.</title>
-<meta name="description" content="How Gyoash Technologies Pvt. Ltd. collects, uses, and protects your personal information." />
-<link rel="icon" href="/images/logo/logo.png" type="image/png" />
-<link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Gyoash Technologies Pvt. Ltd.</title>
+  <meta name="description"
+    content="How Gyoash Technologies Pvt. Ltd. collects, uses, and protects your personal information." />
+  <link rel="icon" href="/images/logo/logo.png" type="image/png" />
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css" />
 
-<style>
-  /* ---------- Page header ---------- */
-  .pl-hero{ position:relative; padding:168px 0 80px; overflow:hidden; background:var(--dark-blue); }
-  .pl-hero::before{
-    content:""; position:absolute; inset:0;
-    background:
-      radial-gradient(55% 60% at 88% 10%, rgba(102,181,255,.26), transparent 60%),
-      radial-gradient(40% 45% at 4% 95%, rgba(255,107,0,.16), transparent 60%),
-      linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
-  }
-  .pl-hero-dotgrid{
-    position:absolute; inset:0;
-    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
-    background-size:26px 26px;
-    mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
-    opacity:.5;
-  }
-  .pl-hero .container{ position:relative; z-index:2; }
-  .pl-crumb{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:12.5px; font-weight:500; color:#8FA4BC; margin-bottom:26px; }
-  .pl-crumb a{ color:#B9CBE0; transition:color .3s; }
-  .pl-crumb a:hover{ color:#fff; }
-  .pl-crumb span{ color:#4C6685; }
-  .pl-hero .eyebrow{ color:var(--sky-blue); }
-  .pl-hero h1{ color:#fff; font-size:clamp(30px,4vw,46px); font-weight:700; letter-spacing:-.6px; max-width:16ch; }
-  .pl-hero p.lead{ margin-top:18px; font-size:16px; line-height:1.75; color:#B9CBE0; max-width:62ch; }
-  .pl-hero-meta{ margin-top:26px; font-size:12.5px; color:#8FA4BC; font-family:var(--font-display); }
+  <style>
+    .pl-hero {
+      position: relative;
+      padding: 110px 0 40px;
+      overflow: hidden;
+      background: var(--dark-blue);
+    }
 
-  /* ---------- Main grid: document + sidebar ---------- */
-  .pl-grid{ display:grid; grid-template-columns:1fr .42fr; gap:56px; align-items:start; }
-  @media (max-width:980px){ .pl-grid{ grid-template-columns:1fr; gap:50px; } }
+    .pl-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(55% 60% at 88% 10%, rgba(102, 181, 255, .26), transparent 60%),
+        radial-gradient(40% 45% at 4% 95%, rgba(255, 107, 0, .16), transparent 60%),
+        linear-gradient(180deg, var(--dark-blue), #001a35 65%, var(--navy));
+    }
 
-  /* ---------- Policy document ---------- */
-  .pl-doc{
-    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-lg);
-    padding:44px 46px; box-shadow:var(--shadow-card);
-  }
-  .pl-doc-intro{ font-size:15px; color:var(--slate-gray); line-height:1.8; padding-bottom:30px; border-bottom:1px solid rgba(13,27,42,.08); margin-bottom:8px; }
-  .pl-clause{ padding:28px 0; border-bottom:1px solid rgba(13,27,42,.08); }
-  .pl-clause:last-child{ border-bottom:none; padding-bottom:0; }
-  .pl-clause-head{ display:flex; align-items:center; gap:16px; }
-  .pl-clause-num{
-    width:36px; height:36px; border-radius:11px; background:var(--soft-blue); color:var(--deep-blue);
-    display:flex; align-items:center; justify-content:center; flex:none;
-    font-family:var(--font-display); font-weight:700; font-size:14px;
-  }
-  .pl-clause h2{ font-size:17.5px; font-weight:600; color:var(--dark-blue); letter-spacing:-.2px; }
-  .pl-clause p{ margin-top:14px; margin-left:52px; font-size:14.5px; color:var(--slate-gray); line-height:1.8; }
-  .pl-clause .pl-contact-block{ margin-left:52px; margin-top:18px; }
-  @media (max-width:640px){
-    .pl-doc{ padding:30px 24px; }
-    .pl-clause p, .pl-clause .pl-contact-block{ margin-left:0; margin-top:12px; }
-  }
+    .pl-hero-dotgrid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px);
+      background-size: 26px 26px;
+      mask-image: radial-gradient(55% 70% at 75% 30%, black, transparent 80%);
+      opacity: .5;
+    }
 
-  /* ---------- Contact block inside clause 5 ---------- */
-  .pl-contact-block{
-    background:var(--light-gray); border-radius:16px; padding:22px 24px;
-  }
-  .pl-contact-row{ display:flex; align-items:flex-start; gap:12px; margin-bottom:14px; }
-  .pl-contact-row:last-child{ margin-bottom:0; }
-  .pl-contact-row .ico{ width:34px; height:34px; border-radius:10px; background:var(--grad-sky); display:flex; align-items:center; justify-content:center; flex:none; }
-  .pl-contact-row strong{ display:block; font-family:var(--font-display); font-size:11.5px; letter-spacing:.4px; text-transform:uppercase; color:var(--slate-gray); margin-bottom:3px; }
-  .pl-contact-row a, .pl-contact-row span.val{ font-size:14px; font-weight:600; color:var(--dark-blue); }
-  .pl-contact-row a:hover{ color:var(--deep-blue); }
-  .pl-contact-row .people{ display:flex; flex-direction:column; gap:4px; }
+    .pl-hero .container {
+      position: relative;
+      z-index: 2;
+    }
 
-  /* ---------- Sidebar ---------- */
-  .pl-side{ position:sticky; top:110px; display:flex; flex-direction:column; gap:22px; }
-  .pl-toc{
-    background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:var(--radius-md);
-    padding:26px 24px; box-shadow:var(--shadow-card);
-  }
-  .pl-toc h4{ font-family:var(--font-display); font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate-gray); margin-bottom:16px; }
-  .pl-toc a{
-    display:flex; align-items:center; gap:10px; padding:9px 0; font-size:13.5px; color:var(--slate-dark);
-    font-family:var(--font-display); font-weight:500; transition:color .3s, padding-left .3s;
-    border-top:1px solid rgba(13,27,42,.06);
-  }
-  .pl-toc a:first-of-type{ border-top:none; }
-  .pl-toc a:hover, .pl-toc a.is-active{ color:var(--deep-blue); padding-left:6px; }
-  .pl-toc a .dot{ width:6px; height:6px; border-radius:50%; background:var(--sky-blue); flex:none; }
+    .pl-crumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #8FA4BC;
+      margin-bottom: 26px;
+    }
 
-  .pl-help-card{
-    background:var(--dark-blue); border-radius:var(--radius-md); padding:28px 26px; position:relative; overflow:hidden;
-  }
-  .pl-help-card::before{ content:""; position:absolute; inset:0; background:radial-gradient(70% 70% at 100% 0%, rgba(102,181,255,.2), transparent 65%); }
-  .pl-help-card > *{ position:relative; z-index:1; }
-  .pl-help-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:#fff; }
-  .pl-help-card p{ margin-top:8px; font-size:13px; color:#B9CBE0; line-height:1.6; }
-  .pl-help-card .btn{ margin-top:16px; width:100%; justify-content:center; }
+    .pl-crumb a {
+      color: #B9CBE0;
+      transition: color .3s;
+    }
 
-  /* ---------- Locations (matches other pages) ---------- */
-  .pl-loc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-  .pl-loc-card{ background:#fff; border:1px solid rgba(13,27,42,.07); border-radius:20px; padding:28px; box-shadow:var(--shadow-card); display:flex; gap:18px; }
-  .pl-loc-card .pin{ width:46px; height:46px; border-radius:13px; background:var(--soft-blue); display:flex; align-items:center; justify-content:center; flex:none; }
-  .pl-loc-card h4{ font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--dark-blue); }
-  .pl-loc-card p{ margin-top:8px; font-size:13.5px; color:var(--slate-gray); line-height:1.6; }
-  .pl-loc-card a{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--deep-blue); }
-  @media (max-width:700px){ .pl-loc-grid{ grid-template-columns:1fr; } }
-</style>
+    .pl-crumb a:hover {
+      color: #fff;
+    }
+
+    .pl-crumb span {
+      color: #4C6685;
+    }
+
+    .pl-hero .eyebrow {
+      color: var(--sky-blue);
+    }
+
+    .pl-hero h1 {
+      color: #fff;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      letter-spacing: -.6px;
+      max-width: 16ch;
+    }
+
+    .pl-hero p.lead {
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #B9CBE0;
+      max-width: 62ch;
+    }
+
+    .pl-hero-meta {
+      margin-top: 26px;
+      font-size: 12.5px;
+      color: #8FA4BC;
+      font-family: var(--font-display);
+    }
+
+    /* ---------- Main grid: document + sidebar ---------- */
+    .pl-grid {
+      display: grid;
+      grid-template-columns: 1fr .42fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    @media (max-width:980px) {
+      .pl-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    /* ---------- Policy document ---------- */
+    .pl-doc {
+      background: #fff;
+      border: 1px solid rgba(13, 27, 42, .07);
+      border-radius: var(--radius-lg);
+      padding: 44px 46px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .pl-doc-intro {
+      font-size: 15px;
+      color: var(--slate-gray);
+      line-height: 1.8;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(13, 27, 42, .08);
+      margin-bottom: 8px;
+    }
+
+    .pl-clause {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(13, 27, 42, .08);
+    }
+
+    .pl-clause:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pl-clause-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pl-clause-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--soft-blue);
+      color: var(--deep-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .pl-clause h2 {
+      font-size: 17.5px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      letter-spacing: -.2px;
+    }
+
+    .pl-clause p {
+      margin-top: 14px;
+      margin-left: 52px;
+      font-size: 14.5px;
+      color: var(--slate-gray);
+      line-height: 1.8;
+    }
+
+    .pl-clause .pl-contact-block {
+      margin-left: 52px;
+      margin-top: 18px;
+    }
+
+    @media (max-width:640px) {
+      .pl-doc {
+        padding: 30px 24px;
+      }
+
+      .pl-clause p,
+      .pl-clause .pl-contact-block {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+    }
+
+    /* ---------- Contact block inside clause 5 ---------- */
+    .pl-contact-block {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+
+    .pl-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .pl-contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .pl-contact-row .ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--grad-sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    .pl-contact-row strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+      margin-bottom: 3px;
+    }
+
+    .pl-contact-row a,
+    .pl-contact-row span.val {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+
+    .pl-contact-row a:hover {
+      color: var(--deep-blue);
+    }
+
+    .pl-contact-row .people {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .pl-side {
+      position: sticky;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .pl-toc {
+      background: #fff;
+      border: 1px solid rgba(13, 27, 42, .07);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .pl-toc h4 {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+      margin-bottom: 16px;
+    }
+
+    .pl-toc a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 0;
+      font-size: 13.5px;
+      color: var(--slate-dark);
+      font-family: var(--font-display);
+      font-weight: 500;
+      transition: color .3s, padding-left .3s;
+      border-top: 1px solid rgba(13, 27, 42, .06);
+    }
+
+    .pl-toc a:first-of-type {
+      border-top: none;
+    }
+
+    .pl-toc a:hover,
+    .pl-toc a.is-active {
+      color: var(--deep-blue);
+      padding-left: 6px;
+    }
+
+    .pl-toc a .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sky-blue);
+      flex: none;
+    }
+
+    .pl-help-card {
+      background: var(--dark-blue);
+      border-radius: var(--radius-md);
+      padding: 28px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pl-help-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(70% 70% at 100% 0%, rgba(102, 181, 255, .2), transparent 65%);
+    }
+
+    .pl-help-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pl-help-card h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .pl-help-card p {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #B9CBE0;
+      line-height: 1.6;
+    }
+
+    .pl-help-card .btn {
+      margin-top: 16px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ---------- Locations (matches other pages) ---------- */
+    .pl-loc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .pl-loc-card {
+      background: #fff;
+      border: 1px solid rgba(13, 27, 42, .07);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      gap: 18px;
+    }
+
+    .pl-loc-card .pin {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      background: var(--soft-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    .pl-loc-card h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+
+    .pl-loc-card p {
+      margin-top: 8px;
+      font-size: 13.5px;
+      color: var(--slate-gray);
+      line-height: 1.6;
+    }
+
+    .pl-loc-card a {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--deep-blue);
+    }
+
+    @media (max-width:700px) {
+      .pl-loc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div data-include="/fragments/navbar.html"></div>
+  <div data-include="/fragments/navbar.html"></div>
 
-<!-- ============ PAGE HEADER ============ -->
-<section class="pl-hero">
-  <div class="pl-hero-dotgrid" aria-hidden="true"></div>
-  <div class="container">
-    <div class="pl-crumb">
-      <a href="/">Home</a><span>/</span>
-      <a href="/privacy-policy/" style="color:#fff;">Privacy Policy</a>
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="pl-hero">
+    <div class="pl-hero-dotgrid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="pl-crumb">
+        <a href="/">Home</a><span>/</span>
+        <a href="/privacy-policy/" style="color:#fff;">Privacy Policy</a>
+      </div>
+      <p class="eyebrow">Information About Us</p>
+      <h1>Privacy Policy</h1>
+      <p class="lead">At Gyoash Technologies Pvt. Ltd., we value your privacy and are committed to protecting your
+        personal information. This privacy policy explains how we collect, use, and protect your data.</p>
+      <p class="pl-hero-meta">GYOASH TECHNOLOGIES PVT. LTD.</p>
     </div>
-    <p class="eyebrow">Information About Us</p>
-    <h1>Privacy Policy</h1>
-    <p class="lead">At Gyoash Technologies Pvt. Ltd., we value your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and protect your data.</p>
-    <p class="pl-hero-meta">GYOASH TECHNOLOGIES PVT. LTD.</p>
-  </div>
-</section>
+  </section>
 
-<!-- ============ POLICY DOCUMENT + SIDEBAR ============ -->
-<section class="section">
-  <div class="container">
-    <div class="pl-grid">
+  <!-- ============ POLICY DOCUMENT + SIDEBAR ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="pl-grid">
 
-      <!-- Document -->
-      <div class="pl-doc reveal">
-        <p class="pl-doc-intro">This policy applies to all personal information collected by Gyoash Technologies Pvt. Ltd. through our website, sales activity, service requests, and any other interaction with our business.</p>
+        <!-- Document -->
+        <div class="pl-doc reveal">
+          <p class="pl-doc-intro">This policy applies to all personal information collected by Gyoash Technologies Pvt.
+            Ltd. through our website, sales activity, service requests, and any other interaction with our business.</p>
 
-        <div class="pl-clause" id="personal-information">
-          <div class="pl-clause-head">
-            <div class="pl-clause-num">01</div>
-            <h2>Personal Information</h2>
-          </div>
-          <p>We may collect personal information such as name, email address, phone number, and other details when you provide them to us during our business activity. We may use this information to contact you, process orders, provide support, and improve our services.</p>
-        </div>
-
-        <div class="pl-clause" id="cookies">
-          <div class="pl-clause-head">
-            <div class="pl-clause-num">02</div>
-            <h2>Cookies</h2>
-          </div>
-          <p>We may collect personal information such as name, email address, phone number, and other details when you provide them to us during our business activity. We may use this information to contact you, process orders, provide support, and improve our services.</p>
-        </div>
-
-        <div class="pl-clause" id="data-security">
-          <div class="pl-clause-head">
-            <div class="pl-clause-num">03</div>
-            <h2>Data Security</h2>
-          </div>
-          <p>We take data security seriously and have implemented measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction.</p>
-        </div>
-
-        <div class="pl-clause" id="data-retention">
-          <div class="pl-clause-head">
-            <div class="pl-clause-num">04</div>
-            <h2>Data Retention</h2>
-          </div>
-          <p>We will retain your personal information for as long as necessary to fulfill the purposes for which it was collected or as required by law.</p>
-        </div>
-
-        <div class="pl-clause" id="your-rights">
-          <div class="pl-clause-head">
-            <div class="pl-clause-num">05</div>
-            <h2>Your Rights</h2>
-          </div>
-          <p>You have the right to access, modify, or delete the personal information that we hold. If you have any questions or concerns about your personal information, please contact us at:</p>
-
-          <div class="pl-contact-block">
-            <div class="pl-contact-row">
-              <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-              <div><strong>Email ID</strong><a href="mailto:Support.India@gyoash.com">Support.India@gyoash.com</a></div>
+          <div class="pl-clause" id="personal-information">
+            <div class="pl-clause-head">
+              <div class="pl-clause-num">01</div>
+              <h2>Personal Information</h2>
             </div>
-            <div class="pl-contact-row">
-              <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="#fff" stroke-width="1.6"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-              <div class="people">
-                <strong>Contact Person</strong>
-                <span class="val">Sharad Dayma — <a href="tel:+919158620055">+91 91586 20055</a></span>
-                <span class="val">Nilesh Umale — <a href="tel:+918208747816">+91 82087 47816</a></span>
+            <p>We may collect personal information such as name, email address, phone number, and other details when you
+              provide them to us during our business activity. We may use this information to contact you, process
+              orders, provide support, and improve our services.</p>
+          </div>
+
+          <div class="pl-clause" id="cookies">
+            <div class="pl-clause-head">
+              <div class="pl-clause-num">02</div>
+              <h2>Cookies</h2>
+            </div>
+            <p>We may collect personal information such as name, email address, phone number, and other details when you
+              provide them to us during our business activity. We may use this information to contact you, process
+              orders, provide support, and improve our services.</p>
+          </div>
+
+          <div class="pl-clause" id="data-security">
+            <div class="pl-clause-head">
+              <div class="pl-clause-num">03</div>
+              <h2>Data Security</h2>
+            </div>
+            <p>We take data security seriously and have implemented measures to protect your personal information from
+              unauthorized access, disclosure, alteration, or destruction.</p>
+          </div>
+
+          <div class="pl-clause" id="data-retention">
+            <div class="pl-clause-head">
+              <div class="pl-clause-num">04</div>
+              <h2>Data Retention</h2>
+            </div>
+            <p>We will retain your personal information for as long as necessary to fulfill the purposes for which it
+              was collected or as required by law.</p>
+          </div>
+
+          <div class="pl-clause" id="your-rights">
+            <div class="pl-clause-head">
+              <div class="pl-clause-num">05</div>
+              <h2>Your Rights</h2>
+            </div>
+            <p>You have the right to access, modify, or delete the personal information that we hold. If you have any
+              questions or concerns about your personal information, please contact us at:</p>
+
+            <div class="pl-contact-block">
+              <div class="pl-contact-row">
+                <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.6" />
+                    <path d="M2 6l10 7 10-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                  </svg></div>
+                <div><strong>Email ID</strong><a href="mailto:Support.India@gyoash.com">Support.India@gyoash.com</a>
+                </div>
+              </div>
+              <div class="pl-contact-row">
+                <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="3.5" stroke="#fff" stroke-width="1.6" />
+                    <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+                  </svg></div>
+                <div class="people">
+                  <strong>Contact Person</strong>
+                  <span class="val">Sharad Dayma — <a href="tel:+919158620055">+91 91586 20055</a></span>
+                  <span class="val">Nilesh Umale — <a href="tel:+918208747816">+91 82087 47816</a></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Sidebar -->
-      <div class="pl-side">
-        <div class="pl-toc reveal reveal-delay-1">
-          <h4>On This Page</h4>
-          <a href="#personal-information"><span class="dot"></span>1. Personal Information</a>
-          <a href="#cookies"><span class="dot"></span>2. Cookies</a>
-          <a href="#data-security"><span class="dot"></span>3. Data Security</a>
-          <a href="#data-retention"><span class="dot"></span>4. Data Retention</a>
-          <a href="#your-rights"><span class="dot"></span>5. Your Rights</a>
+        <!-- Sidebar -->
+        <div class="pl-side">
+          <div class="pl-toc reveal reveal-delay-1">
+            <h4>On This Page</h4>
+            <a href="#personal-information"><span class="dot"></span>1. Personal Information</a>
+            <a href="#cookies"><span class="dot"></span>2. Cookies</a>
+            <a href="#data-security"><span class="dot"></span>3. Data Security</a>
+            <a href="#data-retention"><span class="dot"></span>4. Data Retention</a>
+            <a href="#your-rights"><span class="dot"></span>5. Your Rights</a>
+          </div>
+
+          <div class="pl-help-card reveal reveal-delay-2">
+            <h4>Have a question about your data?</h4>
+            <p>Reach our privacy contact directly and we'll get back to you.</p>
+            <a href="mailto:Support.India@gyoash.com" class="btn btn-primary">Email Us</a>
+          </div>
         </div>
 
-        <div class="pl-help-card reveal reveal-delay-2">
-          <h4>Have a question about your data?</h4>
-          <p>Reach our privacy contact directly and we'll get back to you.</p>
-          <a href="mailto:Support.India@gyoash.com" class="btn btn-primary">Email Us</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ LOCATIONS ============ -->
-<section class="section section--gray">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Find Us</p>
-      <h2>Our offices across India</h2>
-    </div>
-    <div class="pl-loc-grid">
-      <div class="pl-loc-card reveal reveal-delay-1">
-        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
-        <div>
-          <h4>Factory &amp; Experience Centre</h4>
-          <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe, Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank" rel="noopener">Get directions →</a>
-        </div>
-      </div>
-      <div class="pl-loc-card reveal reveal-delay-2">
-        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
-        <div>
-          <h4>Corporate Office — Pune</h4>
-          <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune - 411004</p>
-          <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
-        </div>
-      </div>
-      <div class="pl-loc-card reveal reveal-delay-3">
-        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
-        <div>
-          <h4>Branch Office — Nashik</h4>
-          <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
-          <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
-        </div>
-      </div>
-      <div class="pl-loc-card reveal reveal-delay-4">
-        <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6"/></svg></div>
-        <div>
-          <h4>Sales Office — Indore</h4>
-          <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank" rel="noopener">Get directions →</a>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div data-include="/fragments/footer.html"></div>
-<div data-include="/fragments/chat-widget.html"></div>
+  <!-- ============ LOCATIONS ============ -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Find Us</p>
+        <h2>Our offices across India</h2>
+      </div>
+      <div class="pl-loc-grid">
+        <div class="pl-loc-card reveal reveal-delay-1">
+          <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6"
+                stroke-linejoin="round" />
+              <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+            </svg></div>
+          <div>
+            <h4>Factory &amp; Experience Centre</h4>
+            <p>Survey No 8/3, Wing A &amp; B, Ground Floor, Yogita Heights, Behind Sanskriti National School Narhe,
+              Tehsil - Dhayri, Tal: Haveli, Pune - 411041</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Yogita+Heights+Narhe+Pune" target="_blank"
+              rel="noopener">Get directions →</a>
+          </div>
+        </div>
+        <div class="pl-loc-card reveal reveal-delay-2">
+          <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6"
+                stroke-linejoin="round" />
+              <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+            </svg></div>
+          <div>
+            <h4>Corporate Office — Pune</h4>
+            <p>Office No. 7, Ground Floor, Amar Park, Survey No. 1205/2/71, Shirole Road, Shivajinagar, Tal Haveli, Pune
+              - 411004</p>
+            <a href="https://maps.app.goo.gl/KRKwBPA1LSNTqqHo9" target="_blank" rel="noopener">Get directions →</a>
+          </div>
+        </div>
+        <div class="pl-loc-card reveal reveal-delay-3">
+          <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6"
+                stroke-linejoin="round" />
+              <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+            </svg></div>
+          <div>
+            <h4>Branch Office — Nashik</h4>
+            <p>Shop Nos. 01, 02 &amp; 03, Millennium Towers, Amrutdham Square, Panchavati, Nashik - 422003</p>
+            <a href="https://maps.app.goo.gl/dUGXHTNQf9BkefhC8" target="_blank" rel="noopener">Get directions →</a>
+          </div>
+        </div>
+        <div class="pl-loc-card reveal reveal-delay-4">
+          <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="#0057D9" stroke-width="1.6"
+                stroke-linejoin="round" />
+              <circle cx="12" cy="9.5" r="2.4" stroke="#0057D9" stroke-width="1.6" />
+            </svg></div>
+          <div>
+            <h4>Sales Office — Indore</h4>
+            <p>Office No. 6, Rakmani Nagar, Indore - 452005, Madhya Pradesh</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rakmani+Nagar+Indore" target="_blank"
+              rel="noopener">Get directions →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="/js/script.js"></script>
+  <div data-include="/fragments/footer.html"></div>
+  <div data-include="/fragments/chat-widget.html"></div>
 
-<script>
-(function () {
-  "use strict";
+  <script src="/js/script.js"></script>
 
-  function initTocSpy() {
-    const links = document.querySelectorAll(".pl-toc a");
-    if (!links.length) return;
-    const targets = Array.from(links)
-      .map((a) => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
-    if (!targets.length || !("IntersectionObserver" in window)) return;
+  <script>
+    (function () {
+      "use strict";
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = "#" + entry.target.id;
-            links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -60% 0px" }
-    );
-    targets.forEach((t) => io.observe(t));
-  }
+      function initTocSpy() {
+        const links = document.querySelectorAll(".pl-toc a");
+        if (!links.length) return;
+        const targets = Array.from(links)
+          .map((a) => document.querySelector(a.getAttribute("href")))
+          .filter(Boolean);
+        if (!targets.length || !("IntersectionObserver" in window)) return;
 
-  document.addEventListener("DOMContentLoaded", initTocSpy);
-})();
-</script>
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = "#" + entry.target.id;
+                links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+              }
+            });
+          },
+          { rootMargin: "-20% 0px -60% 0px" }
+        );
+        targets.forEach((t) => io.observe(t));
+      }
+
+      document.addEventListener("DOMContentLoaded", initTocSpy);
+    })();
+  </script>
 </body>
+
 </html>
