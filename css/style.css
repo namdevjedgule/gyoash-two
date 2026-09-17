@@ -46,6 +46,7 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  width: 100%;
 }
 
 img {
@@ -161,7 +162,7 @@ p {
 }
 
 .section-head h2 {
-  font-size: clamp(28px, 3.4vw, 42px);
+  font-size: clamp(26px, 3.4vw, 42px);
   font-weight: 700;
   letter-spacing: -.5px;
 }
@@ -329,7 +330,6 @@ p {
   height: 60px;
   width: auto;
   object-fit: contain;
-  /* FIX: prevents any stretch/distortion of the logo */
 }
 
 .nav-links {
@@ -365,7 +365,6 @@ p {
   color: var(--dark-blue);
 }
 
-/* sliding underline for top-level nav items */
 .nav-links>li>a::after,
 .nav-links>li>button::after {
   content: "";
@@ -446,6 +445,7 @@ p {
   top: calc(100% + 10px);
   left: 0;
   min-width: 300px;
+  max-width: min(300px, 92vw);
   background: var(--white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
@@ -521,10 +521,6 @@ p {
   display: none;
 }
 
-/* FIX: while the mobile menu is open, force the navbar to a solid, non-blurred
-   state regardless of scroll position, so there's no frosted/blurred artifact
-   behind the top bar. This overrides .navbar.is-scrolled since it's declared
-   after it in the stylesheet and carries equal specificity. */
 .navbar.menu-open {
   background: var(--dark-blue) !important;
   backdrop-filter: none !important;
@@ -540,11 +536,27 @@ p {
   background: var(--white) !important;
 }
 
+/* ---------- Tablet nav (1024px): tighten pill spacing before full collapse ---------- */
+@media (max-width: 1100px) and (min-width: 981px) {
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-links>li>a,
+  .nav-links>li>button {
+    padding: 10px 10px;
+    font-size: 11.5px;
+  }
+
+  .nav-contact {
+    display: none;
+  }
+}
+
 /* Mobile nav */
 @media (max-width: 980px) {
   .nav-logo img {
     height: 42px;
-    /* FIX: was inheriting the 60px desktop size, too tall for mobile bar */
   }
 
   .nav-right {
@@ -553,7 +565,6 @@ p {
 
   .nav-right .btn-primary {
     padding: 10px 18px;
-    /* FIX: desktop padding (16px 30px) was oversized on mobile */
     font-size: 12.5px;
   }
 
@@ -583,6 +594,7 @@ p {
     justify-content: space-between;
     width: 100%;
     padding: 16px 14px;
+    font-size: 14px;
   }
 
   .dropdown {
@@ -594,6 +606,8 @@ p {
     box-shadow: none;
     background: rgba(255, 255, 255, .05);
     margin-top: 4px;
+    min-width: 0;
+    max-width: none;
   }
 
   .dropdown.is-open {
@@ -650,9 +664,6 @@ p {
     position: fixed;
     inset: 0;
     background: rgba(0, 10, 25, .55);
-    /* FIX: removed backdrop-filter: blur(2px) — this was the actual source of
-       the blurred look. It was blurring the entire page behind the scrim the
-       moment the menu opened. Now it's a plain dim overlay, no blur. */
     opacity: 0;
     visibility: hidden;
     transition: opacity .4s, visibility .4s;
@@ -674,8 +685,24 @@ p {
     padding: 9px 14px;
     font-size: 11.5px;
   }
+
+  .nav-links {
+    width: 88%;
+    padding: 90px 18px 24px;
+  }
 }
 
+@media (max-width: 360px) {
+  .nav-logo img {
+    height: 32px;
+  }
+
+  .nav-right .btn-primary span {
+    display: none;
+  }
+}
+
+/* ===================== HERO ===================== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -745,7 +772,6 @@ p {
 
 .hero-copy {
   min-width: 0;
-  /* allows text column to shrink properly inside grid instead of overflowing */
 }
 
 .hero-copy .eyebrow {
@@ -758,7 +784,7 @@ p {
 
 .hero-copy h1 {
   color: var(--white);
-  font-size: clamp(30px, 4.6vw, 62px);
+  font-size: clamp(28px, 4.6vw, 62px);
   font-weight: 700;
   letter-spacing: -1.2px;
   max-width: 64ch;
@@ -967,6 +993,7 @@ p {
   }
 }
 
+/* ---------- Large tablet / small laptop ---------- */
 @media (max-width: 1200px) {
   .hero .container {
     grid-template-columns: 1.25fr .75fr;
@@ -1010,7 +1037,7 @@ p {
 /* ---------- Small tablet / large phone ---------- */
 @media (max-width: 640px) {
   .hero-copy h1 {
-    font-size: clamp(28px, 7vw, 38px);
+    font-size: clamp(26px, 7vw, 38px);
     letter-spacing: -0.6px;
   }
 
@@ -1036,11 +1063,20 @@ p {
   .hero-badge {
     padding: 12px 16px;
     gap: 10px;
+    left: 4%;
   }
 
   .hero-badge .ico {
     width: 36px;
     height: 36px;
+  }
+
+  .hero-badge strong {
+    font-size: 13px;
+  }
+
+  .hero-badge span {
+    font-size: 11px;
   }
 }
 
@@ -1052,7 +1088,7 @@ p {
   }
 
   .hero-copy h1 {
-    font-size: 26px;
+    font-size: 25px;
   }
 
   .hero-copy p {
@@ -1061,7 +1097,7 @@ p {
   }
 
   .hero-visual {
-    height: 240px;
+    height: 220px;
   }
 
   .hero-trust {
@@ -1072,6 +1108,29 @@ p {
 
   .hero-trust strong {
     font-size: 17px;
+  }
+}
+
+/* ---------- Extra-small phones ---------- */
+@media (max-width: 360px) {
+  .hero-copy h1 {
+    font-size: 22px;
+  }
+
+  .hero-visual {
+    height: 190px;
+  }
+
+  .hero-badge {
+    padding: 10px 12px;
+  }
+
+  .hero-badge strong {
+    font-size: 12px;
+  }
+
+  .hero-badge span {
+    font-size: 10px;
   }
 }
 
@@ -1113,7 +1172,7 @@ p {
 .stat .num {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(28px, 3.6vw, 42px);
+  font-size: clamp(24px, 3.6vw, 42px);
   color: var(--white);
   display: flex;
   align-items: baseline;
@@ -1149,12 +1208,10 @@ p {
     padding: 0 16px;
   }
 
-  /* remove right divider on right-column items, keep on left-column items */
   .stat:nth-child(2n)::after {
     display: none;
   }
 
-  /* add a horizontal divider between the two rows instead */
   .stat:nth-child(1)::before,
   .stat:nth-child(2)::before {
     content: "";
@@ -1175,7 +1232,7 @@ p {
 
   .stats-grid {
     grid-template-columns: 1fr;
-    row-gap: 26px;
+    row-gap: 22px;
   }
 
   .stat {
@@ -1188,11 +1245,17 @@ p {
   }
 
   .stat .num {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .stat .label {
     font-size: 12.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .stat .num {
+    font-size: 24px;
   }
 }
 
@@ -1298,15 +1361,42 @@ p {
   --card-accent-solid: var(--dark-blue);
 }
 
+/* ---------- Tablet: 2 columns ---------- */
 @media (max-width: 1080px) {
   .solutions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (max-width: 780px) {
+  .solutions-grid {
+    gap: 18px;
+  }
+
+  .solution-card {
+    padding: 28px 22px 24px;
+  }
+}
+
+/* ---------- Mobile: single column ---------- */
 @media (max-width: 620px) {
   .solutions-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .solution-card {
+    padding: 26px 22px 22px;
+  }
+
+  .solution-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+  }
+
+  .solution-card h3 {
+    font-size: 18px;
   }
 }
 
@@ -1410,22 +1500,46 @@ p {
   gap: 10px;
 }
 
+/* ---------- Small laptop / large tablet: 3 columns ---------- */
 @media (max-width: 1180px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* ---------- Tablet: 2 columns ---------- */
 @media (max-width: 780px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
+
+  .product-media {
+    height: 180px;
+    padding: 20px;
+  }
 }
 
+/* ---------- Mobile: single column ---------- */
 @media (max-width: 480px) {
   .product-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .product-media {
+    height: 200px;
+  }
+
+  .product-body {
+    padding: 16px 18px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-media {
+    height: 170px;
+    padding: 16px;
   }
 }
 
@@ -1456,7 +1570,7 @@ p {
 .about-media .frame img {
   width: 100%;
   aspect-ratio: 4/5;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .about-media .badge-float {
@@ -1487,7 +1601,7 @@ p {
 }
 
 .about-copy h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
+  font-size: clamp(26px, 3.2vw, 40px);
   letter-spacing: -.5px;
   margin-bottom: 20px;
 }
@@ -1553,14 +1667,69 @@ p {
   line-height: 1.5;
 }
 
+/* ---------- Tablet: stack columns ---------- */
 @media (max-width: 980px) {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 70px;
   }
 
+  .about-media .frame img {
+    aspect-ratio: 16/10;
+  }
+
   .pillars {
     grid-template-columns: repeat(2, 1fr);
+    gap: 26px 18px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .about-media .frame {
+    clip-path: polygon(6% 0, 100% 0, 100% 94%, 94% 100%, 0 100%, 0 6%);
+  }
+
+  .about-media .badge-float {
+    padding: 16px 18px;
+    gap: 10px;
+  }
+
+  .about-media .badge-float .n {
+    font-size: 22px;
+  }
+
+  .about-media .badge-float .t {
+    font-size: 11px;
+    max-width: 96px;
+  }
+
+  .about-locations {
+    gap: 8px;
+    margin: 20px 0 24px;
+  }
+
+  .about-locations span {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-copy p {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 14px;
+    margin-top: 40px;
+  }
+
+  .pillar .ico {
+    width: 46px;
+    height: 46px;
   }
 }
 
@@ -1605,6 +1774,30 @@ p {
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 780px) {
+  .marquee-track {
+    gap: 22px;
+    animation-duration: 26s;
+  }
+
+  .marquee-track img {
+    height: 80px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-track {
+    gap: 16px;
+    animation-duration: 20s;
+  }
+
+  .marquee-track img {
+    height: 56px;
+    max-width: 76px;
   }
 }
 
@@ -1754,13 +1947,31 @@ p {
   color: var(--orange);
 }
 
+/* ---------- Tablet: stack panels ---------- */
 @media (max-width: 900px) {
   .gallery-split {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .panel-head {
     flex-wrap: wrap;
+  }
+
+  .gallery-panel,
+  .insta-panel {
+    padding: 22px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .gallery-grid {
+    min-height: 260px;
+  }
+
+  .insta-grid {
+    gap: 8px;
   }
 }
 
@@ -1779,6 +1990,27 @@ p {
 
   .gallery-item:not(.g-big) {
     aspect-ratio: 1/1;
+  }
+
+  .gallery-panel,
+  .insta-panel {
+    padding: 18px;
+  }
+
+  .panel-head h3 {
+    font-size: 15.5px;
+  }
+
+  .btn-sm {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+}
+
+/* ---------- Extra-small phones: 2-col Instagram grid for bigger thumbs ---------- */
+@media (max-width: 420px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1866,9 +2098,16 @@ p {
   transform: scale(1.08);
 }
 
+@media (max-width: 768px) {
+  .media-modal {
+    padding: 40px 16px;
+  }
+}
+
 @media (max-width: 680px) {
   .media-modal-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 }
 
@@ -1878,7 +2117,17 @@ p {
   }
 
   .media-modal-inner {
-    padding: 22px;
+    padding: 20px;
+  }
+
+  .media-modal-head h3 {
+    font-size: 17px;
+  }
+
+  .media-modal-close {
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
   }
 }
 
@@ -1970,62 +2219,188 @@ p {
   .lightbox-close {
     top: 12px;
     right: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
   }
 }
 
-/* ===================== TESTIMONIALS ===================== */
-.testi-wrap {
+/* ===================== REVIEWS (infinite marquee) ===================== */
+.reviews {
+  background: var(--navy);
+  padding: 80px 0 90px;
   position: relative;
+  overflow: hidden;
 }
 
-.testi-track {
+.reviews-head {
   display: flex;
-  gap: 26px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
-  scrollbar-width: none;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
 }
 
-.testi-track::-webkit-scrollbar {
-  display: none;
-}
-
-.testi-card {
-  flex: 0 0 auto;
-  width: min(400px, 86vw);
-  scroll-snap-align: start;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 30px 28px;
-  box-shadow: var(--shadow-card);
-  border: 1px solid rgba(13, 27, 42, .06);
-}
-
-.testi-stars {
+.reviews-head .eyebrow {
   color: var(--orange);
-  letter-spacing: 3px;
-  font-size: 14px;
-  margin-bottom: 16px;
 }
 
-.testi-card p {
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--slate-dark);
-  min-height: 110px;
+.reviews-head h2 {
+  color: var(--white);
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 700;
+  letter-spacing: -.5px;
+  max-width: 520px;
 }
 
-.testi-person {
+.reviews-badge {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 22px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 16px;
+  padding: 14px 20px;
+  flex: none;
 }
 
-.testi-avatar {
-  width: 44px;
-  height: 44px;
+.reviews-badge-top {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.reviews-badge-top strong {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.reviews-stars {
+  color: var(--orange);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.reviews-badge-sub {
+  display: block;
+  font-size: 12px;
+  color: #93A8C0;
+  margin-top: 2px;
+}
+
+/* Marquee rows */
+.reviews-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+}
+
+.review-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.review-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+}
+
+.review-track[data-dir="left"] {
+  animation: reviewScrollLeft 46s linear infinite;
+}
+
+.review-track[data-dir="right"] {
+  animation: reviewScrollRight 46s linear infinite;
+}
+
+.review-row:hover .review-track {
+  animation-play-state: paused;
+}
+
+@keyframes reviewScrollLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reviewScrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Review card */
+.review-card {
+  flex: 0 0 auto;
+  width: min(380px, 82vw);
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 30px 28px 26px;
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .35);
+  position: relative;
+}
+
+.review-quote {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--soft-blue);
+}
+
+.review-stars {
+  color: var(--orange);
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.review-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--slate-dark);
+  min-height: 88px;
+  position: relative;
+  z-index: 1;
+}
+
+.review-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(13, 27, 42, .08);
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--grad-sky);
   display: flex;
@@ -2034,41 +2409,87 @@ p {
   color: #fff;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13.5px;
   flex: none;
 }
 
-.testi-person strong {
+.review-person strong {
   display: block;
-  font-size: 14px;
+  font-size: 13.5px;
   font-family: var(--font-display);
   color: var(--dark-blue);
 }
 
-.testi-person span {
-  font-size: 12px;
+.review-person span {
+  font-size: 11.5px;
   color: var(--slate-gray);
 }
 
-.testi-rating {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 40px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(13, 27, 42, .08);
+/* ---------- Tablet ---------- */
+@media (max-width: 980px) {
+  .reviews-head h2 {
+    max-width: 100%;
+  }
 }
 
-.testi-rating .score {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 30px;
-  color: var(--dark-blue);
+@media (max-width: 780px) {
+  .reviews {
+    padding: 60px 0 70px;
+  }
+
+  .reviews-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reviews-marquee {
+    gap: 16px;
+  }
+
+  .review-track {
+    gap: 16px;
+  }
+
+  .review-card {
+    padding: 24px 22px 20px;
+  }
 }
 
-.testi-rating .g {
-  font-size: 13px;
-  color: var(--slate-gray);
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+  .reviews {
+    padding: 50px 0 60px;
+  }
+
+  .review-card {
+    width: 78vw;
+    padding: 22px 20px 18px;
+  }
+
+  .review-card p {
+    font-size: 14px;
+    min-height: 76px;
+  }
+
+  .review-quote {
+    font-size: 44px;
+    top: 10px;
+    right: 16px;
+  }
+
+  .reviews-badge {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .review-card {
+    width: 84vw;
+  }
+
+  .review-card p {
+    min-height: 64px;
+  }
 }
 
 /* ===================== CTA BANNER ===================== */
@@ -2097,7 +2518,7 @@ p {
 
 .cta-banner h2 {
   color: #fff;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(22px, 3vw, 36px);
   max-width: 16ch;
   position: relative;
   z-index: 1;
@@ -2124,6 +2545,44 @@ p {
   color: #fff;
 }
 
+@media (max-width: 900px) {
+  .cta-banner {
+    padding: 56px 40px;
+  }
+}
+
+@media (max-width: 780px) {
+  .cta-banner {
+    padding: 46px 28px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-banner h2 {
+    max-width: 100%;
+  }
+
+  .cta-banner p {
+    max-width: 40ch;
+    margin-inline: auto;
+  }
+
+  .cta-banner .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-banner {
+    padding: 36px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .cta-banner p {
+    font-size: 14px;
+  }
+}
+
 /* ===================== FOOTER ===================== */
 .site-footer {
   background: var(--navy);
@@ -2141,12 +2600,10 @@ p {
 
 .footer-top>* {
   min-width: 0;
-  /* FIX: allows grid children to shrink below their content's natural width instead of forcing overflow */
 }
 
 .footer-contact li div {
   overflow-wrap: anywhere;
-  /* FIX: lets long emails/strings wrap instead of forcing column width */
 }
 
 .footer-brand img {
@@ -2243,15 +2700,61 @@ p {
   color: #fff;
 }
 
+/* ---------- Tablet ---------- */
 @media (max-width: 980px) {
+  .site-footer {
+    padding-top: 70px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr 1fr;
+    gap: 40px 30px;
+    padding-bottom: 50px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    max-width: 420px;
   }
 }
 
+/* ---------- Mobile ---------- */
 @media (max-width: 620px) {
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 34px;
+    padding-bottom: 40px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding-top: 56px;
+  }
+
+  .footer-brand img {
+    height: 48px;
+  }
+
+  .footer-col h5 {
+    margin-bottom: 14px;
   }
 }
 
@@ -2290,21 +2793,63 @@ p {
   }
 }
 
-/* Responsive section spacing */
-@media (max-width:780px) {
+@media (max-width: 480px) {
+  .chat-fab {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* ===================== Responsive section spacing (global) ===================== */
+@media (max-width: 980px) {
   .section {
     padding: 76px 0;
   }
+}
 
-  .cta-banner {
-    padding: 46px 28px;
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 780px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-head {
+    margin-bottom: 40px;
   }
 
   .about-media .badge-float {
     position: static;
     margin-top: -40px;
     margin-inline: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 18px;
+  }
+
+  .section {
+    padding: 46px 0;
+  }
+
+  .section-head {
+    margin-bottom: 30px;
+  }
+
+  .section-head p {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 14px 24px;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-inline: 14px;
   }
 }
