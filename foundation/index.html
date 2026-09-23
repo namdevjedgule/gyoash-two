@@ -43,6 +43,32 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .fd-slide-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(150deg, rgba(0, 31, 63, .85), rgba(0, 87, 217, .55) 60%, rgba(102, 181, 255, .35));
+    }
+
+    .fd-slide:nth-child(2) .fd-slide-bg::after {
+      background: linear-gradient(150deg, rgba(0, 87, 217, .85), rgba(57, 204, 204, .55) 55%, rgba(32, 180, 134, .35));
+    }
+
+    .fd-slide:nth-child(3) .fd-slide-bg::after {
+      background: linear-gradient(150deg, rgba(32, 180, 134, .85), rgba(57, 204, 204, .55) 55%, rgba(102, 181, 255, .35));
+    }
+
+    .fd-slide:nth-child(4) .fd-slide-bg::after {
+      background: linear-gradient(150deg, rgba(0, 31, 63, .85), rgba(100, 116, 139, .55) 55%, rgba(0, 87, 217, .35));
+    }
+
+    .fd-slide:nth-child(5) .fd-slide-bg::after {
+      background: linear-gradient(150deg, rgba(0, 31, 63, .85), rgba(0, 87, 217, .5) 45%, rgba(255, 107, 0, .35));
     }
 
     .fd-slide.is-active .fd-slide-bg {
@@ -639,11 +665,10 @@
 
   <div data-include="/fragments/navbar.html"></div>
 
-  <!-- ============ INFINITE SLIDING HERO ============ -->
   <section class="fd-slider" id="fdSlider">
 
     <div class="fd-slide is-active">
-      <div class="fd-slide-bg" style="background:linear-gradient(150deg,#001F3F,#0057D9 60%,#66B5FF);"></div>
+      <div class="fd-slide-bg" style="background-image:url('/images/foundation/gif-impact.jpg');"></div>
       <div class="fd-slide-dotgrid"></div>
       <div class="container">
         <span class="fd-slide-eyebrow">Gyoash Innovation Foundation</span>
@@ -658,7 +683,7 @@
     </div>
 
     <div class="fd-slide">
-      <div class="fd-slide-bg" style="background:linear-gradient(150deg,#0057D9,#39CCCC 55%,#20B486);"></div>
+      <div class="fd-slide-bg" style="background-image:url('/images/foundation/gif-rural-classroom.jpg');"></div>
       <div class="fd-slide-dotgrid"></div>
       <div class="container">
         <span class="fd-slide-eyebrow">Our Mission</span>
@@ -670,7 +695,7 @@
     </div>
 
     <div class="fd-slide">
-      <div class="fd-slide-bg" style="background:linear-gradient(150deg,#20B486,#39CCCC 55%,#66B5FF);"></div>
+      <div class="fd-slide-bg" style="background-image:url('/images/foundation/gif-inclusive-learning.jpg');"></div>
       <div class="fd-slide-dotgrid"></div>
       <div class="container">
         <span class="fd-slide-eyebrow">Focus Area</span>
@@ -682,7 +707,7 @@
     </div>
 
     <div class="fd-slide">
-      <div class="fd-slide-bg" style="background:linear-gradient(150deg,#001F3F,#64748B 55%,#0057D9);"></div>
+      <div class="fd-slide-bg" style="background-image:url('/images/foundation/gif-partnership.jpg');"></div>
       <div class="fd-slide-dotgrid"></div>
       <div class="container">
         <span class="fd-slide-eyebrow">Operating Model</span>
@@ -694,7 +719,7 @@
     </div>
 
     <div class="fd-slide">
-      <div class="fd-slide-bg" style="background:linear-gradient(150deg,#001F3F,#0057D9 45%,#FF6B00);"></div>
+      <div class="fd-slide-bg" style="background-image:url('/images/foundation/gif-social-impact.jpg');"></div>
       <div class="fd-slide-dotgrid"></div>
       <div class="container">
         <span class="fd-slide-eyebrow">Donations</span>
@@ -731,7 +756,8 @@
       <div class="about-grid">
         <div class="about-media reveal">
           <div class="frame">
-            <div class="fill" style="background:linear-gradient(155deg,#001F3F,#0057D9 60%,#39CCCC); aspect-ratio:4/5;">
+            <div class="fill"
+              style="background-image:url('/images/foundation/gif-about.jpg'); background-size:cover; background-position:center; aspect-ratio:4/5;">
             </div>
           </div>
           <div class="badge-float">
