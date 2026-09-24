@@ -16,7 +16,7 @@
     /* ---------- Page header ---------- */
     .wr-hero {
       position: relative;
-      padding: 110px 0 90px;
+      padding: 110px 0 40px;
       overflow: hidden;
       background: url('/images/hero/warranty.jpg') center center / cover no-repeat;
     }
@@ -79,10 +79,18 @@
 
     .wr-hero h1 {
       color: #fff;
-      font-size: clamp(32px, 4.2vw, 50px);
+      font-size: clamp(32px, 4.2vw, 52px);
       font-weight: 700;
       letter-spacing: -1px;
-      max-width: 15ch;
+      max-width: 17ch;
+    }
+
+    .wr-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .wr-hero p.lead {
@@ -90,7 +98,7 @@
       font-size: 17px;
       line-height: 1.75;
       color: #B9CBE0;
-      max-width: 52ch;
+      max-width: 56ch;
     }
 
     .wr-hero-cta {
@@ -668,13 +676,11 @@
         <a href="/">Home</a><span>/</span>
         <a href="/warranty/" style="color:#fff;">Warranty &amp; Support</a>
       </div>
-
       <div class="wr-hero-top">
         <div>
           <p class="eyebrow" style="color:var(--sky-blue);">Warranty &amp; Support</p>
-          <h1>Warranty coverage, in plain terms</h1>
-          <p class="lead">GYOASH interactive flat panels and associated products are covered under a limited
-            manufacturer warranty, subject to the terms outlined below.</p>
+          <h1>Warranty coverage, <em>in plain terms</em></h1>
+          <p class="lead">GYOASH products are covered by a limited manufacturer warranty, subject to the terms below.</p>
           <div class="wr-hero-cta">
             <a href="mailto:helpdesk@gyoash.com?subject=Service%20Ticket" class="btn btn-primary">Raise a Ticket</a>
             <a href="#troubleshooting" class="btn btn-outline on-dark">Try Self-Troubleshooting First</a>

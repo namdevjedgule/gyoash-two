@@ -327,9 +327,10 @@ p {
 }
 
 .nav-logo img {
-  height: 60px;
+  height: clamp(60px, 3.6vw, 76px);
   width: auto;
   object-fit: contain;
+  transition: height .3s var(--ease);
 }
 
 .nav-links {
@@ -534,6 +535,13 @@ p {
 
 .navbar.menu-open .nav-toggle span {
   background: var(--white) !important;
+}
+
+/* ---------- Very large desktop / high-res monitors ---------- */
+@media (min-width: 1600px) {
+  .nav-logo img {
+    height: 78px;
+  }
 }
 
 /* ---------- Tablet nav (1024px): tighten pill spacing before full collapse ---------- */
@@ -2612,7 +2620,7 @@ p {
 
 /* ===================== FOOTER ===================== */
 .site-footer {
-  background: var(--navy);
+  background: var(--slate-gray);
   color: #B8C7D9;
   padding-top: 90px;
 }
@@ -2634,14 +2642,16 @@ p {
 }
 
 .footer-brand img {
-  height: 60px;
+  height: clamp(44px, 3.2vw, 68px);
+  width: auto;
+  object-fit: contain;
   margin-bottom: 18px;
 }
 
 .footer-brand p {
   font-size: 13.5px;
   line-height: 1.75;
-  color: #93A8C0;
+  color: var(--navy);
   max-width: 280px;
 }
 
@@ -2656,6 +2666,7 @@ p {
   height: 38px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .06);
+  color: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2669,7 +2680,7 @@ p {
 
 .footer-col h5 {
   font-family: var(--font-display);
-  color: #fff;
+  color: var(--navy);
   font-size: 13px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -2682,7 +2693,7 @@ p {
 
 .footer-col ul li a {
   font-size: 14px;
-  color: #93A8C0;
+  color: var(--navy);
   transition: color .3s, padding-left .3s;
 }
 
@@ -2693,7 +2704,7 @@ p {
 
 .footer-contact li {
   font-size: 13.5px;
-  color: #93A8C0;
+  color: var(--navy);
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
@@ -2701,7 +2712,7 @@ p {
 }
 
 .footer-contact li strong {
-  color: #fff;
+  color: var(--navy);
   display: block;
   font-family: var(--font-display);
   font-size: 12.5px;
@@ -2716,11 +2727,11 @@ p {
   flex-wrap: wrap;
   gap: 12px;
   font-size: 12.5px;
-  color: #7891A9;
+  color: var(--navy);
 }
 
 .footer-bottom a {
-  color: #93A8C0;
+  color: var(--navy);
 }
 
 .footer-bottom a:hover {
@@ -2777,7 +2788,7 @@ p {
   }
 
   .footer-brand img {
-    height: 48px;
+    height: 44px;
   }
 
   .footer-col h5 {

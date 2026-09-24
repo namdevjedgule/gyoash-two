@@ -16,7 +16,7 @@
     /* ---------- Page header ---------- */
     .cr-hero {
       position: relative;
-      padding: 110px 0 90px;
+      padding: 110px 0 40px;
       overflow: hidden;
       background: url('/images/hero/career.jpg') center center / cover no-repeat;
     }
@@ -71,17 +71,25 @@
 
     .cr-hero h1 {
       color: #fff;
-      font-size: clamp(34px, 4.4vw, 54px);
+      font-size: clamp(32px, 4.4vw, 52px);
       font-weight: 700;
       letter-spacing: -1px;
-      max-width: 16ch;
+      max-width: 17ch;
+    }
+
+    .cr-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(100deg, var(--sky-blue), var(--cyan) 55%, var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .cr-hero p.lead {
       font-size: 16.5px;
       line-height: 1.75;
       color: #B9CBE0;
-      max-width: 52ch;
+      max-width: 56ch;
     }
 
     .cr-hero-cta {
@@ -288,7 +296,7 @@
         <a href="/career/" style="color:#fff;">Career</a>
       </div>
       <p class="eyebrow" style="color:var(--sky-blue);">Career</p>
-      <h1>We help you achieve career success and recruit the best minds</h1>
+      <h1>Grow Your Career <em>with Gyoash</em></h1>
       <p class="lead">A passionate team building the interactive panels, LED walls and IT infrastructure running in 600+
         institutions across India.</p>
       <div class="cr-hero-cta">
